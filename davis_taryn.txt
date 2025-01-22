@@ -1,1 +1,1 @@
-Selected Classes: Staff, Screen
+Selected Classes: Staff, Screen, Seat
