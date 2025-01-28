@@ -1,1 +1,13 @@
-Selected Classes: Staff, Screen, Seat
+Chosen Classes: Staff, Screen, Seat
+
+Staff: Staff will "log in" to their account and continue on to book tickets for the customer.
+Represents employees who manage the operations of the movie theater.
+Attributes:  staffID, name, role (e.g., manager, cashier, usher), shiftSchedule
+
+Screen: The system ensures that the selected screen is available and not double booked.
+Represents Individual Screens within a movie theater
+Attributes: screenID, seatingCapacity, audioSystem, projectorType
+
+Seat: The system ensures that the selected screen is available and not double booked
+Represents individual seats in a screen
+Attributes: seatID, screen, row, number, seat type (e.g., regular, VIP)
