@@ -1,14 +1,10 @@
-davis_taryn
+Staff: Represents employees who manage the operations of the movie theater. They will log in using their assigned names and passwords and from there will be able to use the system to sell tickets and concessions.
 
-Classes: Staff, Screen, Seat
-
-Taryn:
-Staff: Represents employees who manage the operations of the movie theater. They will log in using their assigned names and passwords and from there will be able to use the system. 
+Custodians would be able to see what movies were playing and when. Unable to access the tabs to sell tickets/concessions
 
 Manager staff member will be able to edit staff schedules, see who has sold tickets and logged in as well as manage pricing and tickets
-
-
 Attributes:  staffID, name, role, shiftSchedule
+
 Staff Members: - Cashiers
 - Michael Carter
 Username: Mic.Car
@@ -19,26 +15,23 @@ Password: Sunflower45
 - Ryan Jacobs
 Username: Rya.Jac
 Password: BlueSky12
+Staff Members: Custodian
 - Sarah Collins
 Username: Sar.Col
 Password: CoffeeTime8
 - Daniel Foster
 Username: Dan.Fos
 Password: Mountain44
+Staff Members: Managers
 Lily Bennett
 Username: Lil.Ben
 Password: PastelDream9
 Jason Wells
 Username: Jas.Wel
 Password: Shadow99
-Staff Member - Manager
-Olivia Parker
-Username: Olivia.Par
-Password: Moonlight77
 
 
 Screen: The system ensures that the selected screen is available and not double booked.
-
 Represents Individual Screens within a movie theater
 Attributes: screenID, seatingCapacity, audioSystem, projectorType
 Screen 1 - Surround Sound 3D Projector
@@ -51,8 +44,6 @@ Screen 4 7.1 Surround Sound 2K digital Projector
 Typical Auditorium with standard digital projection and good audio quality
 Screen 5 7.1 Dolby Surround Sound 4K Laser Projector 
 Used for Major Blockbuster Releases 
-
-
 
 Seat: The system ensures that the selected screen is available and not double booked
 Represents individual seats in a screen
