@@ -1,3 +1,5 @@
+The classes I chose were staff, seat, and screen. Read below for more details:
+
 Staff: Represents employees who manage the operations of the movie theater. They will log in using their assigned names and passwords and from there will be able to use the system to sell tickets and concessions.
 
 Custodians would be able to see what movies were playing and when. Unable to access the tabs to sell tickets/concessions
