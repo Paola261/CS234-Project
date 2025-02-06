@@ -1,0 +1,32 @@
+﻿Here will be the descriptions for my selected classes. 
+Classes include: Customer, Movie, Food and Beverage
+
+
+Paola: 
+Customer: For the purpose of demonstrating the process of our movie theater management system; there will be four fictional customers. 
+* Darian Lopez
+* Sophia Smith
+* Amber Zul
+* Nicholas Shaffer 
+Movie: There will be a mix of Romance, Dystopian, and children movies for the customers' selection. 
+Inheritance with Showtime Class
+* Clueless. 
+* The Maze Runner. 
+* Divergent 
+* High School Musical
+* Big Hero Six 
+Food and Beverage: Customers will have a choice between a selection of snacks and beverages, which will be processed and paid at the same place where they purchase their movie tickets. 
+        Inheritance with Payment Class. 
+* Large and medium popcorn bags 
+* Large, Medium, Small Fountain Drink 
+   * Coca Cola
+   * Dr Pepper 
+   * Mountain Dew
+   * Sprite
+* Blue and Red ICEE
+* Twix 
+* Snickers 
+* Twisters
+* M&Ms
+* Nachos
+* Pickles
