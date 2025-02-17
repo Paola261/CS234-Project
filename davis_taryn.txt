@@ -2,11 +2,19 @@ The classes I chose were staff, seat, and screen. Read below for more details:
 
 Staff: Represents employees who manage the operations of the movie theater. They will log in using their assigned names and passwords and from there will be able to use the system to sell tickets and concessions.
 
-Custodians would be able to see what movies were playing and when. Unable to access the tabs to sell tickets/concessions
+Custodians would be able to see what movies were playing and when. Unable to access the tabs to sell tickets/concessions. 
 
-Manager staff member will be able to edit staff schedules, see who has sold tickets and logged in as well as manage pricing and tickets
+Manager staff member will
+Edit staff schedules
+Edit Staff Roles
+Change Movies and Prices
+View Daily Purchases
+see inventory of Food and Beverage
+Create new Food and beverage items to be sold
+“Order” more food and beverage items so when items are sold they can restock the inventory bringing the count back up
+Change the prices of food and beverage items
+
 Attributes:  staffID, name, role, shiftSchedule
-
 Staff Members: - Cashiers
 - Michael Carter
 Username: Mic.Car
@@ -34,6 +42,9 @@ Password: Shadow99
 
 
 Screen: The system ensures that the selected screen is available and not double booked.
+
+The Manager will be able to set movies to specific screens. Once a specific movie and time is chosen by the user, the system will assign the ticket to what screen it will be shown, and the seat layout. “O”’s will show which seats are available
+
 Represents Individual Screens within a movie theater
 Attributes: screenID, seatingCapacity, audioSystem, projectorType
 Screen 1 - Surround Sound 3D Projector
@@ -47,17 +58,29 @@ Typical Auditorium with standard digital projection and good audio quality
 Screen 5 7.1 Dolby Surround Sound 4K Laser Projector 
 Used for Major Blockbuster Releases 
 
-Seat: The system ensures that the selected screen is available and not double booked
+Seat: once the system has chosen a screen, it will display the seat layout and prompt users to choose available seats, it will then show where the seat is on the screen asking “Are you sure?” Once confirmed the seat will be unable to be chosen again unless reset by a manager. 
 Represents individual seats in a screen
 Attributes: seatID, screen, row, number, 
 Rows; A-F
 Seats: 1-13
 
+(e.g screen 1)
+	SCREEN 1
+A o o o o o o o o o o o o o 
+B o o o o o o o o o o o o o 
+C o o o o o o o o o o o o o 
+D o o o o o o o o o o o o o 
+E o o o o o o o o o o o o o 
+F o o o o o o o o o o o o o 
+    1  2 3 4  5 6  7 8  9 10 11 12 13
 
-	SCREEN
-A x x x x x x x x x x x x x 
-B x x x x x x x x x x x x x 
-C x x x x x x x x x x x x x
-D x x x x x x x x x x x x x 
-E x x x x x x x x x x x x x
-F x x x x x x x x x x x x x
+User has chosen Seat (D,5)
+
+SCREEN 1
+A o o o o o o o o o o o o o 
+B o o o o o o o o o o o o o 
+C o o o o o o o o o o o o o 
+D o o o o X o o o o o o o o 
+E o o o o o o o o o o o o o 
+F o o o o o o o o o o o o o 
+    1  2 3 4  5 6  7 8  9 10 11 12 13
