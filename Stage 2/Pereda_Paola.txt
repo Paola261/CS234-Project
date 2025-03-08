@@ -1,0 +1,72 @@
+﻿Here will be the descriptions for my selected classes. 
+Classes include: Product, Customer, Movie, Food and Beverage
+
+
+Description of what I completed during this stage 2 was the UML Diagram for the classes of Product, Customer, Movie, Food & Beverage. The class product is a newly added class. I listed the attributes and the methods. I do believe that along the way I will add more since this will only be the starting point for my classes. 
+
+
+Paola:
+
+
+Product: (Parent class to Movie, Food & Beverage)
+
+
+Attributes : 
+* order: ArrayList<Food&Beverage> orders
+* tickets<Movie>: byte
+Methods: 
+* getTicket(Movie): byte
+* getOrder(Food&Beverage): String
+ 
+Customer: (Child class from Person)
+
+
+Attributes: 
+* name: String
+* customerID: int
+* age: byte
+* purchaseHistory: String  
+Methods: 
+* selectMovie()
+* purchaseTicket()
+* orderConcession()
+* makePayment()
+* getName()
+* setName()
+* remove()
+* getPurchaseHistory()
+
+
+
+
+
+
+
+
+
+
+Movie: (Child class to Product)
+ 
+Attributes : 
+* showtime<Showtime>: String
+* name: String
+* rating<Showtime>: String
+Methods: 
+* getMovieDetails(Showtime): String
+* getMovieList(): String[]
+* setMovie(): void
+
+
+Food and Beverage: (Child class to Product)
+
+
+Attributes : 
+* size: String
+* drink: String
+* snacks: String
+* price: double
+Methods: 
+* addFoodItem()
+* removeFoodItem()
+* setSize()
+* getOrder(): String[]
