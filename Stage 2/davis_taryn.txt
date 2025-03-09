@@ -1,1 +1,104 @@
+My chosen atrributes: Staff, Screen, Seat.
 
+Here is a breakdown of each class I have implemented on our UML Chart
+
+Staff:
+- - - - - - - - - - - - - - - - - - - - 
+1. Person (Base Class)
+Attributes:
+- name: String
+- personID: int
+Methods: 
++ login(username: String, password: String): Boolean 
++ logout(): Void
+
+2. Customer (Inherits from Person)
+Additional Attributes:
+- customerID: Int
+- age: byte
+- name: String
+- purchaseHistory: String
+Additional Methods:
++ selectMovie(movieID: int): Boolean
++ purchaseTicket(movieID: int, quantityL int): Boolean
++ orderConcession(itemID: int, quantity: int): Boolean
++ makePayment(paymnetType: String, amount: float): Boolean
++ getPreviousPurchases(): List<String>
+
+3. Staff (Inherits from Person)
+Additional Attributes:
+- staffID: int
+- Role: String
+- username: String
+- password: String
+Additional Methods:
++ login(usernameL String, password: String): Boolean
++ managetasks(): void
+
+3.1 Cashier (Inherits from Staff)
+Additional Attributes:
+- totalSales: Float
+- loginStatus: boolean
+Additional Methods:
++ sellTicket(customerID: customerID: int, movieID: int, seatID: int): Boolean
++ sellConcessions(customerID: int, itemID: int, quantityL int): Boolean
+
+3.2 Custodian (Inherits from Staff)
+Additional Attributes: 
+- assignedSectionsL List<String>
+- cleaningTasks List<String>
+- taskCompletionStatus: Boolean
+Additional Methods:
++ viewMovieSchedule(): List<Movie>
++ markTaskComplete(taskID: int): Boolean
++ reportMaintenanceIssue(issueDescription: String): Boolean
+
+3.3 Manager (Inherits from Staff)
+Additional Attributes:
+- managedStaff: List<String>
+- pendingMaintenanceRequests: List<String>
+Additional Methods:
++ editRoles(staffID: int, newRole: String): Boolean
++ changeMovieDetails(movieID: int, newTime: String): Boolean
++ viewDailyPurchases(): List<Purchase>
++ manage Inventory(itemID: int, newQuantity: int): Boolean
++ assignMoviesToScreen(movieID: int, screenID: int): Boolean
++ resetSeats(screenID: int): Boolean
++ handleMaintenanceRequest(issueID: int): Boolean
+- - - - - - - - - - - - - - - - - - - - 
+
+Screen:
+- - - - - - - - - - - - - - - - - - - - 
+1. Screen (Base Class)
+Represents a physical screen in the theater
+Attributes:
+- screenID: int
+- screenType: String // "Standard", "Premium", "IMAX"
+- seatingCapacity: int
+- audioSystem: String
+- projectorType: String
+- seatLayout: List<String>
+- isAvailable: Boolean
+Methods:
++ assignMovie(movieID: int, showtime: String): Boolean
++ updateSeating(seatID: int, isAvailable: Boolean): Boolean
++ checkAvailability(): Boolean
++ getAvaiableSeats: List<int>
++ clearScreen(): void
+- - - - - - - - - - - - - - - - - - - - 
+
+Seat:
+- - - - - - - - - - - - - - - - - - - - 
+2. Seat (Belongs to a Screen)
+Represents individual seats in a screen
+Attributes:
+- seatID: int
+- screenID: int
+- row: char
+- number: byte
+- isAvailable: Boolean
+Methods:
+- reserveSeat(seatID: int): Boolean
+- releaseSeat(seatID: int): Boolean
+- viewSeatingChart(screenID: int): String
+- - - - - - - - - - - - - - - - - - - - 
