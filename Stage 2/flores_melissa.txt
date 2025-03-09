@@ -1,0 +1,61 @@
+Melissa Flores
+
+I'm responsible for in Stage 2 are Payment, Cash, Credit/Debit/GiftCard, Showtime and Daily Purchases
+
+List of the classes with their Attributes and Methods.
+
+Payment(This Class inherits from Product Class)
+Attributes
+    paymentID: String
+    paymentAmount: double
+    paymentDate: String
+    paymentType: String
+    paymentDetails: String
+Methods:
+    +payment()
+    +addPayment()
+    +searchPayment()
+    +editPayment()
+    +deletePayment()
+
+
+Cash(This class inherits from Payment Class)
+Attributes:
+    -cashTendered: double
+    -paymentDetails(): String
+Methods
+    +cash()
+
+
+Credit/Debit/Gift Card(This class inherits from Payment Class)
+Attributes:
+    cardNumber: String
+    cardName: String
+    cvv: String
+    thruDate: String
+    paymentDetails: String
+Methods:
+    +credtiDebitGift()
+
+
+Showtime(This class inherits from Movie Class)
+Attributes:
+    movieTitle: String
+    availableTimes: String
+    rating: String
+    runTime: String
+Methods:
+    +showtime()
+
+
+Daily Purchases(This class inherits from Product Class)
+Attributes:
+    paymentDetails(): String
+    movieTicketsTotal: byte
+    snackTotal: byte
+    drinksTotal: byte
+Methods:
+    +inventory()
+    +getSize()
+    +setSize()
+    +callProduct()
