@@ -102,3 +102,34 @@ Methods:
 - releaseSeat(seatID: int): Boolean
 - viewSeatingChart(screenID: int): String
 - - - - - - - - - - - - - - - - - - - - 
+
+I have also made these connections in the chart:
+
+Inheritance Arrows:
+~~~~~~~~~~~~~~~~~~
+- Staff inherits from Person
+  - Cashier inherits from Staff
+  - Custodian inherits from Staff
+  - Manager inherits from Staff
+- Customer inherits from Person
+
+Associations:
+~~~~~~~~~~~~~
+Customer Interactions:
+  - Customer -> (selects and purchases) -> Movie
+  - Customer -> (makes) -> Payment
+  - Customer -> (orders) -> Dood & Beverage
+  - Customer -> (selects) -> Seat
+
+Staff Responsibilities:
+  - Cashier -> (processes) -> Payment
+  - Manager -> (manages) -> Staff
+  - Manager -> (assigns movies to) -> Screen
+  - Manager -> (resets availability) -> Seat
+  - Custodian -> (cleans) -> Screen
+
+Screen & Seating
+  - Screen -> (has) -> Seat
+  - Movie -> (is assigned to) -> Screen
+
+
