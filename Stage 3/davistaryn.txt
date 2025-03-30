@@ -4,5 +4,6 @@ Work Completed - Taryn Davis:
   - Updated UML Diagram Arrows to show correct relationship between classes
   - Created the Authenticable Interface  in the UML Diagram
   - Created the Credential class in the UML Diagram
+  - Created the Order Class in the UML Diagram
   - Broke down the Cashier, Manager and Engineer classes into smaller more managable classes and interfaces. 
   - Completely rearranged the UML diagram effectively making it cleaner and easier to follow. 
