@@ -1,0 +1,7 @@
+My progress for Stage 3. 
+
+I read the Stage 2 grading feedback and created the additional classes for the Daily Purchases(inventory), splitting it into ticket order and concession order. Responsibilites are now well separeated for each class. This allowed me to also implement the Single Responsibility Principle.
+
+Since Taryn had a great number of classes assigned to her, me and Melissa decided to take some classes from hers and help the wiritng of the code to be evenly split between the group. Additional classes that I will be writing code include Ticker Seller, ConcessionProcessor, and Reservation Seller. 
+
+In total I am responsible for the TicketOrder, ConcessionOrder, Movie, Food&Beverage, TicketSeller, ConsessionProcessor, ReservationSystem classes. 
