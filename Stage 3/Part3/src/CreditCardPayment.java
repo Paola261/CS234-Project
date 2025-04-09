@@ -5,13 +5,13 @@
 public class CreditCardPayment implements PaymentStrategy {
     private String cardNumber;
     private String name;
-    private String expiryDate;
+    private String thruDate;
     private String cvv;
 
-    public CreditCardPayment(String cardNumber, String name, String expiryDate, String cvv) {
+    public CreditCardPayment(String cardNumber, String name, String thruDate, String cvv) {
         this.cardNumber = cardNumber;
         this.name = name;
-        this.expiryDate = expiryDate;
+        this.thruDate = thruDate;
         this.cvv = cvv;
     }
 
