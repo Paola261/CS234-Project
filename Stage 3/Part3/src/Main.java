@@ -1,20 +1,228 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
- *
+ * The entry point for the Movie Theater Management System.
+ * Handles user login and role-based menu navigation for manager, cashiers
+ * and engineers
+ * 
  * @author paolapereda
+ * @author Taryn Davis
  */
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Main {
+    /**
+     * The main method that runs the movie theater system
+     * @param args 
+     */
     public static void main(String [] args)
     {
+        Scanner scanner = new Scanner(System.in);
         
+        // Sample User
+        // @ taryn need to add more? 
+        Credential managerCred = new Credential("Lil.Ben", "PastelDream9");
+        Manager manager = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred);
         
+        Credential cashierCred = new Credential("Mic.Car", "Treehouse2");
+        Cashier cashier = new Cashier("Michael Carter", 28, 1002, 2, "Cashier", cashierCred, 101);
+
+        Credential engineerCred = new Credential("Dan.Fos", "Mountain44");
+        Engineer engineer = new Engineer("Daniel Foster", 34, 1003, 3, "Engineer", engineerCred);
+        
+        //Service Classes
+        ScheduleManager scheduleManager = new ScheduleManager();
+        StaffManager staffManager = new StaffManager();
+        MaintenanceManager maintenanceManager = new MaintenanceManager();
+        
+        boolean running = true;
+        while (running) {
+            System.out.println("\n Welcome to the Movie Theater System");
+            System.out.println("1. Manager Login");
+            System.out.println("2. Cashier Login");
+            System.out.println("3. Engineer Login");
+            System.out.println("4. Exit");
+            System.out.print("Choice: ");
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    if (authenticate(scanner, manager)) {
+                        managerMenu(scanner, manager, scheduleManager, staffManager, maintenanceManager);
+                    }
+                    break;
+                case "2":
+                    if (authenticate(scanner, cashier)) {
+                        cashierMenu(scanner, cashier);
+                    }
+                    break;
+                case "3":
+                    if (authenticate(scanner, engineer)) {
+                        engineerMenu(scanner, engineer, maintenanceManager);
+                    }
+                    break;
+                case "4":
+                    running = false;
+                    System.out.println("Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+        }
+        scanner.close();
+    
     }
+    
+    /**
+     * Authenticates a staff member based on username and password input
+     * @param scanner the Canner object reads input
+     * @param staff the staff member attempting to log in
+     * @return true if authentication succeeds, false otherwise
+     */
+    private static boolean authenticate(Scanner scanner, Staff staff) {
+        System.out.print("Username: ");
+        String user = scanner.nextLine();
+        System.out.print("Password: ");
+        String pass = scanner.nextLine();
+        return staff.login(user, pass);
+    }
+    
+    /**
+     * Displays and handles the managers menu options
+     * 
+     * @param scanner the Scanner object to read input
+     * @param manager the logged-in Manager
+     * @param scheduleManager handles movie-to-screen assignments
+     * @param staffManager handles staff role updates
+     * @param maintenanceManager handles maintenance issue logging
+     */
+    private static void managerMenu(Scanner scanner, Manager manager,
+                                    ScheduleManager scheduleManager,
+                                    StaffManager staffManager,
+                                    MaintenanceManager maintenanceManager) {
+        boolean loggedIn = true;
+        while (loggedIn) {
+            System.out.println("\nManager Menu:");
+            System.out.println("1. Assign movie to screen");
+            System.out.println("2. Reset screen seats");
+            System.out.println("3. Assign staff role");
+            System.out.println("4. Log maintenance issue");
+            System.out.println("5. View maintenance issues");
+            System.out.println("6. Logout");
+
+            System.out.print("Choice: ");
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "1":
+                    System.out.print("Movie ID: ");
+                    int movieID = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Screen ID: ");
+                    int screenID = Integer.parseInt(scanner.nextLine());
+                    scheduleManager.assignMovieToScreen(movieID, screenID, LocalDate.now(), LocalTime.now());
+                    break;
+                case "2":
+                    System.out.print("Enter Screen ID to reset seats: ");
+                    int resetID = Integer.parseInt(scanner.nextLine());
+                    scheduleManager.resetSeats(resetID);
+                    break;
+                case "3":
+                    System.out.print("Enter Staff ID: ");
+                    int staffID = Integer.parseInt(scanner.nextLine());
+                    Staff staff = staffManager.getStaffByID(staffID);
+                    if (staff != null) {
+                        System.out.print("Enter new role: ");
+                        String newRole = scanner.nextLine();
+                        staffManager.assignRole(staff, newRole);
+                    } else {
+                        System.out.println("Staff not found.");
+                    }
+                    break;
+                case "4":
+                    System.out.print("Enter issue description: ");
+                    String issue = scanner.nextLine();
+                    maintenanceManager.logIssue(issue);
+                    break;
+                case "5":
+                    System.out.println("Pending Maintenance Issues:");
+                    for (String i : maintenanceManager.getPendingIssues()) {
+                        System.out.println("- " + i);
+                    }
+                    break;
+                case "6":
+                    loggedIn = false;
+                    manager.logout();
+                    break;
+                default:
+                    System.out.println("Invalid input.");
+            }
+        }
+    }
+
+    /**
+     * Displays and handles the cashier's meny options.
+     * 
+     * @param scanner
+     * @param cashier 
+     */
+    private static void cashierMenu(Scanner scanner, Cashier cashier) {
+        boolean loggedIn = true;
+        while (loggedIn) {
+            System.out.println("\nCashier Menu:");
+            System.out.println("1. Start Shift");
+            System.out.println("2. End Shift");
+
+            // NEED TO ADD CONCESSION PROCESSOR AND TICKET MANAGER!!!!!!!!!!!
+
+            }
+        }
+
+        /**
+         * Displays and handles the engineer's menu options
+         * 
+         * @param scanner the Scanner object to read input
+         * @param engineer the logged-in Engineer
+         * @param maintenanceManager service to log and resolve issues
+         */
+    private static void engineerMenu(Scanner scanner, Engineer engineer, MaintenanceManager maintenanceManager) {
+        boolean loggedIn = true;
+        while (loggedIn) {
+            System.out.println("\nEngineer Menu:");
+            System.out.println("1. View Pending Issues");
+            System.out.println("2. Mark Issue as Resolved");
+            System.out.println("3. Logout");
+
+            System.out.print("Choice: ");
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "1":
+                    System.out.println("Pending Maintenance Issues:");
+                    List<String> issues = maintenanceManager.getPendingIssues();
+                    engineer.viewPendingIssues(issues);
+                    break;
+                case "2":
+                    System.out.print("Enter issue description to resolve: ");
+                    String issueID = scanner.nextLine();
+                    if (maintenanceManager.resolveIssue(issueID)) {
+                        engineer.markIssueAsResolved(issueID);
+                    } else {
+                        System.out.println("Issue not found.");
+                    }
+                    break;
+                case "3":
+                    loggedIn = false;
+                    engineer.logout();
+                    break;
+                default:
+                    System.out.println("Invalid input.");
+            }
+        }
+    }
+}     
+        
+        
+    
     
     public static void Menu() 
     {
