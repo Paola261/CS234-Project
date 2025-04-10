@@ -9,7 +9,7 @@
  */
 import java.util.ArrayList;
 
-public class ConcessionOrder extends Inventory {
+public class ConcessionOrder  { //extends Inventory?
      public ArrayList<FoodBeverage> items;
 
     public ConcessionOrder()
