@@ -8,7 +8,12 @@
  * @author paolapereda
  */
 public class ConcessionProcessor {
-     public boolean isItemAvailable(int itemID, int quantity)
+    
+    public ConcessionProcessor(){
+        
+    }
+    
+    public boolean isItemAvailable(int itemID, int quantity)
     {
 
     }

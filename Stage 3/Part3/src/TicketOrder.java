@@ -25,9 +25,4 @@ public class TicketOrder extends Inventory {
         return numberOfTickets;
 
     }
-
-    public String getOrder(FoodBeverage)
-    {
-        
-    }
 }

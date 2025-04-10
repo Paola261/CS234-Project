@@ -17,7 +17,7 @@ public class FoodBeverage {
     private String snacks;
     private String drink;
 
-    private ArrayList<String> foodItems;
+    public ArrayList<String> foodItems;
 
     public FoodBeverage()
     {
