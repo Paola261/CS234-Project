@@ -10,8 +10,8 @@
 import java.util.List;
 
 public class ConcessionProcessor {
-    private List<FoodBeverage> inventory;
-    private List<Customer> customers;
+    List<FoodBeverage> inventory;
+    List<Customer> customers;
 
     public ConcessionProcessor(List<FoodBeverage> inventory, List<Customer> customers) {
         this.inventory = inventory;
@@ -37,7 +37,7 @@ public class ConcessionProcessor {
             // Decrease inventory
             item.decreaseQuantity(quantity);
             // Add item to customer's purchases
-            customer.addConcessionPurchase(item, quantity);
+            customer.addItem(item, quantity);
             return true;
         }
         return false; // Sale failed

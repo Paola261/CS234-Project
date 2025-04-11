@@ -20,6 +20,7 @@ public class Main {
      */
     public static void main(String [] args)
     {
+
         System.out.println("-----Welcome our Theatre Management System!-----");
 
         Scanner scanner = new Scanner(System.in);   
@@ -29,6 +30,11 @@ public class Main {
         Manager manager = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred);
 
         //Customers in system already for Customer Class
+
+        System.out.println("|-----Welcome our Theatre Management System!-----|");
+        
+        //Customers in system already
+
         customers.add(new Customer("Darian Lopez", 100, (byte)16)); //customerID is???
         customers.add(new Customer("Sophia Smith", 200, (byte)14));
         customers.add(new Customer("Amber Zul", 300, (byte)21));
@@ -85,8 +91,6 @@ public class Main {
             }
         }
         scanner.close();
-        
-        Menu();
     
     }
     
@@ -308,7 +312,7 @@ public class Main {
             System.out.println("1. View Customers");
             System.out.println("2. Add Customer");
             System.out.println("3. Remove Customer");
-            System.out.println("Back to Main Menu");
+            System.out.println("Back to Cashier Menu");
             System.out.print("Enter your choice: ");
             String choice = in.next();
             
@@ -321,8 +325,8 @@ public class Main {
                 case "3":
                     removeCustomer();
                     break;
-                case "4":
-                    Menu();
+                case "4": 
+                    cashierMenu();
                 default: 
                     System.out.println("Invalid choice. Please try again.");
                     MenuCustomer();
@@ -332,18 +336,15 @@ public class Main {
         
     }
     
-    /**
-     * Option to view the Customers
-     */
     public static void viewCustomers(){
-        for(Customer c : customers){
+        
+        for(Customer c : customers) {
             System.out.println(c.getCustomerInfo());
         }
+        
     }
     
-    /**
-     * Option to add Customers
-     */
+
     public static void addCustomer(){
         Scanner in = new Scanner(System.in);
         System.out.print("Enter customer name: ");
@@ -354,33 +355,36 @@ public class Main {
         byte age = in.nextByte();
         
         Customer newCustomer = new Customer(name, id, age);
+
         
         System.out.println("Customer added.");
+    
+
+        customers.add(newCustomer);
+        
+        System.out.println("Customer added");
     }
     
-    /**
-     * Option to remove Customers
-     */
     public static void removeCustomer(){
         Scanner in = new Scanner(System.in);
         System.out.print("Enter Customer ID to remove: ");
         int id = in.nextInt();
         
-        
-        for(Customer c: customers){
+        boolean removed = false;
+        for(Customer c : customers){
             if(c.getCustomerID == id){
                 customers.remove(c);
-                System.out.println("Customer removed");
+                System.out.println("Customer removed.");
+                removed = true;
                 break;
-            }
-            if(c.getCustomerID != id){
-                System.out.println("Customer not found.");
-                break;
-                
             }
         }
+        
+        if(!removed){
+            System.out.print("Customer ID not found.");
+            
+        }
     }
-           
-
+    
 }
 

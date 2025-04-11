@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * @author paolapereda
  */
 public class Customer {
-    private String name;
-    private int customerID;
-    private byte age;
+    public String name; // or private
+    public int customerID;
+    public byte age;
     public ArrayList<Order> orders;
     
 
@@ -31,7 +31,7 @@ public class Customer {
         return "Customers Name: " + name + " ID: " + customerID + "Age: " + age;
     }
     
-   public String getName()
+   public String getCustomerName()
    {
        return name;
    }
