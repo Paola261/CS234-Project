@@ -30,11 +30,6 @@ public class Main {
         Manager manager = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred);
 
         //Customers in system already for Customer Class
-
-        System.out.println("|-----Welcome our Theatre Management System!-----|");
-        
-        //Customers in system already
-
         customers.add(new Customer("Darian Lopez", 100, (byte)16)); //customerID is???
         customers.add(new Customer("Sophia Smith", 200, (byte)14));
         customers.add(new Customer("Amber Zul", 300, (byte)21));
