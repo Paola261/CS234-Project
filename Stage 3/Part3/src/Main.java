@@ -9,18 +9,26 @@
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Main {
+
+    static ArrayList<Customer> customers = new ArrayList<>();
+    
+
     /**
      * The main method that runs the movie theater system
      * @param args 
      */
     public static void main(String [] args)
     {
-        Scanner scanner = new Scanner(System.in);
         
-        // Sample User
-        // @ taryn need to add more? 
+
+        System.out.println("-----Welcome our Theatre Management System!-----");
+
+        Scanner scanner = new Scanner(System.in);   
+         // Sample User
+        // @ taryn need to add more
         Credential managerCred = new Credential("Lil.Ben", "PastelDream9");
         Manager manager = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred);
         
@@ -75,7 +83,7 @@ public class Main {
     
     /**
      * Authenticates a staff member based on username and password input
-     * @param scanner the Canner object reads input
+     * @param scanner the Scanner object reads input
      * @param staff the staff member attempting to log in
      * @return true if authentication succeeds, false otherwise
      */
@@ -160,7 +168,7 @@ public class Main {
     }
 
     /**
-     * Displays and handles the cashier's meny options.
+     * Displays and handles the cashier's menu options.
      * 
      * @param scanner
      * @param cashier 
@@ -172,7 +180,7 @@ public class Main {
             System.out.println("1. Start Shift");
             System.out.println("2. End Shift");
 
-            // NEED TO ADD CONCESSION PROCESSOR AND TICKET MANAGER!!!!!!!!!!!
+            // NEED TO ADD CONCESSION PROCESSOR AND TICKET MANAGER!
 
             }
         }
@@ -218,22 +226,18 @@ public class Main {
                     System.out.println("Invalid input.");
             }
         }
-    }
-}     
-        
-        
-    
-    
+    }    
+
     public static void Menu() 
     {
         Scanner in = new Scanner(System.in);
         System.out.println("Main Menu:");
-        System.out.println("Report Sales");
-        System.out.println("Employee List");
-        System.out.println("Customer list");
-        System.out.println("Showtimes");
-        System.out.println("Inventory");
-        System.out.println("Exit");
+        System.out.println("1. Report Sales");
+        System.out.println("2. Employee List");
+        System.out.println("3. Customer list");
+        System.out.println("4. Showtimes");
+        System.out.println("5. Inventory");
+        System.out.println("6. Exit");
         String choice = in.next();
 
         switch(choice){
@@ -244,7 +248,7 @@ public class Main {
                 MenuEmployee();
                 break;
             case "3":
-                MenuCustomer;
+                MenuCustomer();
                 break;
             case "4":
                 MenuShowtimes();
@@ -258,9 +262,46 @@ public class Main {
             default:
                 System.out.println("Invalid Choice. Please try again!");
                 Menu();
-    }  
+        }  
     }
-}
-
     
+    public static void MenuCustomer(){
+        Scanner in = new Scanner(System.in);
+        while(true){
+            System.out.println("\nCustomer Menu:");
+            System.out.println("1. View Customers");
+            System.out.println("2. Add Customer");
+            System.out.println("3. Remove Customer");
+            System.out.println("Back to Main Menu");
+            System.out.print("Enter your choice: ");
+            String choice = in.next();
+            
+            switch(choice){
+                case "1":
+                    viewCustomers();
+                    break;
+                case "2":
+                    addCustomer();
+                case "3":
+                    removeCustomer();
+                    break;
+                case "4":
+                    Menu();
+                default: 
+                    System.out.println("Invalid choice. Please try again.");
+                    MenuCustomer();
+            }
+            MenuCustomer();
+        }
+    }   
+
+        //Customers in system already
+        customers.add(new Customer("Darian Lopez", 100, (byte)16)); //customerID is???
+        customers.add(new Customer("Sophia Smith", 200, (byte)14));
+        customers.add(new Customer("Amber Zul", 300, (byte)21));
+        customers.add(new Customer("Nicholas Shaffer", 400, (byte)18));
+        customers.add(new Customer("Corey Shaffer", 500, (byte)61));
+        Menu();        
+
+}
 
