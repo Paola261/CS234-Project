@@ -22,12 +22,12 @@ public class TicketSeller {
         this.customers = customers;
     }
     
-    public List<Showtime> getAvailabeShowTime(int movieID)
+    public List<Showtime> getAvailableShowTime(int movieID)
     {
         List<Showtime> availableShowtimes = new ArrayList<>();
         for(Showtime showtime: showtimes){
             if(showtime.getMovie().getMovieID() == movieID){
-                availableShowtime.add(showtime);
+                availableShowtimes.add(showtime);
             }
         }
         return availableShowtimes;

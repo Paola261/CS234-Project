@@ -16,6 +16,8 @@ public class Customer {
     private byte age;
     public ArrayList<Order> orders;
     
+
+    
     public Customer(String name, int customerID, byte age)
     {
         this.name = name;
@@ -34,16 +36,16 @@ public class Customer {
        return name;
    }
    
-   public int getID()
+   public int getCustomerID()
    {
        return customerID;
    }
    
-   public byte getAge()
+   public byte getCustomerAge()
    {
        return age;
    }
-   
+
    public String getOrderHistory() 
    {
         if (orders.isEmpty()) {

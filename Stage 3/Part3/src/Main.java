@@ -14,16 +14,12 @@ import java.util.ArrayList;
 public class Main {
 
     static ArrayList<Customer> customers = new ArrayList<>();
-    
-
     /**
      * The main method that runs the movie theater system
      * @param args 
      */
     public static void main(String [] args)
     {
-        
-
         System.out.println("-----Welcome our Theatre Management System!-----");
 
         Scanner scanner = new Scanner(System.in);   
@@ -31,6 +27,17 @@ public class Main {
         // @ taryn need to add more
         Credential managerCred = new Credential("Lil.Ben", "PastelDream9");
         Manager manager = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred);
+
+        //Customers in system already for Customer Class
+        customers.add(new Customer("Darian Lopez", 100, (byte)16)); //customerID is???
+        customers.add(new Customer("Sophia Smith", 200, (byte)14));
+        customers.add(new Customer("Amber Zul", 300, (byte)21));
+        customers.add(new Customer("Nicholas Shaffer", 400, (byte)18));
+        customers.add(new Customer("Corey Shaffer", 500, (byte)61)); 
+        
+        //FoodBeverage Class
+        
+       
         
         Credential cashierCred = new Credential("Mic.Car", "Treehouse2");
         Cashier cashier = new Cashier("Michael Carter", 28, 1002, 2, "Cashier", cashierCred, 101);
@@ -78,6 +85,8 @@ public class Main {
             }
         }
         scanner.close();
+        
+        Menu();
     
     }
     
@@ -171,16 +180,75 @@ public class Main {
      * Displays and handles the cashier's menu options.
      * 
      * @param scanner
-     * @param cashier 
+     * @param cashier
+     * @param concessionProcessor 
+     * @param ticketSeller
      */
-    private static void cashierMenu(Scanner scanner, Cashier cashier) {
+    private static void cashierMenu(Scanner scanner, Cashier cashier, 
+            ConcessionProcessor concessionProcessor, TicketSeller ticketSeller) {
         boolean loggedIn = true;
         while (loggedIn) {
             System.out.println("\nCashier Menu:");
             System.out.println("1. Start Shift");
-            System.out.println("2. End Shift");
+            System.out.println("2. Customer List");
 
             // NEED TO ADD CONCESSION PROCESSOR AND TICKET MANAGER!
+            System.out.println("3. Sell Concession Item");
+            System.out.println("4. Sell Movie Ticket");
+            System.out.println("5. End Shift");
+            
+            System.out.print("Enter you choice: ");
+            int choice = scanner.nextInt();
+            
+            switch(choice){
+                case 1: 
+                    cashier.startShift();
+                    System.out.println("Your shift has started.");
+                    break;
+                case 2: 
+                    MenuCustomer();
+                case 3: 
+                    System.out.print("Enter Customer ID: ");
+                    int customerID = scanner.nextInt();
+                    System.out.print("Enter Item ID: ");
+                    int itemID = scanner.nextInt();
+                    System.out.print("Enter Quantity: ");
+                    int quantity = scanner.nextInt();
+                    
+                    boolean success = concessionProcessor.sellItem(customerID, itemID, quantity);
+                    if(success){
+                        System.out.print("Item sold");
+                    } else{
+                        System.out.print("Item not sold. Could not be found.");
+                    }
+                    break;
+
+                case 4: 
+                    System.out.print("Enter Customer ID: ");
+                    int cID = scanner.nextInt();
+                    System.out.print("Enter Showtime ID: ");
+                    int showtimeID = scanner.nextInt();
+                    System.out.print("Enter Seat ID: ");
+                    int seatID = scanner.nextInt();
+                    
+                    boolean ticketsell = ticketSeller.sellTicket(cID, showtimeID, seatID);
+                    if(ticketsell){
+                        System.out.println("Ticket Sold.");
+                    } else{
+                        System.out.println("Ticket not Sold.");
+                    }
+                    break;
+                case 5: 
+                    cashier.endShift();
+                    System.out.println("Your shift has ended.");
+                    loggedIn = false;
+                    break;
+                default: 
+                    System.out.println("Invalid input.");
+                    break;
+                 
+            }
+           
 
             }
         }
@@ -192,7 +260,8 @@ public class Main {
          * @param engineer the logged-in Engineer
          * @param maintenanceManager service to log and resolve issues
          */
-    private static void engineerMenu(Scanner scanner, Engineer engineer, MaintenanceManager maintenanceManager) {
+    private static void engineerMenu(Scanner scanner, Engineer engineer, 
+            MaintenanceManager maintenanceManager) {
         boolean loggedIn = true;
         while (loggedIn) {
             System.out.println("\nEngineer Menu:");
@@ -227,44 +296,11 @@ public class Main {
             }
         }
     }    
-
-    public static void Menu() 
-    {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Main Menu:");
-        System.out.println("1. Report Sales");
-        System.out.println("2. Employee List");
-        System.out.println("3. Customer list");
-        System.out.println("4. Showtimes");
-        System.out.println("5. Inventory");
-        System.out.println("6. Exit");
-        String choice = in.next();
-
-        switch(choice){
-            case "1":
-                MenuSales();
-                break;
-            case "2":
-                MenuEmployee();
-                break;
-            case "3":
-                MenuCustomer();
-                break;
-            case "4":
-                MenuShowtimes();
-                break;
-            case "5":
-                MenuInventory();
-                break;
-            case "6":
-                System.out.println("Exiting the program. Goodbye!");
-                break;    
-            default:
-                System.out.println("Invalid Choice. Please try again!");
-                Menu();
-        }  
-    }
     
+    /**
+     * The sub menu for the Customer List
+     * Shows another menu for options of viewing, adding or removing customers
+     */
     public static void MenuCustomer(){
         Scanner in = new Scanner(System.in);
         while(true){
@@ -292,16 +328,59 @@ public class Main {
                     MenuCustomer();
             }
             MenuCustomer();
+        }         
+        
+    }
+    
+    /**
+     * Option to view the Customers
+     */
+    public static void viewCustomers(){
+        for(Customer c : customers){
+            System.out.println(c.getCustomerInfo());
         }
-    }   
-
-        //Customers in system already
-        customers.add(new Customer("Darian Lopez", 100, (byte)16)); //customerID is???
-        customers.add(new Customer("Sophia Smith", 200, (byte)14));
-        customers.add(new Customer("Amber Zul", 300, (byte)21));
-        customers.add(new Customer("Nicholas Shaffer", 400, (byte)18));
-        customers.add(new Customer("Corey Shaffer", 500, (byte)61));
-        Menu();        
+    }
+    
+    /**
+     * Option to add Customers
+     */
+    public static void addCustomer(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter customer name: ");
+        String name = in.nextLine();
+        System.out.print("Enter customer ID: ");
+        int id = in.nextInt();
+        System.out.print("Enter customer age: ");
+        byte age = in.nextByte();
+        
+        Customer newCustomer = new Customer(name, id, age);
+        
+        System.out.println("Customer added.");
+    }
+    
+    /**
+     * Option to remove Customers
+     */
+    public static void removeCustomer(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter Customer ID to remove: ");
+        int id = in.nextInt();
+        
+        
+        for(Customer c: customers){
+            if(c.getCustomerID == id){
+                customers.remove(c);
+                System.out.println("Customer removed");
+                break;
+            }
+            if(c.getCustomerID != id){
+                System.out.println("Customer not found.");
+                break;
+                
+            }
+        }
+    }
+           
 
 }
 
