@@ -47,16 +47,16 @@ public class Main {
         FoodBeverage fB1 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
         ConcessionOrder cO1 = new ConcessionOrder(cust1, fB1, 2);
         
-        FoodBeverage fB2 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        FoodBeverage fB2 = new FoodBeverage("Twix", 2.50, "Small", "None", "Coke", 124, 1);
         ConcessionOrder cO2 = new ConcessionOrder(cust2, fB2, 2);
                 
-        FoodBeverage fB3 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        FoodBeverage fB3 = new FoodBeverage("ICEE", 3.50, "Large", "None", "Water", 125, 2);
         ConcessionOrder cO3 = new ConcessionOrder(cust3, fB3, 2);
         
-        FoodBeverage fB4 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        FoodBeverage fB4 = new FoodBeverage("Popcorn", 7.50, "Medium", "None", "Water", 126, 2);
         ConcessionOrder cO4 = new ConcessionOrder(cust4, fB4, 2);
         
-        FoodBeverage fB5 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        FoodBeverage fB5 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Dr.Pepper", 127, 1);
         ConcessionOrder cO5 = new ConcessionOrder(cust5, fB5, 2);
         
         // Add Ticket and Concession Orders to Customers 
