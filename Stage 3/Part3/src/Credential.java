@@ -28,7 +28,7 @@ public class Credential {
      * @return true if the password matches the stored hash, false otherwise
      */
     public boolean validatePassword(String inputPassword) {
-        // NOTE: In production, compare password hashes
+        
         return passwordHash.equals(inputPassword); // Simulated hash check
     }
 
