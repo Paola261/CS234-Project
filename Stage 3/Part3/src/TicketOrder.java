@@ -25,4 +25,13 @@ public class TicketOrder extends Inventory {
         return numberOfTickets;
 
     }
+    
+    public String getTicketOrder(){ // for Order Class
+        
+    }
+    
+    public void addItem(Order item)
+    {
+        items.add(item);
+    }
 }

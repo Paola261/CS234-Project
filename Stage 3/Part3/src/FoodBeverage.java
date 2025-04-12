@@ -21,7 +21,7 @@ public class FoodBeverage {
 
     public ArrayList<String> foodItems;
 
-<<<<<<< HEAD
+
     public FoodBeverage(String itemName, double price, 
             String size, String snacks, String drink, int itemID, int quantity)
     {
@@ -32,19 +32,6 @@ public class FoodBeverage {
          this.drink = drink;
          this.itemID = itemID;
          this.quantity = quantity;
-=======
-    public FoodBeverage(String itemName, double price, String size, String snacks, String drink, int itemID, int quantity)
-    {
-        this.itemName = itemName;
-        this.price = price;
-        this.size = size;
-        this.snacks = snacks;
-        this.drink = drink;
-        this.itemID = itemID;
-        this.quantity = quantity;
->>>>>>> c80857a (Updated Classes)
-        foodItems = new ArrayList<>();
-        
     }
 
     public void addFoodItem(String item)
@@ -67,19 +54,16 @@ public class FoodBeverage {
         return size;
     }
     
-<<<<<<< HEAD
-    public String getSnacks()
-    {
-=======
+
+
     public String getSnacks(){
->>>>>>> c80857a (Updated Classes)
+
         return snacks;
     }
     
     public String getDrink(){
         return drink;
     }
-<<<<<<< HEAD
     
     public int getItemID(){
         return itemID;
@@ -92,9 +76,6 @@ public class FoodBeverage {
     public void decreaseQuantity(int amount) {
     this.quantity -= amount;
     }
-
-=======
->>>>>>> c80857a (Updated Classes)
 
     public String[] getOrder()
     {
@@ -110,14 +91,7 @@ public class FoodBeverage {
         return orderDetails.toArray(new String[0]);
     }
     
-    public int getItemID(){
-        return itemID;
-    }
-    
-    public int getQuantity(){
-        return quantity;
-    }
-    
+ 
     
 }
 

@@ -10,11 +10,14 @@ import java.util.ArrayList;
  *
  * @author paolapereda
  */
+import java.util.List;
+
 public class Customer {
     public String name; // or private
     public int customerID;
     public byte age;
-    public ArrayList<Order> orders;
+    private List<TicketOrder> ticketOrders;
+    private List<ConcessionOrder> concessionOrders;
     
 
     
@@ -23,7 +26,9 @@ public class Customer {
         this.name = name;
         this.customerID = customerID; 
         this.age = age;
-        orders = new ArrayList<>();
+        ticketOrders = new ArrayList<>();
+        concessionOrders = new ArrayList<>();
+        
     }
     
     public String getCustomerInfo()
@@ -45,21 +50,30 @@ public class Customer {
    {
        return age;
    }
+   
+   public void addTicketOrder(TicketOrder order){
+       ticketOrders.add(order);
+   }
+   
+   public void addConcessionOrder(ConcessionOrder order){
+       concessionOrders.add(order);
+       
+   }
 
-   public String getOrderHistory() 
-   {
-        if (orders.isEmpty()) {
-            return name + " has not ordered any food or beverages.";
-        }
-
-        String items = name + "'s Orders:\n";
-        for (Order order : orders) 
-        {
-            items += "- " + order.toString() + "\n";
-        }
-
-        return items;
-}
+//   public String getOrderHistory() 
+//   {
+//        if (orders.isEmpty()) {
+//            return name + " has not ordered any food or beverages.";
+//        }
+//
+//        String items = name + "'s Orders:\n";
+//        for (Order order : orders) // maybe not have Order class
+//        {
+//            items += "- " + order.toString() + "\n";
+//        }
+//
+//        return items;
+//    }
 
     
     

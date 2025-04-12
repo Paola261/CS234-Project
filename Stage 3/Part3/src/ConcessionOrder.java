@@ -9,34 +9,38 @@
  */
 import java.util.ArrayList;
 
-public class ConcessionOrder  { //extends Inventory?
-     public ArrayList<FoodBeverage> items;
+public class ConcessionOrder   { 
+    private Customer customer;
+    private FoodBeverage item;
+    private int quantity;
 
-    public ConcessionOrder()
+    public ConcessionOrder(Customer customer, FoodBeverage item, int quantity)
     {
-        items = new ArrayList<>();
+        this.customer = customer;
+        this.item = item;
+        this.quantity = quantity;
 
     }
 
-    public void addItem(FoodBeverage item)
-    {
-        items.add(item);
-    }
-
-    public double calculateTotal()
-    {
-        double total = 0.0;
-        for(FoodBeverage item : items)
-        {
-            total += item.getPrice();
-        }
-        return total;
-    }
-
-    public ArrayList<FoodBeverage> getItems()
-    {
-        return items;
-    }
+//    public void addItem(Order item)
+//    {
+//        items.add(item);
+//    }
+//
+//    public double calculateTotal()
+//    {
+//        double total = 0.0;
+//        for(FoodBeverage item : items)
+//        {
+//            total += item.getPrice();
+//        }
+//        return total;
+//    }
+//
+//    public ArrayList<FoodBeverage> getItems()
+//    {
+//        return items;
+//    }
 
     
 }

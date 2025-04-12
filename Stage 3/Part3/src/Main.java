@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 public class Main {
 
-    static ArrayList<Customer> customers = new ArrayList<>();
     /**
      * The main method that runs the movie theater system
      * @param args 
@@ -30,14 +29,63 @@ public class Main {
         Manager manager = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred);
 
         //Customers in system already for Customer Class
-        customers.add(new Customer("Darian Lopez", 100, (byte)16)); //customerID is???
-        customers.add(new Customer("Sophia Smith", 200, (byte)14));
-        customers.add(new Customer("Amber Zul", 300, (byte)21));
-        customers.add(new Customer("Nicholas Shaffer", 400, (byte)18));
-        customers.add(new Customer("Corey Shaffer", 500, (byte)61)); 
+        Customer cust1 = new Customer("Darian Lopez", 100, (byte)16);
+        Customer cust2 = new Customer("Sophia Smith", 200, (byte)14);
+        Customer cust3 = new Customer("Amber Zul", 300, (byte)21);
+        Customer cust4 = new Customer("Nicholas Shaffer", 400, (byte)18);
+        Customer cust5 = new Customer("Corey Shaffer", 500, (byte)61); 
         
-        //FoodBeverage Class
+        //TicketOrder Class
+        TicketOrder ticketO1 = new TicketOrder(cust1, showtime, seat); // NEED SHOWTIME AND SEAT
+        TicketOrder ticketO2 = new TicketOrder(cust2, showtime, seat);
+        TicketOrder ticketO3 = new TicketOrder(cust3, showtime, seat);
+        TicketOrder ticketO4 = new TicketOrder(cust4, showtime, seat);
+        TicketOrder ticketO5 = new TicketOrder(cust5, showtime, seat);
         
+        
+        //ConcessionOrder Class
+        FoodBeverage fB1 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        ConcessionOrder cO1 = new ConcessionOrder(cust1, fB1, 2);
+        
+        FoodBeverage fB2 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        ConcessionOrder cO2 = new ConcessionOrder(cust2, fB2, 2);
+                
+        FoodBeverage fB3 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        ConcessionOrder cO3 = new ConcessionOrder(cust3, fB3, 2);
+        
+        FoodBeverage fB4 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        ConcessionOrder cO4 = new ConcessionOrder(cust4, fB4, 2);
+        
+        FoodBeverage fB5 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
+        ConcessionOrder cO5 = new ConcessionOrder(cust5, fB5, 2);
+        
+        // Add Ticket and Concession Orders to Customers 
+        cust1.addTicketOrder(ticketO1);
+        cust1.addConcessionOrder(cO1);
+        
+        cust2.addTicketOrder(ticketO2);
+        cust2.addConcessionOrder(cO2);
+        
+        cust3.addTicketOrder(ticketO3);
+        cust3.addConcessionOrder(cO3);
+        
+        cust4.addTicketOrder(ticketO4);
+        cust4.addConcessionOrder(cO4);
+        
+        cust3.addTicketOrder(ticketO5);
+        cust3.addConcessionOrder(cO5);
+        
+        //Adds Customers to a list
+        ArrayList<Customer> customers = new ArrayList<>();
+        customers.add(cust1);
+        customers.add(cust2);
+        customers.add(cust3);
+        customers.add(cust4);
+        customers.add(cust5);
+        
+        // SHOWTIME 
+        
+        // SEAT
        
         
         Credential cashierCred = new Credential("Mic.Car", "Treehouse2");
