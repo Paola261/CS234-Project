@@ -16,6 +16,9 @@ public class Main {
     static ArrayList<Cashier> cashiers = new ArrayList<>();
     static ArrayList<Engineer> engineers = new ArrayList<>();
     static ArrayList<Customer> customers = new ArrayList<>();
+    static ConcessionProcessor concessionProcessor;
+    static TicketSeller ticketSeller;
+   
 
     /**
      * The main method that runs the movie theater system
