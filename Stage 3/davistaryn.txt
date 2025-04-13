@@ -1,12 +1,21 @@
 Work Completed - Taryn Davis:
 
-03/30/2025 - Sunday
-  - Updated UML Diagram Arrows to show correct relationship between classes
-  - Created the Authenticable Interface  in the UML Diagram
-  - Created the Credential class in the UML Diagram
-  - Created the Order Class in the UML Diagram
-  - Broke down the Cashier, Manager and Engineer classes into smaller more managable classes and interfaces. 
+  - Updated UML Diagram Arrows to show correct relationship between classe
+  - Broke down the Cashier, Manager and Engineer classes into smaller more managable classes and interfaces which were then given to other team members. 
   - Completely rearranged the UML diagram effectively making it cleaner and easier to follow. 
-  - created CRC cards my classes:
-    [Staff, Cashier, Engineer, Manager, Order, Seat, Screen, TicketSeller, CocnessionProcessor, ReservationSystem, InventoryManager, MaintenanceManager, StaffManager,       
-    ScheduleManager]
+
+Created and Coded Classes:
+  - Person
+  - Staff
+  - Authenticatable
+  - Credential
+  - Cashier
+  - Manager
+  - Engineer
+  - ScheduleManager
+  - StaffManager
+  - MaintenanceManager
+  - IScheduleHandler
+  - IStaffHandler
+
+
