@@ -2,15 +2,17 @@
  *
  * @author melissaflores
  */
+import java.util.ArrayList;
+
 public class Order extends Inventory {
     private int orderID;
     private int customerID;
-    private List<Inventory> items;
+    private ArrayList<Items> items;
     private int showtimeID;
     private int seatID;
     private float total;
 
-    public Order(int orderID, int customerID, List<Inventory> items, int showtimeID, int seatID, float total) {
+    public Order(int orderID, int customerID, ArrayList<Items> items, int showtimeID, int seatID, float total) {
         this.orderID = orderID;
         this.customerID = customerID;
         this.items = items;
@@ -36,11 +38,12 @@ public class Order extends Inventory {
         this.customerID = customerID;
     }
 
-    public List<Inventory> getItems() {
+    @Override
+    public ArrayList<Items> getItems() {
         return items;
     }
 
-    public void setItems(List<Inventory> items) {
+    public void setItems(ArrayList<Items> items) {
         this.items = items;
     }
 
