@@ -5,6 +5,7 @@
  * 
  * @author paolapereda
  * @author Taryn Davis
+ * @author Melissa Flores
  */
 import java.util.Scanner;
 import java.time.LocalDate;
@@ -12,6 +13,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Main {
+    static ArrayList<Manager> managers = new ArrayList<>();
+    static ArrayList<Cashier> cashiers = new ArrayList<>();
+    static ArrayList<Engineer> engineers = new ArrayList<>();
+    static ArrayList<Customer> customers = new ArrayList<>();
 
     /**
      * The main method that runs the movie theater system
@@ -23,10 +28,16 @@ public class Main {
         System.out.println("-----Welcome our Theatre Management System!-----");
 
         Scanner scanner = new Scanner(System.in);   
-         // Sample User
-        // @ taryn need to add more
-        Credential managerCred = new Credential("Lil.Ben", "PastelDream9");
-        Manager manager = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred);
+         
+        // Manager Users
+        Credential managerCred1 = new Credential("Lil.Ben", "PastelDream9");
+        Manager manager1 = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred1);
+        
+        Credential managerCred2 = new Credential("Jas.Wel", "Shadow99");
+        Manager manager2 = new Manager("Jason Wells", 39, 1002, 2, "Manager", managerCred2);
+        
+        managers.add(manager1);
+        managers.add(manager2);
 
         //Customers in system already for Customer Class
         Customer cust1 = new Customer("Darian Lopez", 100, (byte)16);
@@ -87,12 +98,29 @@ public class Main {
         
         // SEAT
        
+        // Cashier 
+        Credential cashierCred1 = new Credential("Mic.Car", "Treehouse2");
+        Cashier cashier1 = new Cashier("Michael Carter", 28, 1003, 3, "Cashier", cashierCred1, 101);
         
-        Credential cashierCred = new Credential("Mic.Car", "Treehouse2");
-        Cashier cashier = new Cashier("Michael Carter", 28, 1002, 2, "Cashier", cashierCred, 101);
+        Credential cashierCred2 = new Credential("Emm.Ree", "Sunflower45");
+        Cashier cashier2 = new Cashier("Michael Carter", 25, 1004, 4, "Cashier", cashierCred2, 102);
+        
+        Credential cashierCred3 = new Credential("Rya.Jac", "BlueSky12");
+        Cashier cashier3 = new Cashier("Ryan Jacobs", 18, 1005, 5, "Cashier", cashierCred3, 103);
+        
+        cashiers.add(cashier1);
+        cashiers.add(cashier2);
+        cashiers.add(cashier3);
 
-        Credential engineerCred = new Credential("Dan.Fos", "Mountain44");
-        Engineer engineer = new Engineer("Daniel Foster", 34, 1003, 3, "Engineer", engineerCred);
+        // Engineers
+        Credential engineerCred1 = new Credential("Dan.Fos", "Mountain44");
+        Engineer engineer1 = new Engineer("Daniel Foster", 34, 1006, 6, "Engineer", engineerCred1);
+        
+        Credential engineerCred2 = new Credential("Sar.Col", "CoffeeTime8");
+        Engineer engineer2 = new Engineer("Sarah Collins", 33, 1007, 7, "Engineer", engineerCred2);
+        
+        engineers.add(engineer1);
+        engineers.add(engineer2);
         
         //Service Classes
         ScheduleManager scheduleManager = new ScheduleManager();
@@ -111,20 +139,49 @@ public class Main {
 
             switch (choice) {
                 case "1":
-                    if (authenticate(scanner, manager)) {
-                        managerMenu(scanner, manager, scheduleManager, staffManager, maintenanceManager);
+                    Manager loggedInManager = null;
+                    for (Manager m : managers) {
+                        if(authenticate(scanner, m)) {
+                            loggedInManager = m;
+                            break;
+                        }
+                    }
+                    
+                    if (loggedInManager != null) {
+                        managerMenu(scanner, loggedInManager, scheduleManager, staffManager, maintenanceManager, managers);
+                    } else { 
+                        System.out.println("Login failed for Manager.");
                     }
                     break;
                 case "2":
-                    if (authenticate(scanner, cashier)) {
-                        cashierMenu(scanner, cashier);
+                    Cashier loggedInCashier = null;
+                    for (Cashier c : cashiers) {
+                        if (authenticate(scanner, c)) {
+                            loggedInCashier = c;
+                            break;
+                        }
+                    }
+                    if (loggedInCashier != null) {
+                        // You’ll need to pass the appropriate services
+                        cashierMenu(scanner, loggedInCashier, concessionProcessor, ticketSeller);
+                    } else {
+                        System.out.println("Login failed for cashier.");
                     }
                     break;
                 case "3":
-                    if (authenticate(scanner, engineer)) {
-                        engineerMenu(scanner, engineer, maintenanceManager);
+                    Engineer loggedInEngineer = null;
+                for (Engineer e : engineers) {
+                    if (authenticate(scanner, e)) {
+                        loggedInEngineer = e;
+                        break;
                     }
-                    break;
+                }
+                if (loggedInEngineer != null) {
+                    engineerMenu(scanner, loggedInEngineer, maintenanceManager);
+                } else {
+                    System.out.println("Login failed for engineer.");
+                }
+                break;
                 case "4":
                     running = false;
                     System.out.println("Goodbye!");

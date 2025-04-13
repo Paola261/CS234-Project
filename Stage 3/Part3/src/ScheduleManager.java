@@ -47,7 +47,7 @@ public class ScheduleManager {
     }
 
     /**
-     * Retrieves the map of all scheduled showtimes
+     * Retrieves the map of all scheduled showtime
      * @return  a map of showtime IDs to Showtime objects
      */
     public Map<Integer, Showtime> getShowtimes() {
