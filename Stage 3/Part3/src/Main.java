@@ -36,12 +36,11 @@ public class Main {
         Customer cust5 = new Customer("Corey Shaffer", 500, (byte)61); 
         
         //TicketOrder Class
-        TicketOrder ticketO1 = new TicketOrder(cust1, showtime, seat); // NEED SHOWTIME AND SEAT
-        TicketOrder ticketO2 = new TicketOrder(cust2, showtime, seat);
-        TicketOrder ticketO3 = new TicketOrder(cust3, showtime, seat);
-        TicketOrder ticketO4 = new TicketOrder(cust4, showtime, seat);
-        TicketOrder ticketO5 = new TicketOrder(cust5, showtime, seat);
-        
+        TicketOrder ticketO1 = new TicketOrder(cust1, s1, st1); // NEED SHOWTIME AND SEAT
+        TicketOrder ticketO2 = new TicketOrder(cust2, s2, st2);
+        TicketOrder ticketO3 = new TicketOrder(cust3, s3, st3);
+        TicketOrder ticketO4 = new TicketOrder(cust4, s4, st4);
+        TicketOrder ticketO5 = new TicketOrder(cust5, s5, st5);
         
         //ConcessionOrder Class
         FoodBeverage fB1 = new FoodBeverage("Popcorn", 3.50, "Small", "None", "Water", 123, 1);
@@ -83,10 +82,19 @@ public class Main {
         customers.add(cust4);
         customers.add(cust5);
         
-        // SHOWTIME 
+        // SHOWTIME
+        Showtime.s1 = new Showtime("Clueless", 3:15PM, 4/13/25, PG-13, 1h37m);
+        Showtime.s2 = new Showtime("Insidious", 9:45PM, 4/20/25, R, 1h53m);
+        Showtime.s3 = new Showtime("Divergent", 4:45PM, 4/22/25,PG-13 2h19m);
+        Showtime.s4 = new Showtime("High School Musical", 2:00PM, 4/24/25, G, 1h38m);
+        Showtime.s5 = new Showtime("BigHeroSix", 7:10PM, 4/26/25, PG, 1h48m);
         
         // SEAT
-       
+        Seat.st1 = new Seat(104, 1, 'D', 10, True)
+        Seat.st2 = new Seat(307, 3, 'D', 5, False)
+        Seat.st3 = new Seat(444, 4, 'H', 7, True)
+        Seat.st4 = new Seat(217, 2, 'C', 4, True)
+        Seat.st5 = new Seat(543, 5, 'G', 6, True)       
         
         Credential cashierCred = new Credential("Mic.Car", "Treehouse2");
         Cashier cashier = new Cashier("Michael Carter", 28, 1002, 2, "Cashier", cashierCred, 101);
