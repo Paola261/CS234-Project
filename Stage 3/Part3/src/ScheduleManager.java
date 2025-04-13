@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ScheduleManager {
-    private Map<Integer, ShowTime> showtimes;
+    private Map<Integer, Showtime> showtimes;
 
     /**
      * Constructs a new ScheduleManager with an empty showtime list
@@ -28,7 +28,7 @@ public class ScheduleManager {
      */
     public boolean assignMovieToScreen(int movieID, int screenID, LocalDate date, LocalTime time) {
         int showtimeID = showtimes.size() + 1; // generate a simple ID
-        ShowTime newShowTime = new ShowTime(showtimeID, movieID, screenID, date, time, false);
+        Showtime newShowTime = new Showtime(showtimeID, movieID, screenID, date, time, false);
         showtimes.put(showtimeID, newShowTime);
         System.out.println("Movie " + movieID + " assigned to Screen " + screenID + " at " + time + ".");
         return true;
@@ -50,7 +50,7 @@ public class ScheduleManager {
      * Retrieves the map of all scheduled showtimes
      * @return  a map of showtime IDs to Showtime objects
      */
-    public Map<Integer, ShowTime> getShowtimes() {
+    public Map<Integer, Showtime> getShowtimes() {
         return showtimes;
     }
     
