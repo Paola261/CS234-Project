@@ -11,6 +11,9 @@ public class Inventory {
     public Inventory() {
         this.items = new ArrayList<>();
     }
+    public ArrayList<Items> getItems() {
+        return items;
+    }
 
     public void addItem(Items item) {
         this.items.add(item);
@@ -19,7 +22,7 @@ public class Inventory {
     public void removeItem(Items item) {
         this.items.remove(item);
     }
-
+    
     public void sellItem(String name, int quantity) {
         for (Items item : items) {
             if (item.getName().equals(name)) {
