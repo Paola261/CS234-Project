@@ -46,6 +46,19 @@ public class Main {
         Customer cust4 = new Customer("Nicholas Shaffer", 400, (byte)18);
         Customer cust5 = new Customer("Corey Shaffer", 500, (byte)61); 
         
+        Showtime s1 = new Showtime("Clueless", "3:15PM", "4/13/25", "PG-13", "1h37m");
+        Showtime s2 = new Showtime("Insidious", "9:45PM", "4/20/25", "R", "1h53m");
+        Showtime s3 = new Showtime("Divergent", "4:45PM", "4/22/25", "PG-13", "2h19m");
+        Showtime s4 = new Showtime("High School Musical", "2:00PM", "4/24/25", "G", "1h38m");
+        Showtime s5 = new Showtime("BigHeroSix", "7:10PM", "4/26/25", "PG", "1h48m");
+        
+        // SEAT
+        Seat st1 = new Seat(104, 1, 'D', (byte)10, true);
+        Seat st2 = new Seat(307, 3, 'D', (byte)5, false);
+        Seat st3 = new Seat(444, 4, 'H', (byte)7, true);
+        Seat st4 = new Seat(217, 2, 'C', (byte)4, true);
+        Seat st5 = new Seat(543, 5, 'G', (byte)6, true);
+        
         //TicketOrder Class
         TicketOrder ticketO1 = new TicketOrder(cust1, s1, st1); // NEED SHOWTIME AND SEAT
         TicketOrder ticketO2 = new TicketOrder(cust2, s2, st2);
@@ -91,23 +104,7 @@ public class Main {
         customers.add(cust2);
         customers.add(cust3);
         customers.add(cust4);
-        customers.add(cust5);
-        
-        // SHOWTIME
-        Showtime.s1 = new Showtime("Clueless", 3:15PM, 4/13/25, PG-13, 1h37m);
-        Showtime.s2 = new Showtime("Insidious", 9:45PM, 4/20/25, R, 1h53m);
-        Showtime.s3 = new Showtime("Divergent", 4:45PM, 4/22/25,PG-13 2h19m);
-        Showtime.s4 = new Showtime("High School Musical", 2:00PM, 4/24/25, G, 1h38m);
-        Showtime.s5 = new Showtime("BigHeroSix", 7:10PM, 4/26/25, PG, 1h48m);
-        
-        // SEAT
-<<<<<<< HEAD
-        Seat.st1 = new Seat(104, 1, 'D', 10, True)
-        Seat.st2 = new Seat(307, 3, 'D', 5, False)
-        Seat.st3 = new Seat(444, 4, 'H', 7, True)
-        Seat.st4 = new Seat(217, 2, 'C', 4, True)
-        Seat.st5 = new Seat(543, 5, 'G', 6, True)       
-=======
+        customers.add(cust5);     
        
         // Cashier 
         Credential cashierCred1 = new Credential("Mic.Car", "Treehouse2");
