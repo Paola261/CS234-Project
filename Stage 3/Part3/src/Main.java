@@ -8,8 +8,6 @@
  * @author Melissa Flores
  */
 import java.util.Scanner;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Main {
@@ -94,18 +92,18 @@ public class Main {
         customers.add(cust5);
         
         // SHOWTIME
-        Showtime.s1 = new Showtime("Clueless", 3:15PM, 4/13/25, PG-13, 1h37m);
-        Showtime.s2 = new Showtime("Insidious", 9:45PM, 4/20/25, R, 1h53m);
-        Showtime.s3 = new Showtime("Divergent", 4:45PM, 4/22/25,PG-13 2h19m);
-        Showtime.s4 = new Showtime("High School Musical", 2:00PM, 4/24/25, G, 1h38m);
-        Showtime.s5 = new Showtime("BigHeroSix", 7:10PM, 4/26/25, PG, 1h48m);
+        Showtime.s1 = new Showtime("Clueless", "3:15PM", "4/13/25", "PG-13", "1h37m");
+        Showtime.s2 = new Showtime("Insidious", "9:45PM", "4/20/25", "R", "1h53m");
+        Showtime.s3 = new Showtime("Divergent", "4:45PM", "4/22/25", "PG-13", "2h19m");
+        Showtime.s4 = new Showtime("High School Musical", "2:00PM", "4/24/25", "G", "1h38m");
+        Showtime.s5 = new Showtime("BigHeroSix", "7:10PM", "4/26/25", "PG", "1h48m");
         
         // SEAT
-        Seat.st1 = new Seat(104, 1, 'D', 10, True)
-        Seat.st2 = new Seat(307, 3, 'D', 5, False)
-        Seat.st3 = new Seat(444, 4, 'H', 7, True)
-        Seat.st4 = new Seat(217, 2, 'C', 4, True)
-        Seat.st5 = new Seat(543, 5, 'G', 6, True)       
+        Seat.st1 = new Seat(104, 1, 'D', 10, True);
+        Seat.st2 = new Seat(307, 3, 'D', 5, False);
+        Seat.st3 = new Seat(444, 4, 'H', 7, True);
+        Seat.st4 = new Seat(217, 2, 'C', 4, True);
+        Seat.st5 = new Seat(543, 5, 'G', 6, True);      
        
         // Cashier 
         Credential cashierCred1 = new Credential("Mic.Car", "Treehouse2");
@@ -157,7 +155,7 @@ public class Main {
                     }
                     
                     if (loggedInManager != null) {
-                        managerMenu(scanner, loggedInManager, scheduleManager, staffManager, maintenanceManager, managers);
+                        managerMenu(scanner, loggedInManager, scheduleManager, staffManager, maintenanceManager);
                     } else { 
                         System.out.println("Login failed for Manager.");
                     }
@@ -244,12 +242,19 @@ public class Main {
             String input = scanner.nextLine();
 
             switch (input) {
-                case "1":
-                    System.out.print("Movie ID: ");
-                    int movieID = Integer.parseInt(scanner.nextLine());
-                    System.out.print("Screen ID: ");
-                    int screenID = Integer.parseInt(scanner.nextLine());
-                    scheduleManager.assignMovieToScreen(movieID, screenID, LocalDate.now(), LocalTime.now());
+                case "1":                    
+                    System.out.print("Movie Title: ");
+                    String movieTitle = scanner.nextLine();
+                    System.out.print("Available Time (HH:mm): ");
+                    String availableTime = scanner.nextLine();
+                    System.out.print("Movie Date (YYYY-MM-DD): ");
+                    String movieDate = scanner.nextLine();
+                    System.out.print("Rating (e.g., PG-13): ");
+                    String rating = scanner.nextLine();
+                    System.out.print("Run Time (e.g., 120 min): ");
+                    String runTime = scanner.nextLine();
+
+                    scheduleManager.assignMovieToScreen(movieTitle, availableTime, movieDate, rating, runTime);
                     break;
                 case "2":
                     System.out.print("Enter Screen ID to reset seats: ");
@@ -304,8 +309,6 @@ public class Main {
             System.out.println("\nCashier Menu:");
             System.out.println("1. Start Shift");
             System.out.println("2. Customer List");
-
-            // NEED TO ADD CONCESSION PROCESSOR AND TICKET MANAGER!
             System.out.println("3. Sell Concession Item");
             System.out.println("4. Sell Movie Ticket");
             System.out.println("5. End Shift");
@@ -435,7 +438,7 @@ public class Main {
                     removeCustomer();
                     break;
                 case "4": 
-                    cashierMenu();
+                    return;
                 default: 
                     System.out.println("Invalid choice. Please try again.");
                     MenuCustomer();
@@ -481,7 +484,7 @@ public class Main {
         
         boolean removed = false;
         for(Customer c : customers){
-            if(c.getCustomerID == id){
+            if(c.getCustomerID() == id){
                 customers.remove(c);
                 System.out.println("Customer removed.");
                 removed = true;
