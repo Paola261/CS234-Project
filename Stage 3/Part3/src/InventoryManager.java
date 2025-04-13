@@ -52,7 +52,7 @@ public class InventoryManager extends Inventory {
         scanner.nextLine(); // Consume newline
 
         Items newItem;
-        newItem = new Item(name, quantity, price);
+        newItem = new Items(name, quantity, price);
         super.addItem(newItem);
         System.out.println(name + " added to inventory.");
     }

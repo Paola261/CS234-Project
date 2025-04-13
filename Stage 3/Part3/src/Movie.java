@@ -9,8 +9,9 @@
  */
 public class Movie {
     private String name;
-    private String rating;
+    private Showtime rating;
     private Showtime showtime;
+    private Seat seatID;
 
     /**
      * Constructs a Movie
@@ -18,7 +19,7 @@ public class Movie {
      * @param showtime
      * @param rating 
      */
-    public Movie(String name, Showtime showtime, String rating)
+    public Movie(String name, Showtime showtime, Showtime rating)
     {
         this.name = name; 
         this.rating = rating;
@@ -33,10 +34,10 @@ public class Movie {
     public String getMovieDetails()
     {
         return "Movie: " + name + 
-        ", Showtime: " + showtime.getTime() + 
-        ", Rating: " + rating + 
-        ", Screen: " + showtime.getScreenNumber() + 
-        ", Available Seats: " + showtime.getAvailableSeats();
+        ", Showtime: " + showtime.getAvailableTimes() + 
+        ", Rating: " + rating.getRating() + 
+        ", Screen: " + seatID.getScreenID() + 
+        ", Available Seats: " + seatID.isAvailable();
     }
 
     // Returns name 
@@ -46,7 +47,7 @@ public class Movie {
     }
 
     // Returns rating 
-    public String getRating()
+    public Showtime getRating()
     {
         return rating;
     }
@@ -63,18 +64,4 @@ public class Movie {
         String[] movies = {"Clueless", "Insidious", "Divergent", "High School Musical", "Big Hero Six"};
         return movies;
     }
-    
-    /**
-     * To update movie information
-     * @param name
-     * @param showtime
-     * @param rating
-     */
-    public void setMovie(String name, Showtime showtime, String rating)
-    {
-        this.name = name;
-        this.showtime = new ArrayList<>();
-        this.rating = rating;
-    }
-    
 }

@@ -1,4 +1,5 @@
-
+import java.util.Map;
+import java.util.HashMap;
 import java.util.ArrayList;
 
 /*
@@ -19,6 +20,7 @@ public class Customer {
     public byte age;
     private List<TicketOrder> ticketOrders;
     private List<ConcessionOrder> concessionOrders;
+    private Map<FoodBeverage, Integer> ordersSold;
     
 
     /**
@@ -34,6 +36,7 @@ public class Customer {
         this.age = age;
         ticketOrders = new ArrayList<>();
         concessionOrders = new ArrayList<>();
+        ordersSold = new HashMap<>();
         
     }
     
@@ -89,4 +92,7 @@ public class Customer {
        concessionOrders.add(order);
        
    }  
+   public void addItem(FoodBeverage item, int quantity) {
+       ordersSold.put(item, quantity);
+    }
 }

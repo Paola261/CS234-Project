@@ -8,9 +8,8 @@
  * @author Melissa Flores
  */
 import java.util.Scanner;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     static ArrayList<Manager> managers = new ArrayList<>();
@@ -105,12 +104,11 @@ public class Main {
         customers.add(cust3);
         customers.add(cust4);
         customers.add(cust5);     
+        customers.add(cust5);    
        
         // Cashier 
         Credential cashierCred1 = new Credential("Mic.Car", "Treehouse2");
-        Cashier cashier1 = new Cashier("Michael Carter", 28, 1003, 3, "Cashier", cashierCred1, 101);
->>>>>>> origin/main
-        
+        Cashier cashier1 = new Cashier("Michael Carter", 28, 1003, 3, "Cashier", cashierCred1, 101);        
         Credential cashierCred2 = new Credential("Emm.Ree", "Sunflower45");
         Cashier cashier2 = new Cashier("Michael Carter", 25, 1004, 4, "Cashier", cashierCred2, 102);
         
@@ -157,7 +155,7 @@ public class Main {
                     }
                     
                     if (loggedInManager != null) {
-                        managerMenu(scanner, loggedInManager, scheduleManager, staffManager, maintenanceManager, managers);
+                        managerMenu(scanner, loggedInManager, scheduleManager, staffManager, maintenanceManager);
                     } else { 
                         System.out.println("Login failed for Manager.");
                     }
@@ -170,6 +168,7 @@ public class Main {
                             break;
                         }
                     }
+//NEEDS TO BE FIXED
                     if (loggedInCashier != null) {
                         // You’ll need to pass the appropriate services
                         cashierMenu(scanner, loggedInCashier, concessionProcessor, ticketSeller);
@@ -244,12 +243,19 @@ public class Main {
             String input = scanner.nextLine();
 
             switch (input) {
-                case "1":
-                    System.out.print("Movie ID: ");
-                    int movieID = Integer.parseInt(scanner.nextLine());
-                    System.out.print("Screen ID: ");
-                    int screenID = Integer.parseInt(scanner.nextLine());
-                    scheduleManager.assignMovieToScreen(movieID, screenID, LocalDate.now(), LocalTime.now());
+                case "1":                    
+                    System.out.print("Movie Title: ");
+                    String movieTitle = scanner.nextLine();
+                    System.out.print("Available Time (HH:mm): ");
+                    String availableTime = scanner.nextLine();
+                    System.out.print("Movie Date (YYYY-MM-DD): ");
+                    String movieDate = scanner.nextLine();
+                    System.out.print("Rating (e.g., PG-13): ");
+                    String rating = scanner.nextLine();
+                    System.out.print("Run Time (e.g., 120 min): ");
+                    String runTime = scanner.nextLine();
+
+                    scheduleManager.assignMovieToScreen(movieTitle, availableTime, movieDate, rating, runTime);
                     break;
                 case "2":
                     System.out.print("Enter Screen ID to reset seats: ");
@@ -304,8 +310,6 @@ public class Main {
             System.out.println("\nCashier Menu:");
             System.out.println("1. Start Shift");
             System.out.println("2. Customer List");
-
-            // NEED TO ADD CONCESSION PROCESSOR AND TICKET MANAGER!
             System.out.println("3. Sell Concession Item");
             System.out.println("4. Sell Movie Ticket");
             System.out.println("5. End Shift");
@@ -435,7 +439,7 @@ public class Main {
                     removeCustomer();
                     break;
                 case "4": 
-                    cashierMenu();
+                    return;
                 default: 
                     System.out.println("Invalid choice. Please try again.");
                     MenuCustomer();
@@ -481,7 +485,7 @@ public class Main {
         
         boolean removed = false;
         for(Customer c : customers){
-            if(c.getCustomerID == id){
+            if(c.getCustomerID() == id){
                 customers.remove(c);
                 System.out.println("Customer removed.");
                 removed = true;
