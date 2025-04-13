@@ -4,7 +4,7 @@
  */
 
 /**
- *
+ * Movie class 
  * @author paolapereda
  */
 public class Movie {
@@ -12,6 +12,12 @@ public class Movie {
     private String rating;
     private Showtime showtime;
 
+    /**
+     * Constructs a Movie
+     * @param name
+     * @param showtime
+     * @param rating 
+     */
     public Movie(String name, Showtime showtime, String rating)
     {
         this.name = name; 
@@ -20,6 +26,10 @@ public class Movie {
 
     }
 
+    /**
+     * Returns the movie details 
+     * @return 
+     */
     public String getMovieDetails()
     {
         return "Movie: " + name + 
@@ -29,21 +39,25 @@ public class Movie {
         ", Available Seats: " + showtime.getAvailableSeats();
     }
 
+    // Returns name 
     public String getName()
     {
         return name;
     }
 
+    // Returns rating 
     public String getRating()
     {
         return rating;
     }
 
+    // returns showtime
     public Showtime getShowtime()
     {
         return showtime;
     }
 
+    //Returns a movie list 
     public static String[] getMovieList()
     {
         String[] movies = {"Clueless", "Insidious", "Divergent", "High School Musical", "Big Hero Six"};

@@ -4,34 +4,25 @@
  */
 
 /**
- *
+ * Class to represent a customer's purchase of a ticket 
  * @author paolapereda
  */
-public class TicketOrder extends Inventory {
-    private Movie movie;
-    private int numberOfTickets;
+public class TicketOrder {
+    private Customer customer;
     private Showtime showtime;
+    private Seat seat;
 
-    public TicketOrder(Movie movie, Showtime showtime, int numberOfTickets)
+    /**
+     * Constructs a ticket order for a specified customer
+     * @param customer
+     * @param showtime
+     * @param seat 
+     */
+    public TicketOrder(Customer customer, Showtime showtime, Seat seat)
     {
-        this.movie = movie;
+        this.customer = customer;
         this.showtime = showtime;
-        this.numberOfTickets = numberOfTickets;
+        this.seat = seat;
 
-    }
-
-    public int getTicketQuantity()
-    {
-        return numberOfTickets;
-
-    }
-    
-    public String getTicketOrder(){ // for Order Class
-        
-    }
-    
-    public void addItem(Order item)
-    {
-        items.add(item);
     }
 }

@@ -4,7 +4,8 @@
  */
 
 /**
- *
+ * ConcessionProcessor class that handles the inventory management and sales of
+ * FoodBeverage items
  * @author paolapereda
  */
 import java.util.List;
@@ -13,6 +14,11 @@ public class ConcessionProcessor {
     List<FoodBeverage> inventory;
     List<Customer> customers;
 
+    /**
+     * Constructs a new ConcessionProcessor with the inventory and customers
+     * @param inventory
+     * @param customers 
+     */
     public ConcessionProcessor(List<FoodBeverage> inventory, List<Customer> customers) {
         this.inventory = inventory;
         this.customers = customers;
@@ -60,7 +66,7 @@ public class ConcessionProcessor {
                 return item;
             }
         }
-        return null;
+        return null; // if ID is not founds
     }
 }
 

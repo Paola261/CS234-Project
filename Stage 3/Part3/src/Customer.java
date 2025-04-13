@@ -7,7 +7,8 @@ import java.util.ArrayList;
  */
 
 /**
- *
+ * Class that stores the Customer name, ID, and age
+ * Maintains a list of ticket orders and concession order
  * @author paolapereda
  */
 import java.util.List;
@@ -20,7 +21,12 @@ public class Customer {
     private List<ConcessionOrder> concessionOrders;
     
 
-    
+    /**
+     * Constructor for a Customer
+     * @param name
+     * @param customerID
+     * @param age 
+     */
     public Customer(String name, int customerID, byte age)
     {
         this.name = name;
@@ -31,51 +37,56 @@ public class Customer {
         
     }
     
+    /**
+     * Method that returns a Customers Info
+     * @return 
+     */
     public String getCustomerInfo()
     {
         return "Customers Name: " + name + " ID: " + customerID + "Age: " + age;
     }
     
+    /**
+     * Returns the name for Customer
+     * @return 
+     */
    public String getCustomerName()
    {
        return name;
    }
    
+   /**
+    * Return the customer ID
+    * @return 
+    */
    public int getCustomerID()
    {
        return customerID;
    }
    
+   /**
+    * Returns the age for the Customer
+    * @return 
+    */
    public byte getCustomerAge()
    {
        return age;
    }
    
+   /**
+    * Method to add a ticket order to a Customer 
+    * @param order ~ object of class TicketOrder
+    */
    public void addTicketOrder(TicketOrder order){
        ticketOrders.add(order);
    }
    
+   /**
+    * Method to add a concession order to a Customer
+    * @param order ~ object of class ConcessionOrder
+    */
    public void addConcessionOrder(ConcessionOrder order){
        concessionOrders.add(order);
        
-   }
-
-//   public String getOrderHistory() 
-//   {
-//        if (orders.isEmpty()) {
-//            return name + " has not ordered any food or beverages.";
-//        }
-//
-//        String items = name + "'s Orders:\n";
-//        for (Order order : orders) // maybe not have Order class
-//        {
-//            items += "- " + order.toString() + "\n";
-//        }
-//
-//        return items;
-//    }
-
-    
-    
-    
+   }  
 }

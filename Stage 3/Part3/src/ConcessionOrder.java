@@ -4,7 +4,7 @@
  */
 
 /**
- *
+ * The ConcessionOrder class represents an order made by a Customer from the FoodBeverage class
  * @author paolapereda
  */
 import java.util.ArrayList;
@@ -14,6 +14,12 @@ public class ConcessionOrder   {
     private FoodBeverage item;
     private int quantity;
 
+    /**
+     * Constructor for a new concession order for a specified customer
+     * @param customer
+     * @param item
+     * @param quantity 
+     */
     public ConcessionOrder(Customer customer, FoodBeverage item, int quantity)
     {
         this.customer = customer;
@@ -21,26 +27,4 @@ public class ConcessionOrder   {
         this.quantity = quantity;
 
     }
-
-//    public void addItem(Order item)
-//    {
-//        items.add(item);
-//    }
-//
-//    public double calculateTotal()
-//    {
-//        double total = 0.0;
-//        for(FoodBeverage item : items)
-//        {
-//            total += item.getPrice();
-//        }
-//        return total;
-//    }
-//
-//    public ArrayList<FoodBeverage> getItems()
-//    {
-//        return items;
-//    }
-
-    
 }
