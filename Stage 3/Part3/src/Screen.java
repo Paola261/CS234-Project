@@ -2,6 +2,8 @@
  *
  * @author melissaflores
  */
+import java.util.List;
+
 public class Screen {
     private int screenID;
     private String screenType;
