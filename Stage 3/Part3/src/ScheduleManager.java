@@ -1,10 +1,9 @@
 /**
  *  Manages movie scheduling tasks such as assigning movies to screens 
- * and resetting seat layouts. Maintains a map of scheduled showtimes
+ * and resetting seat layouts. Maintains a map of scheduled showtime's
  * @author Taryn Davis
  */
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,18 +18,19 @@ public class ScheduleManager {
     }
 
     /**
-     * Assigns a movie to a screen at a specific date and time
-     * @param movieID The ID of the movie to assign
-     * @param screenID The ID of the screen where the movie will play
-     * @param date The date of the scheduled showing
-     * @param time The time of the scheduled showing
-     * @return true if the movie was successfully scheduled
+     * This class assigns movies to screens 
+     * @param movieTitle The movie to be added
+     * @param availableTimes The time to be added
+     * @param movieDate The date to be added
+     * @param rating The rating of the movie
+     * @param runTime The runtime of the movie
+     * @return True if the assignment was successful
      */
-    public boolean assignMovieToScreen(int movieID, int screenID, LocalDate date, LocalTime time) {
-        int showtimeID = showtimes.size() + 1; // generate a simple ID
-        Showtime newShowTime = new Showtime(showtimeID, movieID, screenID, date, time, false);
-        showtimes.put(showtimeID, newShowTime);
-        System.out.println("Movie " + movieID + " assigned to Screen " + screenID + " at " + time + ".");
+    public boolean assignMovieToScreen(String movieTitle, String availableTimes, String movieDate, String rating, String runTime) {
+        int showtimeID = showtimes.size() + 1;
+        Showtime newShowtime = new Showtime(movieTitle, availableTimes, movieDate, rating, runTime);
+        showtimes.put(showtimeID, newShowtime);
+        System.out.println("Movie " + movieTitle + " assigned at " + availableTimes + " on " + movieDate);
         return true;
     }
 
