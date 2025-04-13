@@ -7,7 +7,7 @@
  *
  * @author melissaflores
  */
-    interface Items {
+    public interface Items {
         String getName();
         int getQuantity();
         double getPrice();
