@@ -18,4 +18,4 @@ Created and Coded Classes:
   - IScheduleHandler
   - IStaffHandler
 
-
+Coded and debugged all my classes as well as helped create Code Screenshots pdf and ReadMe File.
