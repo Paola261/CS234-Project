@@ -101,13 +101,12 @@ public class Main {
         cust3.addConcessionOrder(cO5);
         
         //Adds Customers to a list
-        ArrayList<Customer> customers = new ArrayList<>();
+        /*ArrayList<Customer> customers = new ArrayList<>();*/
         customers.add(cust1);
         customers.add(cust2);
         customers.add(cust3);
         customers.add(cust4);
         customers.add(cust5);     
-        customers.add(cust5);    
        
         // Cashier 
         Credential cashierCred1 = new Credential("Mic.Car", "Treehouse2");
@@ -136,6 +135,10 @@ public class Main {
         ScheduleManager scheduleManager = new ScheduleManager();
         StaffManager staffManager = new StaffManager();
         MaintenanceManager maintenanceManager = new MaintenanceManager();
+        
+        maintenanceManager.logIssue("Projector malfunction in Screen 2");
+        maintenanceManager.logIssue("Leaky ceiling in concession area");
+        maintenanceManager.logIssue("AC not working in theater lobby");
         
         boolean running = true;
         while (running) {
@@ -431,7 +434,7 @@ public class Main {
             System.out.println("1. View Customers");
             System.out.println("2. Add Customer");
             System.out.println("3. Remove Customer");
-            System.out.println("Back to Cashier Menu");
+            System.out.println("4. Back to Previous Menu");
             System.out.print("Enter your choice: ");
             String choice = in.next();
             
@@ -457,21 +460,21 @@ public class Main {
     
     public static void viewCustomers(){
         
-        /*Customer cust1 = new Customer("Darian Lopez", 100, (byte)16);
-        Customer cust2 = new Customer("Sophia Smith", 200, (byte)14);
-        Customer cust3 = new Customer("Amber Zul", 300, (byte)21);
-        Customer cust4 = new Customer("Nicholas Shaffer", 400, (byte)18);
-        Customer cust5 = new Customer("Corey Shaffer", 500, (byte)61);
-        
-        ArrayList<Customer> customers = new ArrayList<>();
-        customers.add(cust1);
-        customers.add(cust2);
-        customers.add(cust3);
-        customers.add(cust4);
-        customers.add(cust5);  */   
+//        Customer cust1 = new Customer("Darian Lopez", 100, (byte)16);
+//        Customer cust2 = new Customer("Sophia Smith", 200, (byte)14);
+//        Customer cust3 = new Customer("Amber Zul", 300, (byte)21);
+//        Customer cust4 = new Customer("Nicholas Shaffer", 400, (byte)18);
+//        Customer cust5 = new Customer("Corey Shaffer", 500, (byte)61);
+//        
+//        ArrayList<Customer> customers = new ArrayList<>();
+//        customers.add(cust1);
+//        customers.add(cust2);
+//        customers.add(cust3);
+//        customers.add(cust4);
+//        customers.add(cust5);    
         
         for(Customer c : customers) {
-            System.out.println(c.toString());
+            System.out.println(c.getCustomerInfo());
         }
         
     }
@@ -491,10 +494,9 @@ public class Main {
         customers.add(newCustomer);
         
         System.out.println("Customer added");
-            customers.add(newCustomer);
     }
     
-    public static void removeCustomer(){
+    /*public static void removeCustomer(){
         Scanner in = new Scanner(System.in);
         System.out.print("Enter Customer ID to remove: ");
         int id = in.nextInt();
@@ -512,9 +514,46 @@ public class Main {
         if(!removed){
             System.out.print("Customer ID not found.");
         }
-        
-        MenuCustomer();
-    }
+    }*/
     
+    public static void removeCustomer() {
+
+    Scanner in = new Scanner(System.in);
+
+    System.out.print("Enter Customer ID to remove: ");
+
+    int id = in.nextInt();
+ 
+    boolean removed = false;
+
+    java.util.Iterator<Customer> iterator = customers.iterator();
+
+    while (iterator.hasNext()) {
+
+        Customer c = iterator.next();
+
+        if (c.getCustomerID() == id) {
+
+            iterator.remove(); // this avoids concurrent modification issues
+
+            System.out.println("Customer removed.");
+
+            removed = true;
+
+            break;
+
+        }
+
+    }
+ 
+    if (!removed) {
+
+        System.out.println("Customer ID not found.");
+
+    }
+
+}
+
+ 
 }
 
