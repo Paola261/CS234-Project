@@ -26,7 +26,6 @@ public class MaintenanceManager {
      */
     public void logIssue(String description) {
         pendingIssues.add(description);
-        System.out.println("Logged maintenance issue: " + description);
     }
 
     /**
