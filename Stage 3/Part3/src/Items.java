@@ -1,10 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
- *
+ * The interface represents a contract for items that can be managed
+ * It provides methods to retrieve item information and sell items
  * @author melissaflores
  */
     public interface Items {

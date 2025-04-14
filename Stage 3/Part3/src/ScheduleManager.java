@@ -28,7 +28,7 @@ public class ScheduleManager {
      */
     public boolean assignMovieToScreen(String movieTitle, String availableTimes, String movieDate, String rating, String runTime) {
         int showtimeID = showtimes.size() + 1;
-        Showtime newShowtime = new Showtime(movieTitle, availableTimes, movieDate, rating, runTime);
+        Showtime newShowtime = new Showtime(movieTitle, availableTimes, movieDate, rating, runTime, showtimeID);
         showtimes.put(showtimeID, newShowtime);
         System.out.println("Movie " + movieTitle + " assigned at " + availableTimes + " on " + movieDate);
         return true;

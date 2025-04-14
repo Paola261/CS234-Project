@@ -1,28 +1,48 @@
 /**
- *
- * @author melissaflores
+ * Represents an inventory of items
+ * @author Melissa Flores
  */
 import java.util.ArrayList;
 
 public class Inventory {
 
+    /**
+     * The list of items in the inventory
+     */
     public ArrayList<Items> items;
 
+    /**
+     * Constructs an empty Inventory
+     */
     public Inventory() {
         this.items = new ArrayList<>();
     }
+    
+    /**
+     * @return The list of items.
+     */
     public ArrayList<Items> getItems() {
         return items;
     }
 
+    /**
+     * @param item The item to add.
+     */
     public void addItem(Items item) {
         this.items.add(item);
     }
 
+    /**
+     * @param item The item to remove
+     */
     public void removeItem(Items item) {
         this.items.remove(item);
     }
     
+    /**
+     * @param name The name of the item to sell
+     * @param quantity The quantity to sell
+     */
     public void sellItem(String name, int quantity) {
         for (Items item : items) {
             if (item.getName().equals(name)) {
@@ -38,6 +58,9 @@ public class Inventory {
         System.out.println(name + " not found in inventory.");
     }
 
+    /**
+     * Displays the inventory of items
+     */
     public void displayInventory() {
         System.out.println("-------- Inventory --------");
         for (Items item : items) {
@@ -46,6 +69,9 @@ public class Inventory {
         System.out.println("---------------------------");
     }
 
+    /**
+     * @param args Command line arguments
+     */
     public static void main(String[] args) {
         Inventory inventory = new Inventory();
        
@@ -121,6 +147,9 @@ public class Inventory {
     }
 }
 
+/**
+ * Interface representing items with a name, quantity, and price that can be sold
+ */
 interface Items {
     String getName();
     int getQuantity();
@@ -133,23 +162,44 @@ class Ticket implements Items {
     private int quantity;
     private double price;
 
+    /**
+     * @param name the name of the ticket
+     * @param quantity the quantity of tickets
+     * @param price the price of each ticket
+     */
     public Ticket(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
     }
+    
+    /**
+     * @return the name of the ticket
+     */
     @Override
     public String getName() {
         return name;
     }
+    
+    /**
+     * @return the quantity of tickets
+     */
     @Override
     public int getQuantity() {
         return quantity;
     }
+    
+    /**
+     * @return the price of the ticket
+     */
     @Override
     public double getPrice() {
         return price;
     }
+    
+    /**
+     * @param quantity the quantity to sell
+     */
     @Override
     public void sell(int quantity) {
         this.quantity -= quantity;
@@ -161,23 +211,44 @@ class Concession implements Items {
     private int quantity;
     private double price;
 
+    /**
+     * @param name the name of the concession
+     * @param quantity the quantity of the concession
+     * @param price the price of the concession
+     */
     public Concession(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
     }
+    
+    /**
+     * @return the name of the concession
+     */
     @Override
     public String getName() {
         return name;
     }
+    
+    /**
+     * @return the quantity of the concession
+     */
     @Override
     public int getQuantity() {
         return quantity;
     }
+    
+    /**
+     * @return the price of the concession
+     */
     @Override
     public double getPrice() {
         return price;
     }
+    
+    /**
+     * @param quantity the quantity to sell
+     */
     @Override
     public void sell(int quantity) {
         this.quantity -= quantity;

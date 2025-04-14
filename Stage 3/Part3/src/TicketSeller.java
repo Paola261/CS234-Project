@@ -28,26 +28,27 @@ public class TicketSeller {
     
     /**
      * Method to retrieve the available showtimes if it matches the movieID
+     * @param showtimeID
      * @param movieID ~ the ID for the movie
      * @return a list of available showtimes 
      */
-    public List<Showtime> getAvailableShowTime(int movieID)
+    /*public List<Showtime> getAvailableShowTime(int showtimeID)
     {
         List<Showtime> availableShowtimes = new ArrayList<>();
         for(Showtime showtime: showtimes){
-            if(showtime.getMovie().getMovieID() == movieID){
+            if(showtime.getShowtimeID == showtimeID){
                 availableShowtimes.add(showtime);
             }
         }
         return availableShowtimes;
-    }
+    }*/
 
     /**
      * Method to retrieve the available sets if it matches a showtimeID
      * @param showtimeID ~ ID for the showtime 
      * @return a list for the available seats 
      */
-    public List<Seat> getAvailableSeats(int showtimeID)
+    /*public List<Seat> getAvailableSeats(int showtimeID)
     {
         for(Showtime showtime: showtimes){
             if(showtime.getShowID() == showtimeID){
@@ -55,7 +56,7 @@ public class TicketSeller {
             }
         }
         return new ArrayList<>();
-    }
+    }*/
 
     /**
      * Method to sell a ticket according to the customerID, showtimeID, seatID
@@ -70,11 +71,11 @@ public class TicketSeller {
         Showtime showtime = findShowtimeByID(showtimeID);
         
         if(customer != null && showtime != null){
-            Seat seat = showtime.findSeatID(seatID);
+            Seat seat = showtime.findSeatbyID(seatID);
             if(seat != null && seat.isAvailable()){
                 seat.reserve();
-                Ticket ticket = new Ticket(customer, showtime, seat);
-                customer.addTicket(ticket);
+                TicketOrder ticket = new TicketOrder(customer, showtime, seat);
+                customer.addTicketOrder(ticket);
                 return true;
             }
         }
@@ -102,7 +103,7 @@ public class TicketSeller {
      */
     private Showtime findShowtimeByID(int showtimeID){
         for(Showtime showtime: showtimes){
-            if(showtime.getShowtimeID() == showtimeID){
+            if(showtime.getSID() == showtimeID){
                 return showtime;
             }
         }

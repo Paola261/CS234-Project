@@ -1,6 +1,7 @@
 /**
- *
- * @author melissaflores
+ * /**
+ * Manages inventory operations, extending the Inventory class
+ * @author Melissa Flores
  */
 import java.util.Scanner;
 
@@ -14,26 +15,29 @@ public class InventoryManager extends Inventory {
         inventoryCRUD.run();
     }
 
+    /**
+     * Runs the main loop of the Inventory Management System, displaying a menu and processing user input.
+     */
     public void run() {
         boolean running = true;
         while (running) {
             System.out.println("\nInventory Management System Menu:");
-            System.out.println("1. Add Item");
-            System.out.println("2. Remove Item");
-            System.out.println("3. Sell Item");
-            System.out.println("4. Display Inventory");
-            System.out.println("5. Exit");
+            /*System.out.println("1. Add Item");*/
+            System.out.println("1. Remove Item");
+            System.out.println("2. Sell Item");
+            System.out.println("3. Display Inventory");
+            System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
 
             switch (choice) {
-                case 1 -> addItem();
-                case 2 -> removeItem();
-                case 3 -> sellItem();
-                case 4 -> displayInventory();
-                case 5 -> {
+                /*case 1 -> addItem();*/
+                case 1 -> removeItem();
+                case 2 -> sellItem();
+                case 3 -> displayInventory();
+                case 4 -> {
                     running = false;
                     System.out.println("Exiting...");
                 }
@@ -42,7 +46,7 @@ public class InventoryManager extends Inventory {
         }
     }
 
-    private void addItem() {
+    /*private void addItem() {
         System.out.print("Enter item name: ");
         String name = scanner.nextLine();
         System.out.print("Enter item quantity: ");
@@ -55,8 +59,11 @@ public class InventoryManager extends Inventory {
         newItem = new Items(name, quantity, price);
         super.addItem(newItem);
         System.out.println(name + " added to inventory.");
-    }
+    }*/
 
+    /**
+     * Removes an item from the inventory
+     */
     private void removeItem() {
         System.out.print("Enter item name to remove: ");
         String name = scanner.nextLine();
@@ -75,6 +82,10 @@ public class InventoryManager extends Inventory {
         }
     }
 
+    /**
+     * @param name     The name of the item to sell
+     * @param quantity The quantity of the item to sell
+     */
     private void sellItem() {
         System.out.print("Enter item name to sell: ");
         String name = scanner.nextLine();

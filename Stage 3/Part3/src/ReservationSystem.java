@@ -29,7 +29,7 @@ public class ReservationSystem {
     public List<Seat> getAvailableSeats(int showtimeID)
     {
         for(Showtime showtime: showtimes){
-            if(showtime.getShowtimeID() == showtimeID){
+            if(showtime.getSID() == showtimeID){
                 return showtime.getAvailableSeats();
             }
         }
@@ -41,7 +41,7 @@ public class ReservationSystem {
      * @param seatID
      * @return 
      */
-    public boolean reserveSeat(int seatID)
+    /*public boolean reserveSeat(int seatID)
     {
         for(Showtime showtime: showtimes){
             Seat seat = showtime.findSeatbyID(seatID);
@@ -51,14 +51,14 @@ public class ReservationSystem {
             }
         }
         return false;
-    }
+    }*/
     
     /**
      * Releases a seat with a seatID
      * @param seatID
      * @return 
      */
-    public boolean releaseSeat(int seatID){
+    /*public boolean releaseSeat(int seatID){
         for(Showtime showtime : showtimes) {
             Seat seat = showtime.findSeatbyID(seatID);
             if(seat != null && !seat.isAvailable()){
@@ -68,7 +68,7 @@ public class ReservationSystem {
         }
         return false;
         
-    }
+    }*/
     
     
 }

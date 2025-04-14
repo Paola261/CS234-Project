@@ -1,6 +1,6 @@
 /**
- *
- * @author melissaflores
+ * Represents a shopping cart that handles payments using a payment strategy
+ * @author Melissa Flores
  */
 public class Cart {
     private PaymentStrategy paymentStrategy;

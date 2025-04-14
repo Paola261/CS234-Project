@@ -46,7 +46,7 @@ public class Customer {
      */
     public String getCustomerInfo()
     {
-        return "Customers Name: " + name + " ID: " + customerID + "Age: " + age;
+        return "Customers Name: " + name + " ID: " + customerID + " Age: " + age;
     }
     
     /**

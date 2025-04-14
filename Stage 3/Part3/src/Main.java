@@ -1,7 +1,7 @@
 /**
- * The entry point for the Movie Theater Management System.
+ * The entry point for the Movie Theater Management System
  * Handles user login and role-based menu navigation for manager, cashiers
- * and engineers
+ and engineers
  * 
  * @author paolapereda
  * @author Taryn Davis
@@ -48,11 +48,11 @@ public class Main {
         Customer cust4 = new Customer("Nicholas Shaffer", 400, (byte)18);
         Customer cust5 = new Customer("Corey Shaffer", 500, (byte)61); 
         
-        Showtime s1 = new Showtime("Clueless", "3:15PM", "4/13/25", "PG-13", "1h37m");
-        Showtime s2 = new Showtime("Insidious", "9:45PM", "4/20/25", "R", "1h53m");
-        Showtime s3 = new Showtime("Divergent", "4:45PM", "4/22/25", "PG-13", "2h19m");
-        Showtime s4 = new Showtime("High School Musical", "2:00PM", "4/24/25", "G", "1h38m");
-        Showtime s5 = new Showtime("BigHeroSix", "7:10PM", "4/26/25", "PG", "1h48m");
+        Showtime s1 = new Showtime("Clueless", "3:15PM", "4/13/25", "PG-13", "1h37m", 23);
+        Showtime s2 = new Showtime("Insidious", "9:45PM", "4/20/25", "R", "1h53m", 24);
+        Showtime s3 = new Showtime("Divergent", "4:45PM", "4/22/25", "PG-13", "2h19m", 25);
+        Showtime s4 = new Showtime("High School Musical", "2:00PM", "4/24/25", "G", "1h38m", 26);
+        Showtime s5 = new Showtime("BigHeroSix", "7:10PM", "4/26/25", "PG", "1h48m", 27);
         
         // SEAT
         Seat st1 = new Seat(104, 1, 'D', (byte)10, true);
@@ -171,7 +171,6 @@ public class Main {
                             break;
                         }
                     }
-//NEEDS TO BE FIXED
                     if (loggedInCashier != null) {
                         // You’ll need to pass the appropriate services
                         cashierMenu(scanner, loggedInCashier, concessionProcessor, ticketSeller);
@@ -240,7 +239,8 @@ public class Main {
             System.out.println("3. Assign staff role");
             System.out.println("4. Log maintenance issue");
             System.out.println("5. View maintenance issues");
-            System.out.println("6. Logout");
+            System.out.println("6. View customer menu");            
+            System.out.println("7. Logout");
 
             System.out.print("Choice: ");
             String input = scanner.nextLine();
@@ -289,6 +289,9 @@ public class Main {
                     }
                     break;
                 case "6":
+                    MenuCustomer();
+                    break;
+                case "7":
                     loggedIn = false;
                     manager.logout();
                     break;
@@ -438,6 +441,7 @@ public class Main {
                     break;
                 case "2":
                     addCustomer();
+                    break;
                 case "3":
                     removeCustomer();
                     break;
@@ -445,17 +449,29 @@ public class Main {
                     return;
                 default: 
                     System.out.println("Invalid choice. Please try again.");
-                    MenuCustomer();
+                    break;
             }
-            MenuCustomer();
         }         
         
     }
     
     public static void viewCustomers(){
         
+        /*Customer cust1 = new Customer("Darian Lopez", 100, (byte)16);
+        Customer cust2 = new Customer("Sophia Smith", 200, (byte)14);
+        Customer cust3 = new Customer("Amber Zul", 300, (byte)21);
+        Customer cust4 = new Customer("Nicholas Shaffer", 400, (byte)18);
+        Customer cust5 = new Customer("Corey Shaffer", 500, (byte)61);
+        
+        ArrayList<Customer> customers = new ArrayList<>();
+        customers.add(cust1);
+        customers.add(cust2);
+        customers.add(cust3);
+        customers.add(cust4);
+        customers.add(cust5);  */   
+        
         for(Customer c : customers) {
-            System.out.println(c.getCustomerInfo());
+            System.out.println(c.toString());
         }
         
     }
@@ -470,15 +486,12 @@ public class Main {
         System.out.print("Enter customer age: ");
         byte age = in.nextByte();
         
-        Customer newCustomer = new Customer(name, id, age);
-
-        
-        System.out.println("Customer added.");
-    
+        Customer newCustomer = new Customer(name, id, age);    
 
         customers.add(newCustomer);
         
         System.out.println("Customer added");
+            customers.add(newCustomer);
     }
     
     public static void removeCustomer(){
@@ -498,8 +511,9 @@ public class Main {
         
         if(!removed){
             System.out.print("Customer ID not found.");
-            
         }
+        
+        MenuCustomer();
     }
     
 }
