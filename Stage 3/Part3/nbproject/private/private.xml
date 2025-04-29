@@ -3,14 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/ReservationSystem.java</file>
-            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/TicketSeller.java</file>
             <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/ConcessionProcessor.java</file>
-            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Customer.java</file>
-            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Movie.java</file>
-            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/TicketOrder.java</file>
-            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/FoodBeverage.java</file>
             <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/ConcessionOrder.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/ScheduleManager.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/TicketOrder.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Movie.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Showtime.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Screen.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/ReservationSystem.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Seat.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Main.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/MaintenanceManager.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/TicketSeller.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Customer.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/InventoryManager.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Item.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Authenticatable.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Cart.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/CashPayment.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Cashier.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Credential.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/CreditCardPayment.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Engineer.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/IStaffHandler.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Inventory.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Manager.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/PaymentStrategy.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Person.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/Staff.java</file>
+            <file>file:/Users/paolapereda/Desktop/cs234/Project/CS234-Project/Stage%203/Part3/src/StaffManager.java</file>
         </group>
     </open-files>
 </project-private>

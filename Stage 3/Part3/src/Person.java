@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /**
  * Abstract base class representing a generic person in the system.
  * Used as a parent class for specific roles such as staff and customer
@@ -10,6 +13,7 @@ public abstract class Person {
     protected String name;
     protected int age;
     protected int personID;
+    private ArrayList<Customer> customers;
     
     /**
      * Constructs a person object with name, age, and person ID
@@ -17,10 +21,11 @@ public abstract class Person {
      * @param age the age of the person
      * @param personID the unique identifier for the person
      */
-    public Person(String name, int age, int personID) {
+    public Person(String name, int age, int personID) { // name, ID, age???
         this.name = name;
         this.age = age;
         this.personID = personID;
+        this.customers = new ArrayList<>();
     }
     
     /**
@@ -61,6 +66,19 @@ public abstract class Person {
      */
     public void setAge(int age) { 
         this.age = age; 
+    }
+
+    void addCustomer(Customer aCustomer) { // INSERTED CODE
+        customers.add(aCustomer);
+    }
+
+    Iterable<Customer> getCustomers() { //INSERTED CODE
+        return customers;
+        
+    }
+
+    Customer getACustomer(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
 

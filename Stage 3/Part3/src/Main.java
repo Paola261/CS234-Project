@@ -10,6 +10,8 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
+
 
 public class Main {
     static ArrayList<Manager> managers = new ArrayList<>();
@@ -45,7 +47,7 @@ public class Main {
         Customer cust1 = new Customer("Darian Lopez", 100, (byte)16);
         Customer cust2 = new Customer("Sophia Smith", 200, (byte)14);
         Customer cust3 = new Customer("Amber Zul", 300, (byte)21);
-        Customer cust4 = new Customer("Nicholas Shaffer", 400, (byte)18);
+        Customer cust4 = new Customer("Nicholas Geny", 400, (byte)18);
         Customer cust5 = new Customer("Corey Shaffer", 500, (byte)61); 
         
         Showtime s1 = new Showtime("Clueless", "3:15PM", "4/13/25", "PG-13", "1h37m", 23);
@@ -140,6 +142,11 @@ public class Main {
         maintenanceManager.logIssue("Leaky ceiling in concession area");
         maintenanceManager.logIssue("AC not working in theater lobby");
         
+        // Customer csv for Frame 
+        Person aPerson = new Person(); //person is abstract, error
+        String customerInfo = "customers.csv";
+        new Customer_GUI(aPerson, customerInfo).setVisible(true);
+       
         boolean running = true;
         while (running) {
             System.out.println("\n Welcome to the Movie Theater System");
