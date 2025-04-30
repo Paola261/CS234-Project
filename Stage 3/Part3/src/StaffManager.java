@@ -8,6 +8,8 @@
  */
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 public class StaffManager {
     private Map<Integer, Staff> staffDirectory;
@@ -61,4 +63,13 @@ public class StaffManager {
     public Staff getStaffByID(int staffID) {
         return staffDirectory.get(staffID);
     }
+    
+    public List<Staff> getAllStaff() {
+        return new ArrayList<>(staffDirectory.values());
+    }
+    
+    public boolean removeStaffByID(int staffID) {
+        return staffDirectory.remove(staffID) != null;
+    }
+    
 }

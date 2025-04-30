@@ -33,6 +33,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);   
          
+     
         // Manager Users
         Credential managerCred1 = new Credential("Lil.Ben", "PastelDream9");
         Manager manager1 = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred1);
@@ -141,6 +142,7 @@ public class Main {
         maintenanceManager.logIssue("Projector malfunction in Screen 2");
         maintenanceManager.logIssue("Leaky ceiling in concession area");
         maintenanceManager.logIssue("AC not working in theater lobby");
+       
         
         // Customer csv for Frame 
         Person aPerson = new Person(); //person is abstract, error
@@ -249,8 +251,11 @@ public class Main {
             System.out.println("3. Assign staff role");
             System.out.println("4. Log maintenance issue");
             System.out.println("5. View maintenance issues");
-            System.out.println("6. View customer menu");            
-            System.out.println("7. Logout");
+            System.out.println("6. View customer menu");           
+            System.out.println("7. View Staff");
+            System.out.println("8. Add Staff");
+            System.out.println("9. Remove Staff");
+            System.out.println("10. Logout");
 
             System.out.print("Choice: ");
             String input = scanner.nextLine();
@@ -302,6 +307,36 @@ public class Main {
                     MenuCustomer();
                     break;
                 case "7":
+                    for (Staff s : staffManager.getAllStaff()) {
+                        System.out.println(s.getStaffID() + " - " + s.getName() + " (" + s.getRole() + ")");
+                    }
+                    break;
+                case "8":
+                    System.out.print("Enter name: ");
+                    String sName = scanner.nextLine();
+                    System.out.print("Enter age: ");
+                    int sAge = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Enter staff ID: ");
+                    int newSID = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Enter role: ");
+                    String sRole = scanner.nextLine();
+                    Credential  cred = new Credential("defaultUser", "defaultPass");
+                    Staff newStaff = new Staff(sName, sAge, newSID,newSID, sRole, cred);
+                    staffManager.addStaff(newStaff);
+                    System.out.println("Staff added.");
+                    break;
+                case "9":
+                    System.out.print("Enter staff ID to removeL ");
+                    int removeID = Integer.parseInt(scanner.nextLine());
+                    if (staffManager.removeStaffByID(removeID)) {
+                        System.out.println("Staff removed.");
+                    } else {
+                        System.out.println("Staff ID not found");
+                    }
+                    break;
+     '
+                
+                case "10":
                     loggedIn = false;
                     manager.logout();
                     break;

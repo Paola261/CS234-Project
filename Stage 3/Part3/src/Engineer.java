@@ -1,5 +1,5 @@
 /**
- * Represents an engineer staff memeber responsible for handling maintenance tasks
+ * Represents an engineer staff member responsible for handling maintenance tasks
  * in the movie theater system. Engineers can view assigned sections, review pending 
  * maintenance issues, and mark issues as resolved
  * 

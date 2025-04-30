@@ -6,6 +6,7 @@
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class ScheduleManager {
     private Map<Integer, Showtime> showtimes;
@@ -53,5 +54,17 @@ public class ScheduleManager {
     public Map<Integer, Showtime> getShowtimes() {
         return showtimes;
     }
+    
+    public void addShowtime(Showtime s){
+        showtimes.add(s);
+    }
+    
+    public List<Showtime> getShowtimes() {
+        return showtimes;
+    }
+    public boolean removeShowtimeByTItle(String title) {
+        return showtimes.removeIf(s -> s.getMoveTitle().equalsIgnoreCase(title));
+    }
+    
     
 }
