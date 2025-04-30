@@ -22,7 +22,7 @@ public class InventoryManager extends Inventory {
         boolean running = true;
         while (running) {
             System.out.println("\nInventory Management System Menu:");
-            /*System.out.println("1. Add Item");*/
+            System.out.println("1. Add Item");
             System.out.println("1. Remove Item");
             System.out.println("2. Sell Item");
             System.out.println("3. Display Inventory");
@@ -33,11 +33,11 @@ public class InventoryManager extends Inventory {
             scanner.nextLine();
 
             switch (choice) {
-                /*case 1 -> addItem();*/
-                case 1 -> removeItem();
-                case 2 -> sellItem();
-                case 3 -> displayInventory();
-                case 4 -> {
+                case 1 -> addItem();
+                case 2 -> removeItem();
+                case 3 -> sellItem();
+                case 4 -> displayInventory();
+                case 5 -> {
                     running = false;
                     System.out.println("Exiting...");
                 }
@@ -46,7 +46,7 @@ public class InventoryManager extends Inventory {
         }
     }
 
-    /*private void addItem() {
+    private void addItem() {
         System.out.print("Enter item name: ");
         String name = scanner.nextLine();
         System.out.print("Enter item quantity: ");
@@ -56,10 +56,10 @@ public class InventoryManager extends Inventory {
         scanner.nextLine(); // Consume newline
 
         Items newItem;
-        newItem = new Items(name, quantity, price);
+        newItem = new ItemsImpl(name, quantity, price);
         super.addItem(newItem);
         System.out.println(name + " added to inventory.");
-    }*/
+    }
 
     /**
      * Removes an item from the inventory
@@ -93,5 +93,35 @@ public class InventoryManager extends Inventory {
         int quantity = scanner.nextInt();
         scanner.nextLine(); // Consume newline
         super.sellItem(name, quantity);
+    }
+
+    private static class ItemsImpl implements Items {
+
+        private String name;
+        private int quantity;
+        private double price;
+
+        public ItemsImpl(String name, int quantity, double price) {
+        }
+
+        @Override
+        public String getName() {
+            return name; 
+        }
+
+        @Override
+        public int getQuantity() {
+            return quantity;
+        }
+
+        @Override
+        public double getPrice() {
+            return price;
+        }
+
+        @Override
+        public void sell(int quantity) {
+            this.quantity -= quantity;
+        }
     }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Order extends Inventory {
     private int orderID;
     private int customerID;
-    private ArrayList<Items> items;
+    private ArrayList<Items> orderItems;
     private int showtimeID;
     private int seatID;
     private float total;
@@ -25,7 +25,7 @@ public class Order extends Inventory {
     public Order(int orderID, int customerID, ArrayList<Items> items, int showtimeID, int seatID, float total) {
         this.orderID = orderID;
         this.customerID = customerID;
-        this.items = items;
+        this.orderItems = items;
         this.showtimeID = showtimeID;
         this.seatID = seatID;
         this.total = total;
@@ -70,7 +70,7 @@ public class Order extends Inventory {
      * @param items An ArrayList of Items to set
      */
     public void setItems(ArrayList<Items> items) {
-        this.items = items;
+        this.items = orderItems;
     }
 
     /**
