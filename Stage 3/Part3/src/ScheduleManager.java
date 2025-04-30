@@ -6,11 +6,12 @@
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleManager {
     private Map<Integer, Showtime> showtimes;
-
+    
     /**
      * Constructs a new ScheduleManager with an empty showtime list
      */
@@ -56,15 +57,19 @@ public class ScheduleManager {
     }
     
     public void addShowtime(Showtime s){
-        showtimes.add(s);
+        showtimes.put(s.getSID(), s);
     }
     
-    public List<Showtime> getShowtimes() {
-        return showtimes;
-    }
     public boolean removeShowtimeByTItle(String title) {
-        return showtimes.removeIf(s -> s.getMoveTitle().equalsIgnoreCase(title));
+        boolean removed = false;
+        for (Integer key : new ArrayList<>(showtimes.keySet())) {
+            if (showtimes.get(key).getMovieTitle().equalsIgnoreCase(title)) {
+                showtimes.remove(key);
+                removed = true;
+        }
     }
+    return removed;
+}
     
     
 }
