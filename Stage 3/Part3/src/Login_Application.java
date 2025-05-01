@@ -9,8 +9,7 @@ import javax.swing.JOptionPane;
  *
  * @author Taryn
  */
-public class Login_Application extends javax.swing.JFrame {
-        
+public class Login_Application extends javax.swing.JFrame {        
     
         //  Cashier 
         Credential cashierCred1 = new Credential("Mic.Car", "Treehouse2");
@@ -164,7 +163,20 @@ public class Login_Application extends javax.swing.JFrame {
     private void bloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloginActionPerformed
         // TODO add your handling code here:        
         String inputUser = jtuser.getText();
-        String inputPass = new String(jpassword.getPassword()); 
+        String inputPass = new String(jpassword.getPassword());
+        StaffManager staffManager = new StaffManager();        
+
+        // Add all staff
+        staffManager.addStaff(cashier1);
+        staffManager.addStaff(cashier2);
+        staffManager.addStaff(cashier3);
+
+        staffManager.addStaff(manager1);
+        staffManager.addStaff(manager2);
+
+        staffManager.addStaff(engineer1);
+        staffManager.addStaff(engineer2);
+        
         
         if (jtuser.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill out username");
@@ -191,9 +203,15 @@ public class Login_Application extends javax.swing.JFrame {
             // Check Managers
             else if (managerCred1.getUsername().equals(inputUser) && managerCred1.getPasswordHash().equals(inputPass)) {
                 JOptionPane.showMessageDialog(null, "Logged in as: " + manager1.getName());
+                Manager_Menu menu = new Manager_Menu(manager1, staffManager);
+                menu.setVisible(true);
+                this.dispose();
                 loggedIn = true;
             } else if (managerCred2.getUsername().equals(inputUser) && managerCred2.getPasswordHash().equals(inputPass)) {
                 JOptionPane.showMessageDialog(null, "Logged in as: " + manager2.getName());
+                Manager_Menu menu = new Manager_Menu(manager2, staffManager);
+                menu.setVisible(true);
+                this.dispose();
                 loggedIn = true;
             }
 
