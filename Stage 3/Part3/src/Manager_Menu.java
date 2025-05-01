@@ -239,6 +239,11 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnAddStaffMember.setBounds(30, 270, 180, 23);
 
         btnRemoveStaffMember.setText("Remove Staff Member");
+        btnRemoveStaffMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveStaffMemberActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRemoveStaffMember);
         btnRemoveStaffMember.setBounds(30, 310, 180, 23);
 
@@ -319,6 +324,25 @@ public class Manager_Menu extends javax.swing.JFrame {
         new Login_Application().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnRemoveStaffMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveStaffMemberActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblStaff.getSelectedRow();
+        if  (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a Staff Member to Remove");
+            return;
+        }
+        
+        String staffIDStr = tblStaff.getValueAt(selectedRow, 2).toString();
+        int staffID = Integer.parseInt(staffIDStr);
+        
+        boolean removed = staffManager.removeStaffByID(staffID);
+        if (removed) {
+            JOptionPane.showMessageDialog(this, "Staff member removed");
+        } else {
+            JOptionPane.showMessageDialog(this, "Staff not found");
+        }
+    }//GEN-LAST:event_btnRemoveStaffMemberActionPerformed
 
     /**
      * @param args the command line arguments
