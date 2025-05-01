@@ -90,6 +90,10 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnViewMoreDetails = new javax.swing.JButton();
         panelCustomerMenu = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        txtMovieTitle = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        btnDate = new javax.swing.JButton();
         panelMaintenanceMenu = new javax.swing.JPanel();
 
         menu1.setLabel("File");
@@ -241,6 +245,19 @@ public class Manager_Menu extends javax.swing.JFrame {
         tabAccountPane.addTab("Customer Menu", panelCustomerMenu);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setText("Movie Title:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, 20));
+
+        txtMovieTitle.setText("jTextField1");
+        jPanel4.add(txtMovieTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 150, -1));
+
+        jLabel10.setText("Date:");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 70, 20));
+
+        btnDate.setText("jButton1");
+        jPanel4.add(btnDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 150, -1));
+
         tabAccountPane.addTab("Movie Menu", jPanel4);
 
         javax.swing.GroupLayout panelMaintenanceMenuLayout = new javax.swing.GroupLayout(panelMaintenanceMenu);
@@ -461,11 +478,13 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAddStaffMember;
     private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnChangeStaffRole;
+    private javax.swing.JButton btnDate;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRemoveStaffMember;
     private javax.swing.JButton btnViewMoreDetails;
     private javax.swing.JPanel jAccountPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -473,6 +492,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
@@ -492,6 +512,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JTable tblStaff;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtMovieTitle;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtRole;
     // End of variables declaration//GEN-END:variables
