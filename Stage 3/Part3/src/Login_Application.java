@@ -15,7 +15,7 @@ public class Login_Application extends javax.swing.JFrame {
         Credential cashierCred1 = new Credential("Mic.Car", "Treehouse2");
         Cashier cashier1 = new Cashier("Michael Carter", 28, 1003, 3, "Cashier", cashierCred1, 101);        
         Credential cashierCred2 = new Credential("Emm.Ree", "Sunflower45");
-        Cashier cashier2 = new Cashier("Michael Carter", 25, 1004, 4, "Cashier", cashierCred2, 102);
+        Cashier cashier2 = new Cashier("Emma Reese", 25, 1004, 4, "Cashier", cashierCred2, 102);
         
         Credential cashierCred3 = new Credential("Rya.Jac", "BlueSky12");
         Cashier cashier3 = new Cashier("Ryan Jacobs", 18, 1005, 5, "Cashier", cashierCred3, 103);
@@ -70,8 +70,10 @@ public class Login_Application extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Username");
 
-        blogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        blogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         blogin.setText("Login");
+        blogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        blogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         blogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bloginActionPerformed(evt);
@@ -153,8 +155,10 @@ public class Login_Application extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bexit)
                     .addComponent(blogin))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
+
+        blogin.getAccessibleContext().setAccessibleDescription("");
 
         pack();
         setLocationRelativeTo(null);

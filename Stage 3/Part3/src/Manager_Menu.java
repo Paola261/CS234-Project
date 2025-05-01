@@ -64,18 +64,15 @@ public class Manager_Menu extends javax.swing.JFrame {
         jOptionPane1 = new javax.swing.JOptionPane();
         lblManagerName1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
+        tabAccountPane = new javax.swing.JTabbedPane();
+        jAccountPanel = new javax.swing.JPanel();
         lblWelcome = new javax.swing.JLabel();
         lblManagerName = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        btnChangePassword = new javax.swing.JButton();
+        jStaffPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -90,7 +87,10 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnAddStaffMember = new javax.swing.JButton();
         btnRemoveStaffMember = new javax.swing.JButton();
         btnChangeStaffRole = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnViewMoreDetails = new javax.swing.JButton();
+        panelCustomerMenu = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        panelMaintenanceMenu = new javax.swing.JPanel();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -110,20 +110,20 @@ public class Manager_Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jAccountPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(3, 4, 94));
         lblWelcome.setText("Welcome!");
-        jPanel3.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
+        jAccountPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
         lblManagerName.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblManagerName.setText("Manager Name");
-        jPanel3.add(lblManagerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        jAccountPanel.add(lblManagerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setText("__________");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 200, 90));
+        jAccountPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 200, 90));
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -131,72 +131,42 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        jPanel3.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 90, 30));
+        jAccountPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 90, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-04-30 230942.png")); // NOI18N
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
+        jAccountPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
 
-        jTabbedPane1.addTab("Account Menu", jPanel3);
+        btnChangePassword.setText("Reset Password");
+        btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangePasswordActionPerformed(evt);
+            }
+        });
+        jAccountPanel.add(btnChangePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 160, 30));
 
-        jPanel2.setLayout(null);
-        jTabbedPane1.addTab("Movie Menu", jPanel2);
+        tabAccountPane.addTab("Account Menu", jAccountPanel);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel5.setBackground(new java.awt.Color(0, 0, 102));
-        jPanel5.setForeground(new java.awt.Color(0, 0, 153));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 47, Short.MAX_VALUE)
-        );
-
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 740, -1));
-
-        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
-
-        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 540));
-
-        jTabbedPane1.addTab("Staff Menu", jPanel4);
-
-        jPanel1.setLayout(null);
+        jStaffPanel.setLayout(null);
 
         jLabel1.setText("Name:");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 40, 37, 16);
+        jStaffPanel.add(jLabel1);
+        jLabel1.setBounds(20, 30, 37, 16);
 
         jLabel5.setText("Age:");
-        jPanel1.add(jLabel5);
+        jStaffPanel.add(jLabel5);
         jLabel5.setBounds(20, 90, 37, 16);
 
         jLabel6.setText("ID:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(20, 140, 14, 16);
+        jStaffPanel.add(jLabel6);
+        jLabel6.setBounds(20, 150, 60, 16);
 
         jLabel7.setText("Role: ");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(20, 190, 29, 16);
+        jStaffPanel.add(jLabel7);
+        jLabel7.setBounds(20, 210, 120, 16);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setText("Staff");
-        jPanel1.add(jLabel8);
+        jStaffPanel.add(jLabel8);
         jLabel8.setBounds(430, 10, 60, 60);
 
         tblStaff.setModel(new javax.swing.table.DefaultTableModel(
@@ -212,7 +182,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblStaff);
 
-        jPanel1.add(jScrollPane1);
+        jStaffPanel.add(jScrollPane1);
         jScrollPane1.setBounds(220, 60, 480, 170);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
@@ -220,14 +190,14 @@ public class Manager_Menu extends javax.swing.JFrame {
                 txtNameActionPerformed(evt);
             }
         });
-        jPanel1.add(txtName);
-        txtName.setBounds(20, 60, 64, 22);
-        jPanel1.add(txtAge);
-        txtAge.setBounds(20, 110, 64, 22);
-        jPanel1.add(txtID);
-        txtID.setBounds(20, 160, 64, 22);
-        jPanel1.add(txtRole);
-        txtRole.setBounds(20, 210, 64, 22);
+        jStaffPanel.add(txtName);
+        txtName.setBounds(20, 50, 180, 30);
+        jStaffPanel.add(txtAge);
+        txtAge.setBounds(20, 110, 180, 30);
+        jStaffPanel.add(txtID);
+        txtID.setBounds(20, 170, 180, 30);
+        jStaffPanel.add(txtRole);
+        txtRole.setBounds(20, 230, 180, 30);
 
         btnAddStaffMember.setText("Add Staff Member");
         btnAddStaffMember.addActionListener(new java.awt.event.ActionListener() {
@@ -235,8 +205,8 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnAddStaffMemberActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAddStaffMember);
-        btnAddStaffMember.setBounds(30, 270, 180, 23);
+        jStaffPanel.add(btnAddStaffMember);
+        btnAddStaffMember.setBounds(20, 280, 180, 23);
 
         btnRemoveStaffMember.setText("Remove Staff Member");
         btnRemoveStaffMember.addActionListener(new java.awt.event.ActionListener() {
@@ -244,43 +214,83 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnRemoveStaffMemberActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRemoveStaffMember);
-        btnRemoveStaffMember.setBounds(30, 310, 180, 23);
+        jStaffPanel.add(btnRemoveStaffMember);
+        btnRemoveStaffMember.setBounds(520, 260, 180, 23);
 
         btnChangeStaffRole.setText("Change Staff Role");
-        jPanel1.add(btnChangeStaffRole);
-        btnChangeStaffRole.setBounds(30, 350, 180, 23);
-
-        jButton1.setText("View More Details");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnChangeStaffRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnChangeStaffRoleActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(30, 390, 180, 23);
+        jStaffPanel.add(btnChangeStaffRole);
+        btnChangeStaffRole.setBounds(520, 300, 180, 23);
 
-        jTabbedPane1.addTab("Staff", jPanel1);
+        btnViewMoreDetails.setText("View More Details");
+        btnViewMoreDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewMoreDetailsActionPerformed(evt);
+            }
+        });
+        jStaffPanel.add(btnViewMoreDetails);
+        btnViewMoreDetails.setBounds(520, 340, 180, 23);
+
+        tabAccountPane.addTab("Staff Menu", jStaffPanel);
+
+        panelCustomerMenu.setLayout(null);
+        tabAccountPane.addTab("Customer Menu", panelCustomerMenu);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        tabAccountPane.addTab("Movie Menu", jPanel4);
+
+        javax.swing.GroupLayout panelMaintenanceMenuLayout = new javax.swing.GroupLayout(panelMaintenanceMenu);
+        panelMaintenanceMenu.setLayout(panelMaintenanceMenuLayout);
+        panelMaintenanceMenuLayout.setHorizontalGroup(
+            panelMaintenanceMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 734, Short.MAX_VALUE)
+        );
+        panelMaintenanceMenuLayout.setVerticalGroup(
+            panelMaintenanceMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 454, Short.MAX_VALUE)
+        );
+
+        tabAccountPane.addTab("Maintenance Menu", panelMaintenanceMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(tabAccountPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(tabAccountPane, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnViewMoreDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewMoreDetailsActionPerformed
+        int selectedRow = tblStaff.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Select a staff member.");
+            return;
+        }
+        
+        int id = Integer.parseInt(tblStaff.getValueAt(selectedRow, 2).toString());
+        Staff s = staffManager.getStaffByID(id);
+        if (s != null) {
+            String details = "Name: " + s.getName()
+                    + "\nAge: " + s.getAge()
+                    + "\nID: " + s.getStaffID()
+                    + "\nRole: " + s.getRole()
+                    + "\nUsername: " + s.getCredential().getUsername()
+                    + "\nPassword: " + s.getCredential().getPasswordHash();
+            JOptionPane.showMessageDialog(this, details, "Staff Details", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnViewMoreDetailsActionPerformed
 
     private void btnAddStaffMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddStaffMemberActionPerformed
         String name = txtName.getText();
@@ -297,9 +307,33 @@ public class Manager_Menu extends javax.swing.JFrame {
             int age = Integer.parseInt(ageStr);
             int id = Integer.parseInt(idStr);
             
-            String username = JOptionPane.showInputDialog(this, "Enter Username");
-            String password = JOptionPane.showInputDialog(this, "Enter Password");
+            String normalizedRole = role.toLowerCase();
+            if (!normalizedRole.equals("cashier") && !normalizedRole.equals("manager") && !normalizedRole.equals("engineer")) {
+                JOptionPane.showMessageDialog(this, "Role must be either: Cashier, Manager or Engineer");
+                return;
+            }
+            
+            for (Staff s : staffManager.getAllStaff()) {
+                if (s.getStaffID() == id) {
+                    JOptionPane.showMessageDialog(this, "Staff ID already exists.");
+                    return;
+                }
+                if (s.getName().equalsIgnoreCase(name)) {
+                    JOptionPane.showMessageDialog(this, "Staff name already exists.");
+                    return;
+                }
+            }
+            
+            String username = JOptionPane.showInputDialog(this, "Create Username");
+            String password = JOptionPane.showInputDialog(this, "Create Password");
             if (username == null || password == null) return;
+            
+            for (Staff s: staffManager.getAllStaff()) {
+                if (s.getCredential().getUsername().equalsIgnoreCase(username)) {
+                    JOptionPane.showMessageDialog(this, "Username already exists. Choose another.");
+                    return;
+                }
+            }
             
             Credential cred = new Credential(username, password);
             Staff newStaff = new Staff(name, age, id, id, role, cred);
@@ -334,15 +368,59 @@ public class Manager_Menu extends javax.swing.JFrame {
         }
         
         String staffIDStr = tblStaff.getValueAt(selectedRow, 2).toString();
+        String name = tblStaff.getValueAt(selectedRow, 0).toString(); 
+        String idStr = tblStaff.getValueAt(selectedRow, 2).toString();
+        
         int staffID = Integer.parseInt(staffIDStr);
         
-        boolean removed = staffManager.removeStaffByID(staffID);
-        if (removed) {
-            JOptionPane.showMessageDialog(this, "Staff member removed");
-        } else {
-            JOptionPane.showMessageDialog(this, "Staff not found");
+        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to remove \"" + name + "\"?", "Confirm Removal", JOptionPane.YES_NO_OPTION);
+        
+        if (confirm == JOptionPane.YES_OPTION) {
+            boolean removed = staffManager.removeStaffByID(staffID);
+            if (removed) {
+                loadStaffTable();
+                JOptionPane.showMessageDialog(this, "Staff member removed");
+            } else {
+                JOptionPane.showMessageDialog(this, "Staff not found");
+            }
         }
     }//GEN-LAST:event_btnRemoveStaffMemberActionPerformed
+
+    private void btnChangeStaffRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeStaffRoleActionPerformed
+        int selectedRow = tblStaff.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Select a staff member.");
+            return;
+        }
+        
+        String idStr = tblStaff.getValueAt(selectedRow, 2).toString();
+        int id = Integer.parseInt(idStr);
+        Staff staff = staffManager.getStaffByID(id);
+        
+        if (staff != null) {
+            String newRole = txtRole.getText();
+            if (newRole.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Enter a new role.");
+                return;
+            }
+            
+            staff.setRole(newRole);
+            loadStaffTable();
+            JOptionPane.showMessageDialog(this, "Role Updated.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Staff not found.");
+        }
+    }//GEN-LAST:event_btnChangeStaffRoleActionPerformed
+
+    private void btnChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangePasswordActionPerformed
+        String newPass = JOptionPane.showInputDialog(this, "Enter new Password:");
+        if (newPass == null || newPass.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Passowrd not changed.");
+            return;
+        }
+        currentManager.getCredential().updatePassword(newPass);
+        JOptionPane.showMessageDialog(this, "Password Updated!");
+    }//GEN-LAST:event_btnChangePasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,10 +459,12 @@ public class Manager_Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddStaffMember;
+    private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnChangeStaffRole;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnRemoveStaffMember;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnViewMoreDetails;
+    private javax.swing.JPanel jAccountPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -394,14 +474,9 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JOptionPane jOptionPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel jStaffPanel;
     private javax.swing.JLabel lblManagerName;
     private javax.swing.JLabel lblManagerName1;
     private javax.swing.JLabel lblWelcome;
@@ -411,6 +486,9 @@ public class Manager_Menu extends javax.swing.JFrame {
     private java.awt.Menu menu4;
     private java.awt.MenuBar menuBar1;
     private java.awt.MenuBar menuBar2;
+    private javax.swing.JPanel panelCustomerMenu;
+    private javax.swing.JPanel panelMaintenanceMenu;
+    private javax.swing.JTabbedPane tabAccountPane;
     private javax.swing.JTable tblStaff;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtID;
