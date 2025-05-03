@@ -10,6 +10,7 @@
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.Map;
+import javax.swing.JTextArea;
 
 public class Manager_Menu extends javax.swing.JFrame {
 
@@ -31,11 +32,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         loadStaffTable();
         loadMovieTable();
         
-        Showtime s1 = new Showtime("Clueless", "3:15PM", "4/13/25", "PG-13", "1h37m", 23);
-        Showtime s2 = new Showtime("Insidious", "9:45PM", "4/20/25", "R", "1h53m", 24);
-        Showtime s3 = new Showtime("Divergent", "4:45PM", "4/22/25", "PG-13", "2h19m", 25);
-        Showtime s4 = new Showtime("High School Musical", "2:00PM", "4/24/25", "G", "1h38m", 26);
-        Showtime s5 = new Showtime("BigHeroSix", "7:10PM", "4/26/25", "PG", "1h48m", 27);
+       
         
     }
     
@@ -50,7 +47,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             data[i][0] = s.getName();
             data[i][1] = String.valueOf(s.getAge());
             data[i][2] = String.valueOf(s.getStaffID());
-            data[i][3] = s.getRole();
+            data[i][3] = s.getRole();            
         }
         
         javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(data, columns);
@@ -59,7 +56,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     
     private void loadMovieTable() {
         Map<Integer, Showtime> showtimes = scheduleManager.getShowtimes();
-        String[] columns = {"Title", "Time", "Date", "Rating", "Runtime"};
+        String[] columns = {"Title", "Time", "Date", "Rating", "Runtime", "Screen"};
         String[][] data = new String[showtimes.size()][6];
         
         int i = 0;
@@ -69,7 +66,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             data[i][2] = s.getMovieDate();
             data[i][3] = s.getRating();
             data[i][4] = s.getRunTime();
-            data[i][5] = String.valueOf(s.getSID());
+            data[i][5] = String.valueOf(s.getSID());            
             i++;
         }
         
@@ -121,6 +118,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnChangeStaffRole = new javax.swing.JButton();
         btnViewMoreDetails = new javax.swing.JButton();
         panelCustomerMenu = new javax.swing.JPanel();
+        panelMaintenanceMenu = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txtTitle = new javax.swing.JTextField();
@@ -132,14 +130,15 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtRating = new javax.swing.JTextField();
         btnAssignMovie = new javax.swing.JButton();
-        btnViewList = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btnViewDetails = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblMovies = new javax.swing.JTable();
         txtDate = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         txtScreen = new javax.swing.JTextField();
-        panelMaintenanceMenu = new javax.swing.JPanel();
+        btnRemoveMovie = new javax.swing.JButton();
+        btnViewSoldSeats = new javax.swing.JButton();
+        btnEditDetails = new javax.swing.JButton();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -287,6 +286,19 @@ public class Manager_Menu extends javax.swing.JFrame {
         panelCustomerMenu.setLayout(null);
         tabAccountPane.addTab("Customer Menu", panelCustomerMenu);
 
+        javax.swing.GroupLayout panelMaintenanceMenuLayout = new javax.swing.GroupLayout(panelMaintenanceMenu);
+        panelMaintenanceMenu.setLayout(panelMaintenanceMenuLayout);
+        panelMaintenanceMenuLayout.setHorizontalGroup(
+            panelMaintenanceMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 734, Short.MAX_VALUE)
+        );
+        panelMaintenanceMenuLayout.setVerticalGroup(
+            panelMaintenanceMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 454, Short.MAX_VALUE)
+        );
+
+        tabAccountPane.addTab("Maintenance Menu", panelMaintenanceMenu);
+
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setText("Movie Title:");
@@ -320,13 +332,15 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnAssignMovieActionPerformed(evt);
             }
         });
-        jPanel4.add(btnAssignMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 140, -1));
+        jPanel4.add(btnAssignMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 140, -1));
 
-        btnViewList.setText("View List");
-        jPanel4.add(btnViewList, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 170, -1));
-
-        jToggleButton1.setText("Reset Sold Seats");
-        jPanel4.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 150, -1));
+        btnViewDetails.setText("View Details");
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDetailsActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 150, -1));
 
         tblMovies.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -348,20 +362,31 @@ public class Manager_Menu extends javax.swing.JFrame {
         jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, -1));
         jPanel4.add(txtScreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, 180, -1));
 
+        btnRemoveMovie.setText("Remove Movie");
+        btnRemoveMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveMovieActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnRemoveMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 140, -1));
+
+        btnViewSoldSeats.setText("View Sold Seats");
+        btnViewSoldSeats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewSoldSeatsActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnViewSoldSeats, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 150, -1));
+
+        btnEditDetails.setText("Edit Details");
+        btnEditDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditDetailsActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 140, -1));
+
         tabAccountPane.addTab("Movie Menu", jPanel4);
-
-        javax.swing.GroupLayout panelMaintenanceMenuLayout = new javax.swing.GroupLayout(panelMaintenanceMenu);
-        panelMaintenanceMenu.setLayout(panelMaintenanceMenuLayout);
-        panelMaintenanceMenuLayout.setHorizontalGroup(
-            panelMaintenanceMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 734, Short.MAX_VALUE)
-        );
-        panelMaintenanceMenuLayout.setVerticalGroup(
-            panelMaintenanceMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
-        );
-
-        tabAccountPane.addTab("Maintenance Menu", panelMaintenanceMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -551,6 +576,115 @@ public class Manager_Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Movie assigned successful.");
     }//GEN-LAST:event_btnAssignMovieActionPerformed
 
+    private void btnRemoveMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveMovieActionPerformed
+        int selectedRow = tblMovies.getSelectedRow();
+        if(selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Select a movie to remove.");
+            return;
+        }
+        
+        String title = tblMovies.getValueAt(selectedRow, 0).toString();
+        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to remove \"" + title + "\"?", "Confirm Removal.", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            boolean removed = scheduleManager.removeShowtimeByTItle(title);
+            if(removed) {
+                loadMovieTable();
+                JOptionPane.showMessageDialog(this, "Movie Removed.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Movie not found");
+            }
+        }
+    }//GEN-LAST:event_btnRemoveMovieActionPerformed
+
+    private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
+        int selectedRow = tblMovies.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Select a movie to view details.");
+            return;
+        }
+        
+        String title = tblMovies.getValueAt(selectedRow, 0).toString();
+        int screenID = Integer.parseInt(tblMovies.getValueAt(selectedRow, 5).toString());
+        Showtime show = scheduleManager.getShowtimes().get(screenID);
+        
+        if (show != null) {
+            String details = "Title: " + show.getMovieTitle()
+                    + "\nTime: " + show.getAvailableTimes()
+                    + "\nDate: " + show.getMovieDate()
+                    + "\nRating: " + show.getRating()
+                    + "\nRuntime: " + show.getRunTime()
+                    + "\nScreen: " + show.getSID();
+            JOptionPane.showMessageDialog(this, details, "Movie Details", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnViewDetailsActionPerformed
+
+    private void btnViewSoldSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewSoldSeatsActionPerformed
+        int selectedRow = tblMovies.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Select a movie to view sold seats.");
+            return;
+        }
+        
+        int screenID = Integer.parseInt(tblMovies.getValueAt(selectedRow, 5).toString());
+        Showtime show = scheduleManager.getShowtimes().get(screenID);
+        
+        if (show != null) {
+            String layout = Showtime.getSeatLayoutDisplay(show);
+            JTextArea textArea = new JTextArea(layout);
+            textArea.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 12));
+            textArea.setEditable(false);
+            JOptionPane.showMessageDialog(this, textArea, "Seat Layout for " + show.getMovieTitle(), JOptionPane.INFORMATION_MESSAGE);            
+        } else {
+            JOptionPane.showMessageDialog(this, "Showtime not found");
+        }
+    }//GEN-LAST:event_btnViewSoldSeatsActionPerformed
+
+    private void btnEditDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditDetailsActionPerformed
+        int selectedRow = tblMovies.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Select a movie to view sold seats.");
+            return;
+        }
+        
+        String oldTitle = tblMovies.getValueAt(selectedRow, 0).toString();
+        int screenID = Integer.parseInt(tblMovies.getValueAt(selectedRow, 5).toString());
+        
+        Showtime showtime = scheduleManager.getShowtimes().get(screenID);
+        if (showtime == null) {
+            JOptionPane.showMessageDialog(this, "Error finding selected movie.");
+            return;
+        }
+        
+        String newTitle = txtTitle.getText().trim();
+        String newTime = txtTime.getText().trim();
+        String newDate = txtDate.getText().trim();
+        String newRating = txtRating.getText().trim();
+        String newRuntime = txtRuntime.getText().trim();
+        String newScreen = txtScreen.getText().trim();
+        
+        if (newTitle.isEmpty() || newTime.isEmpty() || newDate.isEmpty() || newRating.isEmpty() || newRuntime.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all fields.");
+            return;
+        }
+        
+        for (Showtime other : scheduleManager.getShowtimes().values()) {
+            if (other.getSID() != showtime.getSID() && other.getAvailableTimes().equalsIgnoreCase(newTime) && other.getSID() == screenID) {
+                JOptionPane.showMessageDialog(this, "Another movie is already scheduled at this time");
+                return;
+            }
+        }
+        
+        showtime.setMovieTitle(newTitle);
+        showtime.setAvailableTimes(newTime);
+        showtime.setMovieDate(newDate);
+        showtime.setRating(newRating);
+        showtime.setRunTime(newRuntime);
+        
+        
+        loadMovieTable();
+        JOptionPane.showMessageDialog(this, "Movie details updated!");
+    }//GEN-LAST:event_btnEditDetailsActionPerformed
+
     /**
      * @param args the command line arguments
 //     */
@@ -591,10 +725,13 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAssignMovie;
     private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnChangeStaffRole;
+    private javax.swing.JButton btnEditDetails;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnRemoveMovie;
     private javax.swing.JButton btnRemoveStaffMember;
-    private javax.swing.JButton btnViewList;
+    private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton btnViewMoreDetails;
+    private javax.swing.JButton btnViewSoldSeats;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel jAccountPanel;
     private javax.swing.JLabel jLabel1;
@@ -616,7 +753,6 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jStaffPanel;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblManagerName;
     private javax.swing.JLabel lblManagerName1;
     private javax.swing.JLabel lblWelcome;

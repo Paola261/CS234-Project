@@ -10,34 +10,19 @@ import javax.swing.JOptionPane;
  * @author Taryn
  */
 public class Login_Application extends javax.swing.JFrame {        
-    
-        //  Cashier 
-        Credential cashierCred1 = new Credential("Mic.Car", "Treehouse2");
-        Cashier cashier1 = new Cashier("Michael Carter", 28, 1003, 3, "Cashier", cashierCred1, 101);        
-        Credential cashierCred2 = new Credential("Emm.Ree", "Sunflower45");
-        Cashier cashier2 = new Cashier("Emma Reese", 25, 1004, 4, "Cashier", cashierCred2, 102);
-        
-        Credential cashierCred3 = new Credential("Rya.Jac", "BlueSky12");
-        Cashier cashier3 = new Cashier("Ryan Jacobs", 18, 1005, 5, "Cashier", cashierCred3, 103);
-
-        // Manager Users
-        Credential managerCred1 = new Credential("Lil.Ben", "PastelDream9");
-        Manager manager1 = new Manager("Lily Bennett", 40, 1001, 1, "Manager", managerCred1);
-        
-        Credential managerCred2 = new Credential("Jas.Wel", "Shadow99");
-        Manager manager2 = new Manager("Jason Wells", 39, 1002, 2, "Manager", managerCred2);
-         // Engineers
-        Credential engineerCred1 = new Credential("Dan.Fos", "Mountain44");
-        Engineer engineer1 = new Engineer("Daniel Foster", 34, 1006, 6, "Engineer", engineerCred1);
-        
-        Credential engineerCred2 = new Credential("Sar.Col", "CoffeeTime8");
-        Engineer engineer2 = new Engineer("Sarah Collins", 33, 1007, 7, "Engineer", engineerCred2);
+//        private StaffManager staffManager = new StaffManager();
+//        private ScheduleManager scheduleManager = new ScheduleManager();
+        private AppController controller = AppController.getInstance();      
 
     /**
      * Creates new form Login_Application
      */
     public Login_Application() {
         initComponents();
+        controller.getScheduleManager().setShowtimes(ShowtimeFileHandler.loadShowtimes());
+        controller.getStaffManager().setAllStaff(StaffFileHandler.loadStaff());
+        
+        
     }
 
     /**
@@ -164,23 +149,12 @@ public class Login_Application extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void bloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloginActionPerformed
         // TODO add your handling code here:        
         String inputUser = jtuser.getText();
-        String inputPass = new String(jpassword.getPassword());
-        StaffManager staffManager = new StaffManager();        
+        String inputPass = new String(jpassword.getPassword());       
 
-        // Add all staff
-        staffManager.addStaff(cashier1);
-        staffManager.addStaff(cashier2);
-        staffManager.addStaff(cashier3);
-
-        staffManager.addStaff(manager1);
-        staffManager.addStaff(manager2);
-
-        staffManager.addStaff(engineer1);
-        staffManager.addStaff(engineer2);
-        
         
         if (jtuser.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill out username");
@@ -189,45 +163,25 @@ public class Login_Application extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please fill out password");
         }
         else {
-            boolean loggedIn = false;
+            boolean loggedIn = false;           
             
-            if (cashierCred1.getUsername().equals(inputUser) && cashierCred1.getPasswordHash().equals(inputPass)) {
-                // open Cashier tab for cashier1
-                JOptionPane.showMessageDialog(null, "Logged in as: " + cashier1.getName());
-                // TODO: openCashierDashboard(cashier1);
-                loggedIn = true;
-            } else if (cashierCred2.getUsername().equals(inputUser) && cashierCred2.getPasswordHash().equals(inputPass)) {
-                JOptionPane.showMessageDialog(null, "Logged in as: " + cashier2.getName());
-                loggedIn = true;
-            } else if (cashierCred3.getUsername().equals(inputUser) && cashierCred3.getPasswordHash().equals(inputPass)) {
-                JOptionPane.showMessageDialog(null, "Logged in as: " + cashier3.getName());
-                loggedIn = true;
-            }
+                     
+            for (Staff s : controller.getStaffManager().getAllStaff()) {
+                System.out.println("Checking against: '" + s.getCredential().getUsername() + "' / '" + s.getCredential().getPasswordHash() + "'");
+    
+                if (s.getCredential().getUsername().trim().equals(inputUser.trim()) &&
+                    s.getCredential().getPasswordHash().trim().equals(inputPass.trim())) {
+                    JOptionPane.showMessageDialog(null, "Logged in as: " + s.getName());
 
-            // Check Managers
-            else if (managerCred1.getUsername().equals(inputUser) && managerCred1.getPasswordHash().equals(inputPass)) {
-                JOptionPane.showMessageDialog(null, "Logged in as: " + manager1.getName());
-                ScheduleManager scheduleManager = new ScheduleManager();
-                Manager_Menu menu = new Manager_Menu(manager1, staffManager, scheduleManager);
-                menu.setVisible(true);
-                this.dispose();
-                loggedIn = true;
-            } else if (managerCred2.getUsername().equals(inputUser) && managerCred2.getPasswordHash().equals(inputPass)) {
-                JOptionPane.showMessageDialog(null, "Logged in as: " + manager2.getName());
-                ScheduleManager scheduleManager = new ScheduleManager();
-                Manager_Menu menu = new Manager_Menu(manager2, staffManager, scheduleManager);
-                menu.setVisible(true);
-                this.dispose();
-                loggedIn = true;
-            }
-
-            // Check Engineers
-            else if (engineerCred1.getUsername().equals(inputUser) && engineerCred1.getPasswordHash().equals(inputPass)) {
-                JOptionPane.showMessageDialog(null, "Logged in as: " + engineer1.getName());
-                loggedIn = true;
-            } else if (engineerCred2.getUsername().equals(inputUser) && engineerCred2.getPasswordHash().equals(inputPass)) {
-                JOptionPane.showMessageDialog(null, "Logged in as: " + engineer2.getName());
-                loggedIn = true;
+                    if (s instanceof Manager) {
+                        Manager_Menu menu = new Manager_Menu((Manager) s, controller.getStaffManager(), controller.getScheduleManager());
+                        menu.setVisible(true);
+                        this.dispose();
+                    }
+                    // Additional GUI menus can be added for Cashier or Engineer
+                    loggedIn = true;
+                    break;
+                }
             }
 
             // If no match was found
@@ -251,9 +205,23 @@ public class Login_Application extends javax.swing.JFrame {
     }//GEN-LAST:event_jcshow_passwordActionPerformed
 
     private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
-        System.exit(0);
+        if (!controller.getScheduleManager().getShowtimes().isEmpty()) {
+        ShowtimeFileHandler.saveShowtimes(controller.getScheduleManager().getShowtimes());
+    } else {
+        System.out.println("Skipped saving showtimes — list was empty!");
+    }
+
+    if (!controller.getStaffManager().getAllStaff().isEmpty()) {
+        StaffFileHandler.saveStaff(controller.getStaffManager().getAllStaff());
+    } else {
+        System.out.println("Skipped saving staff — list was empty!");
+    }
+
+    System.exit(0);
+
     }//GEN-LAST:event_bexitActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */

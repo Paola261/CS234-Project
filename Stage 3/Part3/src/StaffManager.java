@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class StaffManager {
     private Map<Integer, Staff> staffDirectory;
+    private List<Staff> staffList = new ArrayList<>();
 
     /**
      * Constructs a StaffManager with an empty staff Directory
@@ -52,7 +53,7 @@ public class StaffManager {
      */
     public void addStaff(Staff staff) {
         staffDirectory.put(staff.getStaffID(), staff);
-        System.out.println("Added staff member: " + staff.getName());
+        
     }
 
     /**
@@ -71,5 +72,11 @@ public class StaffManager {
     public boolean removeStaffByID(int staffID) {
         return staffDirectory.remove(staffID) != null;
     }
-    
+    public void setAllStaff(List<Staff> staffList) {
+        this.staffList = staffList; 
+        staffDirectory.clear(); 
+        for (Staff s : staffList) {
+            staffDirectory.put(s.getStaffID(), s);
+        }
+    }
 }

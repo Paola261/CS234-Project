@@ -107,6 +107,10 @@ public class Showtime {
         this.runTime = runTime;
     }
     
+    public void setScreen(Integer sID) {
+        this.sID = sID;
+    }
+    
     /**
      * @param seatID The ID of the seat to find
      * @return The Seat object if found, otherwise null
@@ -138,5 +142,66 @@ public class Showtime {
      */
     public int getSID(){
         return sID;
-    }   
+    }
+    
+    /**
+     * Get Layout Display of the screen
+     * @param show
+     * @return The Seat Dispay
+     * @author Taryn Davis
+     */
+    public static String getSeatLayoutDisplay(Showtime show) {
+    int screenID = show.getSID();
+    boolean[][] seatAvailability;
+
+    switch (screenID) {
+        case 1:
+        case 2:
+        case 3:
+            seatAvailability = new boolean[7][13]; // rows A–G, 13 seats each
+            break;
+        case 4:
+        case 5:
+            seatAvailability = new boolean[8][14]; // rows A–H, 14 seats each
+            break;
+        default:
+            return "Unknown screen layout for screen " + screenID;
+    }
+
+    // Default all to available
+    for (int i = 0; i < seatAvailability.length; i++) {
+        for (int j = 0; j < seatAvailability[i].length; j++) {
+            seatAvailability[i][j] = true;
+        }
+    }
+
+    // Mark sold seats as unavailable
+    for (Seat s : show.getAvailableSeats()) {
+        if (!s.isAvailable()) {
+            int row = s.getRow();   // make sure your Seat class has row/column info!
+            int col = s.getNumber();
+            seatAvailability[row][col] = false;
+        }
+    }
+
+    // Build display string
+    StringBuilder display = new StringBuilder("Screen " + screenID + " Layout:\n");
+    char rowLabel = 'A';
+    for (int i = 0; i < seatAvailability.length; i++) {
+        display.append(rowLabel).append(" ");
+        for (int j = 0; j < seatAvailability[i].length; j++) {
+            display.append(seatAvailability[i][j] ? "○ " : "● ");
+        }
+        display.append("\n");
+        rowLabel++;
+    }
+
+    // Add seat numbers below
+    display.append("  ");
+    for (int j = 1; j <= seatAvailability[0].length; j++) {
+        display.append(j < 10 ? j + "  " : j + " ");
+    }
+
+    return display.toString();
+}
 }

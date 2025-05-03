@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleManager {
-    private Map<Integer, Showtime> showtimes;
+    private Map<Integer, Showtime> showtimes = new HashMap<>();
     
     /**
      * Constructs a new ScheduleManager with an empty showtime list
@@ -29,6 +29,13 @@ public class ScheduleManager {
      * @return True if the assignment was successful
      */
     public boolean assignMovieToScreen(String movieTitle, String availableTimes, String movieDate, String rating, String runTime) {
+        for (Showtime existing : showtimes.values()) {
+            if (existing.getAvailableTimes().equalsIgnoreCase(availableTimes)) {
+                System.out.println("Time slot already in use.");
+                return false;
+            }
+        }
+
         int showtimeID = showtimes.size() + 1;
         Showtime newShowtime = new Showtime(movieTitle, availableTimes, movieDate, rating, runTime, showtimeID);
         showtimes.put(showtimeID, newShowtime);
@@ -70,6 +77,8 @@ public class ScheduleManager {
     }
     return removed;
 }
-    
+    public void setShowtimes(Map<Integer, Showtime> showtimes) {
+        this.showtimes = showtimes;
+}
     
 }

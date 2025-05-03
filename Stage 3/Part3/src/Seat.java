@@ -62,6 +62,8 @@ public class Seat {
     public char getRow() {
         return row;
     }
+    
+   
 
     /**
      * @param row The new row of the seat
