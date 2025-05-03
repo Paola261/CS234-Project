@@ -149,10 +149,7 @@ public class Main {
         String customerInfo = "customers.csv";
         new Customer_GUI(aPerson, customerInfo).setVisible(true);
        
-        /* POSSIBLE SOLUTION TO ABOVE CODE
-        Customer aPerson = new Customer("Name", 999, (byte)25);
-        new Customer_GUI(aPerson, "customers.csv").setVisible(true);
-        */
+        
         boolean running = true;
         while (running) {
             System.out.println("\n Welcome to the Movie Theater System");

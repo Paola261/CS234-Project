@@ -207,13 +207,15 @@ public class Login_Application extends javax.swing.JFrame {
             // Check Managers
             else if (managerCred1.getUsername().equals(inputUser) && managerCred1.getPasswordHash().equals(inputPass)) {
                 JOptionPane.showMessageDialog(null, "Logged in as: " + manager1.getName());
-                Manager_Menu menu = new Manager_Menu(manager1, staffManager);
+                ScheduleManager scheduleManager = new ScheduleManager();
+                Manager_Menu menu = new Manager_Menu(manager1, staffManager, scheduleManager);
                 menu.setVisible(true);
                 this.dispose();
                 loggedIn = true;
             } else if (managerCred2.getUsername().equals(inputUser) && managerCred2.getPasswordHash().equals(inputPass)) {
                 JOptionPane.showMessageDialog(null, "Logged in as: " + manager2.getName());
-                Manager_Menu menu = new Manager_Menu(manager2, staffManager);
+                ScheduleManager scheduleManager = new ScheduleManager();
+                Manager_Menu menu = new Manager_Menu(manager2, staffManager, scheduleManager);
                 menu.setVisible(true);
                 this.dispose();
                 loggedIn = true;
