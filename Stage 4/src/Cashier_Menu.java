@@ -42,7 +42,7 @@ public class Cashier_Menu extends javax.swing.JFrame {
         btnClockIn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         lblClockStatus = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnResetPassword = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         tabCustomerInfo = new javax.swing.JPanel();
         tabSellTicket = new javax.swing.JPanel();
@@ -97,13 +97,13 @@ public class Cashier_Menu extends javax.swing.JFrame {
         lblClockStatus.setText("Clocked In/Out");
         tabAccountMenu.add(lblClockStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
-        jButton1.setText("Reset Password");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnResetPassword.setText("Reset Password");
+        btnResetPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnResetPasswordActionPerformed(evt);
             }
         });
-        tabAccountMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 140, -1));
+        tabAccountMenu.add(btnResetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 140, -1));
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +200,7 @@ public class Cashier_Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Clocked Out!");
     }//GEN-LAST:event_btnClockOutActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnResetPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswordActionPerformed
         String newPass = JOptionPane.showInputDialog(this, "Enter new Password:");
         if (newPass == null || newPass.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Passowrd not changed.");
@@ -209,7 +209,7 @@ public class Cashier_Menu extends javax.swing.JFrame {
         currentCashier.getCredential().updatePassword(newPass);
         JOptionPane.showMessageDialog(this, "Password Updated!");
          
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnResetPasswordActionPerformed
 
     
 
@@ -217,7 +217,7 @@ public class Cashier_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnClockIn;
     private javax.swing.JButton btnClockOut;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnResetPassword;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;

@@ -1,0 +1,20 @@
+Date: 2025-05-04
+
+Engineer: Dan.Fos
+[ ] Inspect electrical panel
+[ ] Replace burnt-out bulbs or faulty sockets
+[ ] Check emergency exits
+[ ] Verify power backup systems
+[ ] Confirm temperature settings in server rooms/public areas
+[ ] Clean air vents and fans
+[ ] Review open maintenance requests
+
+
+Engineer: Sar.Col
+[ ] Test fire alarms
+[ ] Inspect fire extinguishers for pressure and expiry
+[ ] Confirm emergency exit signs are illuminated
+[ ] Inspect elevator functionality
+[ ] Inspect plumbing for leaks
+[ ] Check maintenance closet inventory
+[ ] Review open maintenance requests

@@ -9,3 +9,5 @@ Emma Reese,Cashier,Clock In,2025-05-04 15:57
 Emma Reese,Cashier,Clock Out,2025-05-04 15:57
 Emma Reese,Cashier,Clock In,2025-05-04 16:00
 Emma Reese,Cashier,Clock Out,2025-05-04 16:00
+Sarah Collins,Engineer,Clock In,2025-05-04 16:22
+Sarah Collins,Engineer,Clock Out,2025-05-04 16:22

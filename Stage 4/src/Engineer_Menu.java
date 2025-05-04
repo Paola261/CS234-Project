@@ -1,7 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
+import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.time.LocalDate;
+import java.io.*;
+
 
 /**
  *
@@ -9,14 +11,18 @@
  */
 public class Engineer_Menu extends javax.swing.JFrame {
     private Engineer currentEngineer;
+    private AppController controller = AppController.getInstance();
 
     /**
      * Creates new form Engineer_Menu
      */
     public Engineer_Menu(Engineer engineer, MaintenanceManager maintenanceManager) {
         this.currentEngineer = engineer;
-        
         initComponents();
+        String lastStatus = ClockHandler.getLastClockStatus(currentEngineer.getName());
+        lblClockStatus.setText(lastStatus);
+        loadChecklistFromFile(currentEngineer.getCredential().getUsername());
+        
     }
 
     /**
@@ -28,24 +34,226 @@ public class Engineer_Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        panelAccount = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        btnClockIn = new javax.swing.JButton();
+        btnClockOut = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        lblClockStatus = new javax.swing.JLabel();
+        btnResetPassword = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        panelChecklist = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelAccount.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Welcome!");
+        panelAccount.add(jLabel1);
+        jLabel1.setBounds(268, 66, 168, 48);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Engineer Name");
+        panelAccount.add(jLabel2);
+        jLabel2.setBounds(270, 120, 161, 32);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("___________________");
+        panelAccount.add(jLabel3);
+        jLabel3.setBounds(180, 90, 350, 32);
+
+        btnClockIn.setText("Clock In");
+        btnClockIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClockInActionPerformed(evt);
+            }
+        });
+        panelAccount.add(btnClockIn);
+        btnClockIn.setBounds(210, 190, 90, 40);
+
+        btnClockOut.setText("Clock Out");
+        btnClockOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClockOutActionPerformed(evt);
+            }
+        });
+        panelAccount.add(btnClockOut);
+        btnClockOut.setBounds(410, 190, 100, 40);
+
+        jLabel4.setText("Current Status:");
+        panelAccount.add(jLabel4);
+        jLabel4.setBounds(270, 260, 90, 16);
+
+        lblClockStatus.setText("Clock In/Out");
+        panelAccount.add(lblClockStatus);
+        lblClockStatus.setBounds(360, 260, 80, 16);
+
+        btnResetPassword.setText("Reset Password");
+        btnResetPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetPasswordActionPerformed(evt);
+            }
+        });
+        panelAccount.add(btnResetPassword);
+        btnResetPassword.setBounds(290, 310, 130, 23);
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        panelAccount.add(btnLogout);
+        btnLogout.setBounds(320, 350, 72, 30);
+
+        jTabbedPane1.addTab("Account Menu", panelAccount);
+
+        panelChecklist.setLayout(new javax.swing.BoxLayout(panelChecklist, javax.swing.BoxLayout.LINE_AXIS));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 378, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 449, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(jPanel2);
+
+        panelChecklist.add(jScrollPane1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelChecklist, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(392, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(panelChecklist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Daily CheckList", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadChecklistFromFile(String engineerUsername) {
+        String date = LocalDate.now().toString(); // e.g., 2025-05-04
+        File file = new File("checklist_" + date + ".txt");
+
+        if (!file.exists()) {
+            JOptionPane.showMessageDialog(this, "No checklist file found for today.");
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            boolean relevantEngineer = false;
+
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+
+                if (line.startsWith("Engineer:")) {
+                    // Check if this block belongs to the current engineer
+                    relevantEngineer = line.contains(engineerUsername);
+                    continue;
+                }
+
+                if (relevantEngineer && line.startsWith("[")) {
+                    JCheckBox checkBox = new JCheckBox(line.substring(4)); 
+                    panelChecklist.add(checkBox);
+                }
+
+                if (line.isEmpty() && relevantEngineer) {
+                    break; // Exit when that engineer's block ends
+                }
+            }
+
+            panelChecklist.revalidate();
+            panelChecklist.repaint();
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error reading checklist: " + e.getMessage());
+        }
+    }
+ 
+    private void btnClockInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockInActionPerformed
+        ClockHandler.clockAction(currentEngineer.getName(), currentEngineer.getRole(), "Clock In");
+        lblClockStatus.setText("Clocked In");
+        JOptionPane.showMessageDialog(null, "Clocked In!");
+    }//GEN-LAST:event_btnClockInActionPerformed
+
+    private void btnClockOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockOutActionPerformed
+        ClockHandler.clockAction(currentEngineer.getName(), currentEngineer.getRole(), "Clock Out");
+        lblClockStatus.setText("Clocked Out");
+        JOptionPane.showMessageDialog(null, "Clocked Out!");
+    }//GEN-LAST:event_btnClockOutActionPerformed
+
+    private void btnResetPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswordActionPerformed
+        String newPass = JOptionPane.showInputDialog(this, "Enter new Password:");
+        if (newPass == null || newPass.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Passowrd not changed.");
+            return;
+        }
+        currentEngineer.getCredential().updatePassword(newPass);
+        JOptionPane.showMessageDialog(this, "Password Updated!");         
+    }//GEN-LAST:event_btnResetPasswordActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        controller.saveAllData();
+        new Login_Application().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClockIn;
+    private javax.swing.JButton btnClockOut;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnResetPassword;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblClockStatus;
+    private javax.swing.JPanel panelAccount;
+    private javax.swing.JPanel panelChecklist;
     // End of variables declaration//GEN-END:variables
 }
