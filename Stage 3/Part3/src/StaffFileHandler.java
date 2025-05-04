@@ -43,9 +43,7 @@ public class StaffFileHandler {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 
-                for (int i = 0; i < parts.length; i++) {
-                    System.out.println("Part " + i + ": '" + parts[i] + "'");
-                }
+                
                 if (parts.length >= 8) {
                     String role = parts[0].trim();
                     String name = parts[1].trim();
@@ -64,7 +62,7 @@ public class StaffFileHandler {
                             s = new Manager(name, age, staffID, personID, role, cred);
                             break;
                         case "cashier":
-                            s = new Cashier(name, age, staffID, personID, role, cred, 0); // You can update screenID if needed
+                            s = new Cashier(name, age, staffID, personID, role, cred, 0); 
                             break;
                         case "engineer":
                             s = new Engineer(name, age, staffID, personID, role, cred);

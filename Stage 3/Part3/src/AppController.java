@@ -10,16 +10,27 @@ import java.util.*;
  */
 public class AppController {
     private static AppController instance;
-
     private ScheduleManager scheduleManager;
     private StaffManager staffManager;
+    private InventoryManager inventoryManager;
+    private Inventory inventory = new Inventory();
+    private MaintenanceManager maintenanceManager;
+    
 
     private final String SHOWTIME_FILE = "showtimes.txt";
     private final String STAFF_FILE = "staff.txt";
+    private final String MAINTENANCE_FILE = "maintenance.txt";
 
     private AppController() {
         this.scheduleManager = new ScheduleManager();
         this.staffManager = new StaffManager();
+        this.inventoryManager = new InventoryManager();        
+        this.maintenanceManager = new MaintenanceManager("maintenance.txt");
+        
+        ArrayList<Items> loadedItems = InventoryFileHandler.loadInventory("Inventory.txt");
+        for (Items item : loadedItems) {
+            inventoryManager.addItem(item);
+        }
     }
 
     public static AppController getInstance() {
@@ -35,6 +46,10 @@ public class AppController {
 
     public StaffManager getStaffManager() {
         return staffManager;
+    }
+    
+    public MaintenanceManager getMaintenance() {
+        return maintenanceManager;
     }
 
     public void saveShowtimesToFile() {
@@ -67,6 +82,18 @@ public class AppController {
         }
     }
     
+    public void saveAllData() {
+        if (!scheduleManager.getShowtimes().isEmpty()) {
+            ShowtimeFileHandler.saveShowtimes(scheduleManager.getShowtimes());
+        }
+        if (!staffManager.getAllStaff().isEmpty()) {
+            StaffFileHandler.saveStaff(staffManager.getAllStaff());
+        }
+    }
+    
+    public InventoryManager getInventory() {
+        return inventoryManager;
+    }
     
     
 }

@@ -11,12 +11,19 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.Map;
 import javax.swing.JTextArea;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Manager_Menu extends javax.swing.JFrame {
 
     private Manager currentManager;
     private StaffManager staffManager;
     private ScheduleManager scheduleManager;
+    private AppController controller = AppController.getInstance();
+    private InventoryManager inventoryManager;
+    private MaintenanceManager maintenanceManager;
+    
     
     /**
      * Creates new form Manager_Menu
@@ -26,15 +33,20 @@ public class Manager_Menu extends javax.swing.JFrame {
         this.currentManager = manager;        
         this.staffManager = staffManagerParam;
         this.scheduleManager = scheduleManager;
+        this.inventoryManager = controller.getInventory();
+        this.maintenanceManager = controller.getMaintenance();
+        
         
         lblManagerName.setText(manager.getName());         
    
         loadStaffTable();
         loadMovieTable();
-        
-       
+        loadInventoryTable();       
+        refreshMaintenanceTables();
         
     }
+    
+    
     
     private void loadStaffTable() {
         String[] columns = {"Name", "Age", "Staff ID", "Role"};
@@ -73,7 +85,50 @@ public class Manager_Menu extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel(data, columns);
         tblMovies.setModel(model);
     }
+    
+    private void loadInventoryTable() {
+        String[] columns = {"Item Name", "Quantity", "Price"};
+        ArrayList<Items> itemList = controller.getInventory().getItems();
+        String[][] data = new String[itemList.size()][3];
+        
+        for (int i = 0; i < itemList.size(); i++) {
+            Items item = itemList.get(i);
+            data[i][0] = item.getName();
+            data[i][1] = String.valueOf(item.getQuantity());
+            data[i][2] = String.format("$%.2f", item.getPrice());
+        }
+        
+        tblInventory.setModel(new DefaultTableModel(data, columns));
+    }
+    
+    private void refreshMaintenanceTables() {
+        String[] columns = {"ID", "Description", "Reported By", "Date"};
+        List<MaintenanceIssue> pending = maintenanceManager.getOpenIssues();
+        List<MaintenanceIssue> resolved = maintenanceManager.getResolvedIssues();
 
+        String[][] pendingData = new String[pending.size()][4];
+        String[][] resolvedData = new String[resolved.size()][4];
+        
+        for (int i = 0; i < pending.size(); i++) {
+            MaintenanceIssue m = pending.get(i);
+            pendingData[i][0] = String.valueOf(m.getID());
+            pendingData[i][1] = m.getDescription();
+            pendingData[i][2] = m.getReportedBy();
+            pendingData[i][3] = m.getDateReported();
+        }
+        
+        for (int i = 0; i < resolved.size(); i++) {
+            MaintenanceIssue m = resolved.get(i);
+            resolvedData[i][0] = String.valueOf(m.getID());
+            resolvedData[i][1] = m.getDescription();
+            resolvedData[i][2] = m.getReportedBy();
+            resolvedData[i][3] = m.getDateReported();
+        }
+        
+        tblPendingIssues.setModel(new javax.swing.table.DefaultTableModel(pendingData, columns));
+        tblResolvedIssues.setModel(new javax.swing.table.DefaultTableModel(resolvedData, columns));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,7 +173,6 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnChangeStaffRole = new javax.swing.JButton();
         btnViewMoreDetails = new javax.swing.JButton();
         panelCustomerMenu = new javax.swing.JPanel();
-        panelMaintenanceMenu = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txtTitle = new javax.swing.JTextField();
@@ -139,6 +193,30 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnRemoveMovie = new javax.swing.JButton();
         btnViewSoldSeats = new javax.swing.JButton();
         btnEditDetails = new javax.swing.JButton();
+        panelInventory = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblInventory = new javax.swing.JTable();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        txtItemName = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        txtItemQuantity = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        txtItemPrice = new javax.swing.JTextField();
+        btnAddItem = new javax.swing.JButton();
+        btnOrderMore = new javax.swing.JButton();
+        btnRemoveItem = new javax.swing.JButton();
+        panelMaintenanceMenu = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblResolvedIssues = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tblPendingIssues = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        btnLogNewIssue = new javax.swing.JButton();
+        btnResolveIssue = new javax.swing.JButton();
+        btnViewIssueDetails = new javax.swing.JButton();
+        btnViewResolvedDetails = new javax.swing.JButton();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -167,7 +245,7 @@ public class Manager_Menu extends javax.swing.JFrame {
 
         lblManagerName.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblManagerName.setText("Manager Name");
-        jAccountPanel.add(lblManagerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        jAccountPanel.add(lblManagerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 140, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setText("__________");
@@ -286,19 +364,6 @@ public class Manager_Menu extends javax.swing.JFrame {
         panelCustomerMenu.setLayout(null);
         tabAccountPane.addTab("Customer Menu", panelCustomerMenu);
 
-        javax.swing.GroupLayout panelMaintenanceMenuLayout = new javax.swing.GroupLayout(panelMaintenanceMenu);
-        panelMaintenanceMenu.setLayout(panelMaintenanceMenuLayout);
-        panelMaintenanceMenuLayout.setHorizontalGroup(
-            panelMaintenanceMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 734, Short.MAX_VALUE)
-        );
-        panelMaintenanceMenuLayout.setVerticalGroup(
-            panelMaintenanceMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
-        );
-
-        tabAccountPane.addTab("Maintenance Menu", panelMaintenanceMenu);
-
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setText("Movie Title:");
@@ -387,6 +452,204 @@ public class Manager_Menu extends javax.swing.JFrame {
         jPanel4.add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 140, -1));
 
         tabAccountPane.addTab("Movie Menu", jPanel4);
+
+        tblInventory.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblInventory);
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel15.setText("Add New Concession Item:");
+
+        jLabel16.setText("Name:");
+
+        txtItemName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtItemNameActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Quantity:");
+
+        jLabel18.setText("Price:");
+
+        txtItemPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtItemPriceActionPerformed(evt);
+            }
+        });
+
+        btnAddItem.setText("Add Item");
+        btnAddItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddItemActionPerformed(evt);
+            }
+        });
+
+        btnOrderMore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnOrderMore.setText("Order");
+        btnOrderMore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderMoreActionPerformed(evt);
+            }
+        });
+
+        btnRemoveItem.setText("Remove Item");
+        btnRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveItemActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelInventoryLayout = new javax.swing.GroupLayout(panelInventory);
+        panelInventory.setLayout(panelInventoryLayout);
+        panelInventoryLayout.setHorizontalGroup(
+            panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3)
+            .addGroup(panelInventoryLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInventoryLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelInventoryLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(99, 99, 99)
+                        .addComponent(btnRemoveItem, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelInventoryLayout.createSequentialGroup()
+                        .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelInventoryLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel18)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(338, Short.MAX_VALUE))
+            .addGroup(panelInventoryLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOrderMore, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
+        );
+        panelInventoryLayout.setVerticalGroup(
+            panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInventoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(btnOrderMore, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoveItem))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(txtItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(btnAddItem)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        tabAccountPane.addTab("Inventory Menu", panelInventory);
+
+        panelMaintenanceMenu.setLayout(null);
+
+        tblResolvedIssues.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(tblResolvedIssues);
+
+        panelMaintenanceMenu.add(jScrollPane5);
+        jScrollPane5.setBounds(310, 60, 310, 410);
+
+        tblPendingIssues.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(tblPendingIssues);
+
+        panelMaintenanceMenu.add(jScrollPane6);
+        jScrollPane6.setBounds(20, 60, 280, 410);
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel19.setText("Pending Issues:");
+        panelMaintenanceMenu.add(jLabel19);
+        jLabel19.setBounds(20, 30, 216, 25);
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel20.setText("Resolved Issues:");
+        panelMaintenanceMenu.add(jLabel20);
+        jLabel20.setBounds(310, 20, 150, 40);
+
+        btnLogNewIssue.setText("Log New Issue");
+        btnLogNewIssue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogNewIssueActionPerformed(evt);
+            }
+        });
+        panelMaintenanceMenu.add(btnLogNewIssue);
+        btnLogNewIssue.setBounds(630, 190, 179, 23);
+
+        btnResolveIssue.setText("Resolve Issue");
+        btnResolveIssue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResolveIssueActionPerformed(evt);
+            }
+        });
+        panelMaintenanceMenu.add(btnResolveIssue);
+        btnResolveIssue.setBounds(630, 230, 179, 23);
+
+        btnViewIssueDetails.setText("View Issue Details");
+        btnViewIssueDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewIssueDetailsActionPerformed(evt);
+            }
+        });
+        panelMaintenanceMenu.add(btnViewIssueDetails);
+        btnViewIssueDetails.setBounds(170, 30, 130, 23);
+
+        btnViewResolvedDetails.setText("View Resolved Details");
+        btnViewResolvedDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewResolvedDetailsActionPerformed(evt);
+            }
+        });
+        panelMaintenanceMenu.add(btnViewResolvedDetails);
+        btnViewResolvedDetails.setBounds(460, 30, 160, 23);
+
+        tabAccountPane.addTab("Maintenance Menu", panelMaintenanceMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -487,6 +750,7 @@ public class Manager_Menu extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        controller.saveAllData();
         new Login_Application().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
@@ -685,6 +949,167 @@ public class Manager_Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Movie details updated!");
     }//GEN-LAST:event_btnEditDetailsActionPerformed
 
+    private void txtItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtItemNameActionPerformed
+
+    private void txtItemPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtItemPriceActionPerformed
+
+    private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
+
+        String name = txtItemName.getText();
+        int qty = Integer.parseInt(txtItemQuantity.getText());
+        double price = Double.parseDouble(txtItemPrice.getText());
+        
+        for (Items item : inventoryManager.getItems()) {
+            if(item.getName().equalsIgnoreCase(name)) {
+                JOptionPane.showMessageDialog(this, "Item already exists. Please use a different name.");
+                return;
+            }
+        }
+        Concession newItem = new Concession(name, qty, price);
+        inventoryManager.addItem(newItem);
+        loadInventoryTable();
+        
+    }//GEN-LAST:event_btnAddItemActionPerformed
+
+    private void btnOrderMoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderMoreActionPerformed
+        int selectedRow = tblInventory.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Select a row to order more items.");
+            return;
+        }       
+        
+        String itemName = tblInventory.getValueAt(selectedRow, 0).toString();
+        int qtyToAdd = Integer.parseInt(JOptionPane.showInputDialog("How many to add?"));
+        
+        for (Items item : inventoryManager.getItems()) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                if(item instanceof Concession c) {
+                    c.sell(-qtyToAdd);
+                }
+            }
+        }
+        loadInventoryTable();
+    }//GEN-LAST:event_btnOrderMoreActionPerformed
+
+    private void btnRemoveItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveItemActionPerformed
+        int selectedRow = tblInventory.getSelectedRow();
+        
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select and item to remvoe.");
+            return;
+        }
+        
+        String itemName = tblInventory.getValueAt(selectedRow, 0).toString();
+        
+        Items itemToRemove = null;
+        for (Items item : inventoryManager.getItems()) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                itemToRemove = item;
+                break;
+            }
+        }
+        
+        if (itemToRemove != null) {
+            int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to remove " + itemName + "?", "Confirm Remove", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                inventoryManager.removeItem(itemToRemove);
+                loadInventoryTable();
+                JOptionPane.showMessageDialog(this, "Item Removed Successfully");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Item not found.");
+        }
+    }//GEN-LAST:event_btnRemoveItemActionPerformed
+
+    private void btnLogNewIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogNewIssueActionPerformed
+        String description = JOptionPane.showInputDialog(this, "Enter Issue Description:");
+        if (description == null || description.isEmpty()) return;
+        
+        String reporter = currentManager.getName();
+        String date = java.time.LocalDate.now().toString();
+        int id = maintenanceManager.getOpenIssues().size() + maintenanceManager.getResolvedIssues().size() + 1;
+        
+        MaintenanceIssue issue = new MaintenanceIssue(id, description, reporter, date, "Open", "");
+        maintenanceManager.logIssue(issue);
+        refreshMaintenanceTables();
+    }//GEN-LAST:event_btnLogNewIssueActionPerformed
+
+    private void btnResolveIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResolveIssueActionPerformed
+        int row = tblPendingIssues.getSelectedRow();
+        if(row == -1) {
+            JOptionPane.showMessageDialog(this, "Select an issue to resolve.");
+            return;
+        }
+        
+        String idString = tblPendingIssues.getValueAt(row, 0).toString();
+        int issueID = Integer.parseInt(idString);
+        String note = JOptionPane.showInputDialog(this, "Enter resolution note:");
+        
+        MaintenanceIssue selectedIssue = null;
+        for (MaintenanceIssue issue : maintenanceManager.getOpenIssues()) {
+            if (issue.getID() == issueID) {
+                selectedIssue = issue;
+                break;
+            }
+        }
+        if (selectedIssue != null && note != null) {
+            boolean success = maintenanceManager.resolveIssue(selectedIssue, note);
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Issue Resolved!");
+                refreshMaintenanceTables();
+            } else {
+                JOptionPane.showMessageDialog(this, "Unable to resolve Issue.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Issue not found or invalid input.");
+        }    
+    }//GEN-LAST:event_btnResolveIssueActionPerformed
+
+    private void btnViewIssueDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewIssueDetailsActionPerformed
+        int row = tblPendingIssues.getSelectedRow();
+        if(row == -1) {
+            JOptionPane.showMessageDialog(this, "Select an issue to view.");
+            return;
+        }
+        
+        int issueID = Integer.parseInt(tblPendingIssues.getValueAt(row, 0).toString());
+        for (MaintenanceIssue m : maintenanceManager.getOpenIssues()) {
+            if (m.getID() == issueID) {
+                String details = "Issue #" + m.getID() + "\nDescription: " + m.getDescription()
+                        + "\nReported By: " + m.getReportedBy()
+                        + "\nDate: " + m.getDateReported()
+                        + "\nStatus: " + m.getStatus();
+                JOptionPane.showMessageDialog(this, details, "Pending Issue Details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }
+    }//GEN-LAST:event_btnViewIssueDetailsActionPerformed
+
+    private void btnViewResolvedDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResolvedDetailsActionPerformed
+        int row = tblResolvedIssues.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Select a resolved issue to view.");
+            return;
+        }
+
+        int issueID = Integer.parseInt(tblResolvedIssues.getValueAt(row, 0).toString());
+        for (MaintenanceIssue m : maintenanceManager.getResolvedIssues()) {
+            if (m.getID() == issueID) {
+                String details = "Issue #" + m.getID() + "\nDescription: " + m.getDescription()
+                        + "\nReported By: " + m.getReportedBy()
+                        + "\nDate: " + m.getDateReported()
+                        + "\nStatus: " + m.getStatus()
+                        + "\nResolution Note: " + m.getResolutionNote();
+                JOptionPane.showMessageDialog(this, details, "Resolved Issue Details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }
+    }//GEN-LAST:event_btnViewResolvedDetailsActionPerformed
+
     /**
      * @param args the command line arguments
 //     */
@@ -721,16 +1146,23 @@ public class Manager_Menu extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddItem;
     private javax.swing.JButton btnAddStaffMember;
     private javax.swing.JButton btnAssignMovie;
     private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnChangeStaffRole;
     private javax.swing.JButton btnEditDetails;
+    private javax.swing.JButton btnLogNewIssue;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnOrderMore;
+    private javax.swing.JButton btnRemoveItem;
     private javax.swing.JButton btnRemoveMovie;
     private javax.swing.JButton btnRemoveStaffMember;
+    private javax.swing.JButton btnResolveIssue;
     private javax.swing.JButton btnViewDetails;
+    private javax.swing.JButton btnViewIssueDetails;
     private javax.swing.JButton btnViewMoreDetails;
+    private javax.swing.JButton btnViewResolvedDetails;
     private javax.swing.JButton btnViewSoldSeats;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel jAccountPanel;
@@ -740,7 +1172,13 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -752,6 +1190,9 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel jStaffPanel;
     private javax.swing.JLabel lblManagerName;
     private javax.swing.JLabel lblManagerName1;
@@ -763,13 +1204,20 @@ public class Manager_Menu extends javax.swing.JFrame {
     private java.awt.MenuBar menuBar1;
     private java.awt.MenuBar menuBar2;
     private javax.swing.JPanel panelCustomerMenu;
+    private javax.swing.JPanel panelInventory;
     private javax.swing.JPanel panelMaintenanceMenu;
     private javax.swing.JTabbedPane tabAccountPane;
+    private javax.swing.JTable tblInventory;
     private javax.swing.JTable tblMovies;
+    private javax.swing.JTable tblPendingIssues;
+    private javax.swing.JTable tblResolvedIssues;
     private javax.swing.JTable tblStaff;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtItemName;
+    private javax.swing.JTextField txtItemPrice;
+    private javax.swing.JTextField txtItemQuantity;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtRating;
     private javax.swing.JTextField txtRole;

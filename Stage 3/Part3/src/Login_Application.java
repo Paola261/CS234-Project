@@ -57,7 +57,8 @@ public class Login_Application extends javax.swing.JFrame {
 
         blogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         blogin.setText("Login");
-        blogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        blogin.setBorder(null);
+        blogin.setBorderPainted(false);
         blogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         blogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,8 +140,8 @@ public class Login_Application extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bexit)
-                    .addComponent(blogin))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(blogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         blogin.getAccessibleContext().setAccessibleDescription("");
@@ -166,8 +167,7 @@ public class Login_Application extends javax.swing.JFrame {
             boolean loggedIn = false;           
             
                      
-            for (Staff s : controller.getStaffManager().getAllStaff()) {
-                System.out.println("Checking against: '" + s.getCredential().getUsername() + "' / '" + s.getCredential().getPasswordHash() + "'");
+            for (Staff s : controller.getStaffManager().getAllStaff()) {                
     
                 if (s.getCredential().getUsername().trim().equals(inputUser.trim()) &&
                     s.getCredential().getPasswordHash().trim().equals(inputPass.trim())) {

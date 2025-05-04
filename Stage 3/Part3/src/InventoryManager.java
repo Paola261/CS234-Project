@@ -4,7 +4,7 @@
  * @author Melissa Flores
  */
 import java.util.Scanner;
-
+import java.util.ArrayList;
 
 public class InventoryManager extends Inventory {
 
@@ -93,6 +93,10 @@ public class InventoryManager extends Inventory {
         int quantity = scanner.nextInt();
         scanner.nextLine(); // Consume newline
         super.sellItem(name, quantity);
+    }
+    
+    public ArrayList<Items> getInventory() {
+        return super.getItems();
     }
 
     private static class ItemsImpl implements Items {
