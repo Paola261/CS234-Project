@@ -1,0 +1,7 @@
+Manager,taryn davis,20,10001,10001,Manager,1,2
+Manager,Lily Bennett,40,1,1001,Manager,Lil.Ben,PastelDream9
+Manager,Jason Wells,39,2,1002,Manager,Jas.Wel,Shadow99
+Cashier,Michael Carter,28,3,1003,Cashier,Mic.Car,Treehouse2
+Cashier,Emma Reese,25,4,1004,Cashier,Emm.Ree,Sunflower45
+Engineer,Daniel Foster,34,6,1006,Engineer,Dan.Fos,Mountain44
+Engineer,Sarah Collins,33,7,1007,Engineer,Sar.Col,CoffeeTime8
