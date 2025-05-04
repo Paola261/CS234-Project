@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author Taryn
@@ -11,6 +7,8 @@ public class Cashier_Menu extends javax.swing.JFrame {
     private Cashier currentCashier;
     private InventoryManager inventoryManager;
     private ScheduleManager scheduleManager;
+    private AppController controller = AppController.getInstance();
+    
 
     /**
      * Creates new form Cashier_Menu
@@ -22,6 +20,8 @@ public class Cashier_Menu extends javax.swing.JFrame {
         
         initComponents();
         lblCashierName.setText(cashier.getName());
+        String lastStatus = ClockHandler.getLastClockStatus(currentCashier.getName());
+        lblClockStatus.setText(lastStatus);
     }
 
     /**
@@ -41,10 +41,9 @@ public class Cashier_Menu extends javax.swing.JFrame {
         btnClockOut = new javax.swing.JButton();
         btnClockIn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblClockStatus = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         tabCustomerInfo = new javax.swing.JPanel();
         tabSellTicket = new javax.swing.JPanel();
         tabSellConcession = new javax.swing.JPanel();
@@ -75,30 +74,44 @@ public class Cashier_Menu extends javax.swing.JFrame {
         tabAccountMenu.add(lblCashierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 190, -1));
 
         btnClockOut.setText("Clock Out");
+        btnClockOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClockOutActionPerformed(evt);
+            }
+        });
         tabAccountMenu.add(btnClockOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 90, 30));
 
         btnClockIn.setText("Clock In");
+        btnClockIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClockInActionPerformed(evt);
+            }
+        });
         tabAccountMenu.add(btnClockIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 90, 30));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Current Status:");
         tabAccountMenu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
 
-        jLabel5.setText("Clocked In/Out");
-        tabAccountMenu.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
-
-        jLabel6.setText("Current Date/Time");
-        tabAccountMenu.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        lblClockStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblClockStatus.setText("Clocked In/Out");
+        tabAccountMenu.add(lblClockStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
         jButton1.setText("Reset Password");
-        tabAccountMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 140, -1));
-
-        jButton2.setText("Logout");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        tabAccountMenu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
+        tabAccountMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 140, -1));
+
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+        tabAccountMenu.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
 
         panelCashier.addTab("Account Menu", tabAccountMenu);
 
@@ -168,23 +181,48 @@ public class Cashier_Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        controller.saveAllData();
+        new Login_Application().setVisible(true);
+        this.dispose();
+          
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnClockInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockInActionPerformed
+        ClockHandler.clockAction(currentCashier.getName(), currentCashier.getRole(), "Clock In");
+        lblClockStatus.setText("Clocked In");
+        JOptionPane.showMessageDialog(null, "Clocked In!");
+    }//GEN-LAST:event_btnClockInActionPerformed
+
+    private void btnClockOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockOutActionPerformed
+        ClockHandler.clockAction(currentCashier.getName(), currentCashier.getRole(), "Clock Out");
+        lblClockStatus.setText("Clocked Out");
+        JOptionPane.showMessageDialog(null, "Clocked Out!");
+    }//GEN-LAST:event_btnClockOutActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String newPass = JOptionPane.showInputDialog(this, "Enter new Password:");
+        if (newPass == null || newPass.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Passowrd not changed.");
+            return;
+        }
+        currentCashier.getCredential().updatePassword(newPass);
+        JOptionPane.showMessageDialog(this, "Password Updated!");
+         
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClockIn;
     private javax.swing.JButton btnClockOut;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblCashierName;
+    private javax.swing.JLabel lblClockStatus;
     private javax.swing.JTabbedPane panelCashier;
     private javax.swing.JPanel tabAccountMenu;
     private javax.swing.JPanel tabCheckout;
