@@ -178,6 +178,16 @@ public class Login_Application extends javax.swing.JFrame {
                         menu.setVisible(true);
                         this.dispose();
                     }
+                    else if (s instanceof Cashier) {
+                        Cashier_Menu cashierMenu = new Cashier_Menu((Cashier) s, controller.getInventory(), controller.getScheduleManager());
+                        cashierMenu.setVisible(true);
+                        this.dispose();
+                    }
+                    else if (s instanceof Engineer) {
+                        Engineer_Menu engineerMenu = new Engineer_Menu((Engineer) s, controller.getMaintenance());
+                        engineerMenu.setVisible(true);
+                        this.dispose();
+                    }
                     // Additional GUI menus can be added for Cashier or Engineer
                     loggedIn = true;
                     break;

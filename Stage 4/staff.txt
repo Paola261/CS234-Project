@@ -1,4 +1,3 @@
-Manager,taryn davis,20,10001,10001,Manager,1,2
 Manager,Lily Bennett,40,1,1001,Manager,Lil.Ben,PastelDream9
 Manager,Jason Wells,39,2,1002,Manager,Jas.Wel,Shadow99
 Cashier,Michael Carter,28,3,1003,Cashier,Mic.Car,Treehouse2
