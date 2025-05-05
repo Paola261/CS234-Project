@@ -158,6 +158,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnChangePassword = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
         jStaffPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -175,6 +176,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnChangeStaffRole = new javax.swing.JButton();
         btnViewMoreDetails = new javax.swing.JButton();
         btnViewStaffLog = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
         panelCustomerMenu = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -196,6 +198,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnRemoveMovie = new javax.swing.JButton();
         btnViewSoldSeats = new javax.swing.JButton();
         btnEditDetails = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
         panelInventory = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblInventory = new javax.swing.JTable();
@@ -209,6 +212,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnAddItem = new javax.swing.JButton();
         btnOrderMore = new javax.swing.JButton();
         btnRemoveItem = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
         panelMaintenanceMenu = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblResolvedIssues = new javax.swing.JTable();
@@ -220,6 +224,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnResolveIssue = new javax.swing.JButton();
         btnViewIssueDetails = new javax.swing.JButton();
         btnViewResolvedDetails = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -242,9 +247,9 @@ public class Manager_Menu extends javax.swing.JFrame {
         jAccountPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(3, 4, 94));
+        lblWelcome.setForeground(new java.awt.Color(0, 0, 0));
         lblWelcome.setText("Welcome!");
-        jAccountPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
+        jAccountPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
         lblManagerName.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lblManagerName.setText("Manager Name");
@@ -260,7 +265,7 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnLogoutActionPerformed(evt);
             }
         });
-        jAccountPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 90, 30));
+        jAccountPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 90, 30));
         jAccountPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
 
         btnChangePassword.setText("Reset Password");
@@ -269,7 +274,10 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnChangePasswordActionPerformed(evt);
             }
         });
-        jAccountPanel.add(btnChangePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 160, 30));
+        jAccountPanel.add(btnChangePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, 30));
+
+        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-05-04 223522.png")); // NOI18N
+        jAccountPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -180, 820, -1));
 
         tabAccountPane.addTab("Account Menu", jAccountPanel);
 
@@ -277,19 +285,19 @@ public class Manager_Menu extends javax.swing.JFrame {
 
         jLabel1.setText("Name:");
         jStaffPanel.add(jLabel1);
-        jLabel1.setBounds(20, 30, 37, 16);
+        jLabel1.setBounds(20, 70, 37, 16);
 
         jLabel5.setText("Age:");
         jStaffPanel.add(jLabel5);
-        jLabel5.setBounds(20, 90, 37, 16);
+        jLabel5.setBounds(20, 130, 37, 16);
 
         jLabel6.setText("ID:");
         jStaffPanel.add(jLabel6);
-        jLabel6.setBounds(20, 150, 60, 16);
+        jLabel6.setBounds(20, 190, 60, 16);
 
         jLabel7.setText("Role: ");
         jStaffPanel.add(jLabel7);
-        jLabel7.setBounds(20, 210, 120, 16);
+        jLabel7.setBounds(20, 250, 120, 16);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setText("Staff");
@@ -318,13 +326,13 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(txtName);
-        txtName.setBounds(20, 50, 180, 30);
+        txtName.setBounds(20, 90, 180, 30);
         jStaffPanel.add(txtAge);
-        txtAge.setBounds(20, 110, 180, 30);
+        txtAge.setBounds(20, 150, 180, 30);
         jStaffPanel.add(txtID);
-        txtID.setBounds(20, 170, 180, 30);
+        txtID.setBounds(20, 210, 180, 30);
         jStaffPanel.add(txtRole);
-        txtRole.setBounds(20, 230, 180, 30);
+        txtRole.setBounds(20, 270, 180, 30);
 
         btnAddStaffMember.setText("Add Staff Member");
         btnAddStaffMember.addActionListener(new java.awt.event.ActionListener() {
@@ -333,7 +341,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnAddStaffMember);
-        btnAddStaffMember.setBounds(20, 280, 180, 23);
+        btnAddStaffMember.setBounds(20, 330, 180, 23);
 
         btnRemoveStaffMember.setText("Remove Staff Member");
         btnRemoveStaffMember.addActionListener(new java.awt.event.ActionListener() {
@@ -370,6 +378,12 @@ public class Manager_Menu extends javax.swing.JFrame {
         });
         jStaffPanel.add(btnViewStaffLog);
         btnViewStaffLog.setBounds(520, 380, 180, 23);
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Details:");
+        jStaffPanel.add(jLabel21);
+        jLabel21.setBounds(20, 30, 70, 25);
 
         tabAccountPane.addTab("Staff Menu", jStaffPanel);
 
@@ -463,7 +477,12 @@ public class Manager_Menu extends javax.swing.JFrame {
         });
         jPanel4.add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 140, -1));
 
+        jLabel24.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-05-04 223522.png")); // NOI18N
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -190, 820, -1));
+
         tabAccountPane.addTab("Movie Menu", jPanel4);
+
+        panelInventory.setLayout(null);
 
         tblInventory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -478,26 +497,43 @@ public class Manager_Menu extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblInventory);
 
+        panelInventory.add(jScrollPane3);
+        jScrollPane3.setBounds(0, 6, 820, 229);
+
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel15.setText("Add New Concession Item:");
+        panelInventory.add(jLabel15);
+        jLabel15.setBounds(16, 259, 227, 25);
 
         jLabel16.setText("Name:");
+        panelInventory.add(jLabel16);
+        jLabel16.setBounds(16, 305, 35, 16);
 
         txtItemName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtItemNameActionPerformed(evt);
             }
         });
+        panelInventory.add(txtItemName);
+        txtItemName.setBounds(81, 302, 168, 22);
 
         jLabel17.setText("Quantity:");
+        panelInventory.add(jLabel17);
+        jLabel17.setBounds(16, 345, 49, 16);
+        panelInventory.add(txtItemQuantity);
+        txtItemQuantity.setBounds(83, 342, 81, 22);
 
         jLabel18.setText("Price:");
+        panelInventory.add(jLabel18);
+        jLabel18.setBounds(208, 345, 29, 16);
 
         txtItemPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtItemPriceActionPerformed(evt);
             }
         });
+        panelInventory.add(txtItemPrice);
+        txtItemPrice.setBounds(243, 342, 84, 22);
 
         btnAddItem.setText("Add Item");
         btnAddItem.addActionListener(new java.awt.event.ActionListener() {
@@ -505,6 +541,8 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnAddItemActionPerformed(evt);
             }
         });
+        panelInventory.add(btnAddItem);
+        btnAddItem.setBounds(108, 400, 129, 23);
 
         btnOrderMore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnOrderMore.setText("Order");
@@ -513,6 +551,8 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnOrderMoreActionPerformed(evt);
             }
         });
+        panelInventory.add(btnOrderMore);
+        btnOrderMore.setBounds(661, 253, 89, 37);
 
         btnRemoveItem.setText("Remove Item");
         btnRemoveItem.addActionListener(new java.awt.event.ActionListener() {
@@ -520,64 +560,12 @@ public class Manager_Menu extends javax.swing.JFrame {
                 btnRemoveItemActionPerformed(evt);
             }
         });
+        panelInventory.add(btnRemoveItem);
+        btnRemoveItem.setBounds(342, 263, 144, 23);
 
-        javax.swing.GroupLayout panelInventoryLayout = new javax.swing.GroupLayout(panelInventory);
-        panelInventory.setLayout(panelInventoryLayout);
-        panelInventoryLayout.setHorizontalGroup(
-            panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3)
-            .addGroup(panelInventoryLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelInventoryLayout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addGap(30, 30, 30)
-                        .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelInventoryLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(99, 99, 99)
-                        .addComponent(btnRemoveItem, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelInventoryLayout.createSequentialGroup()
-                        .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelInventoryLayout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(jLabel18)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(338, Short.MAX_VALUE))
-            .addGroup(panelInventoryLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnOrderMore, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
-        );
-        panelInventoryLayout.setVerticalGroup(
-            panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInventoryLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(btnOrderMore, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemoveItem))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txtItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18)
-                    .addComponent(txtItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(btnAddItem)
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
+        jLabel26.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-05-04 223522.png")); // NOI18N
+        panelInventory.add(jLabel26);
+        jLabel26.setBounds(-70, -170, 1235, 815);
 
         tabAccountPane.addTab("Inventory Menu", panelInventory);
 
@@ -660,6 +648,10 @@ public class Manager_Menu extends javax.swing.JFrame {
         });
         panelMaintenanceMenu.add(btnViewResolvedDetails);
         btnViewResolvedDetails.setBounds(460, 30, 160, 23);
+
+        jLabel25.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-05-04 223522.png")); // NOI18N
+        panelMaintenanceMenu.add(jLabel25);
+        jLabel25.setBounds(-80, -220, 1235, 815);
 
         tabAccountPane.addTab("Maintenance Menu", panelMaintenanceMenu);
 
@@ -1208,6 +1200,11 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
