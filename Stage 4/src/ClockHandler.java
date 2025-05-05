@@ -39,4 +39,26 @@ public class ClockHandler {
         }
         return lastStatus;
     }
+    
+    public static String getFullClockReport(String name) {
+        StringBuilder report = new StringBuilder("Clock Log for " + name + ":\n\n");
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("clock_log.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 4 && parts[0].equals(name)) {
+                    report.append("[").append(parts[3]).append("] ")
+                          .append(parts[2]) // action
+                          .append(" as ").append(parts[1]) // role
+                          .append("\n");
+                }
+            }
+        } catch (IOException e) {
+            report.append("Error reading log file.");
+        }
+
+        return report.toString();
+    }
+
 }

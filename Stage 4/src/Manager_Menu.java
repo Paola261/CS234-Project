@@ -13,6 +13,8 @@ import java.util.Map;
 import javax.swing.JTextArea;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JScrollPane;
+import java.awt.Dimension;
 
 
 public class Manager_Menu extends javax.swing.JFrame {
@@ -172,6 +174,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnRemoveStaffMember = new javax.swing.JButton();
         btnChangeStaffRole = new javax.swing.JButton();
         btnViewMoreDetails = new javax.swing.JButton();
+        btnViewStaffLog = new javax.swing.JButton();
         panelCustomerMenu = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -358,6 +361,15 @@ public class Manager_Menu extends javax.swing.JFrame {
         });
         jStaffPanel.add(btnViewMoreDetails);
         btnViewMoreDetails.setBounds(520, 340, 180, 23);
+
+        btnViewStaffLog.setText("View Staff Log Details");
+        btnViewStaffLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewStaffLogActionPerformed(evt);
+            }
+        });
+        jStaffPanel.add(btnViewStaffLog);
+        btnViewStaffLog.setBounds(520, 380, 180, 23);
 
         tabAccountPane.addTab("Staff Menu", jStaffPanel);
 
@@ -1110,6 +1122,22 @@ public class Manager_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnViewResolvedDetailsActionPerformed
 
+    private void btnViewStaffLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewStaffLogActionPerformed
+               
+        int selectedRow = tblStaff.getSelectedRow();
+        if (selectedRow != -1) {
+            String staffName = tblStaff.getValueAt(selectedRow, 0).toString(); // Adjust index as needed
+            String report = ClockHandler.getFullClockReport(staffName);
+
+            JTextArea textArea = new JTextArea(report);
+            textArea.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            scrollPane.setPreferredSize(new Dimension(400, 300));
+
+            JOptionPane.showMessageDialog(this, scrollPane, "Clock Log Report", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnViewStaffLogActionPerformed
+
     /**
      * @param args the command line arguments
 //     */
@@ -1164,6 +1192,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnViewMoreDetails;
     private javax.swing.JButton btnViewResolvedDetails;
     private javax.swing.JButton btnViewSoldSeats;
+    private javax.swing.JButton btnViewStaffLog;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel jAccountPanel;
     private javax.swing.JLabel jLabel1;

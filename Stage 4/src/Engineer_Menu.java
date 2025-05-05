@@ -3,6 +3,7 @@ import javax.swing.JOptionPane;
 import javax.swing.*;
 import java.time.LocalDate;
 import java.io.*;
+import java.util.List;
 
 
 /**
@@ -12,16 +13,19 @@ import java.io.*;
 public class Engineer_Menu extends javax.swing.JFrame {
     private Engineer currentEngineer;
     private AppController controller = AppController.getInstance();
-
+    private MaintenanceManager maintenanceManager;
+    
     /**
      * Creates new form Engineer_Menu
      */
     public Engineer_Menu(Engineer engineer, MaintenanceManager maintenanceManager) {
         this.currentEngineer = engineer;
+        this.maintenanceManager = maintenanceManager;
         initComponents();
         String lastStatus = ClockHandler.getLastClockStatus(currentEngineer.getName());
         lblClockStatus.setText(lastStatus);
-        loadChecklistFromFile(currentEngineer.getCredential().getUsername());
+        
+        refreshMaintenanceTables();
         
     }
 
@@ -34,6 +38,7 @@ public class Engineer_Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panelAccount = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -45,10 +50,20 @@ public class Engineer_Menu extends javax.swing.JFrame {
         lblClockStatus = new javax.swing.JLabel();
         btnResetPassword = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        panelChecklist = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPendingIssues = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        btnViewIssuesDetails = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblResolvedIssues = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        btnViewResolvedDetails = new javax.swing.JButton();
+        btnLogNewIssue = new javax.swing.JButton();
+        btnResolveIssue = new javax.swing.JButton();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,41 +133,116 @@ public class Engineer_Menu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Account Menu", panelAccount);
 
-        panelChecklist.setLayout(new javax.swing.BoxLayout(panelChecklist, javax.swing.BoxLayout.LINE_AXIS));
+        tblPendingIssues.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblPendingIssues);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Pending Issues:");
+
+        btnViewIssuesDetails.setText("View Issues Details");
+        btnViewIssuesDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewIssuesDetailsActionPerformed(evt);
+            }
+        });
+
+        tblResolvedIssues.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblResolvedIssues);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel6.setText("Resolved Issues:");
+
+        btnViewResolvedDetails.setText("View Resolved Details");
+        btnViewResolvedDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewResolvedDetailsActionPerformed(evt);
+            }
+        });
+
+        btnLogNewIssue.setText("Log New Issue");
+        btnLogNewIssue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogNewIssueActionPerformed(evt);
+            }
+        });
+
+        btnResolveIssue.setText("Resolve Issue");
+        btnResolveIssue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResolveIssueActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 378, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnViewIssuesDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnViewResolvedDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogNewIssue, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                    .addComponent(btnResolveIssue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(btnViewIssuesDetails)
+                    .addComponent(jLabel6)
+                    .addComponent(btnViewResolvedDetails))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(btnLogNewIssue)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnResolveIssue)))
+                .addGap(14, 14, 14))
         );
 
-        jScrollPane1.setViewportView(jPanel2);
-
-        panelChecklist.add(jScrollPane1);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelChecklist, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(392, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(panelChecklist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Daily CheckList", jPanel1);
+        jTabbedPane1.addTab("Maintenance Menu", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,51 +258,49 @@ public class Engineer_Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loadChecklistFromFile(String engineerUsername) {
-        String date = LocalDate.now().toString(); // e.g., 2025-05-04
-        File file = new File("checklist_" + date + ".txt");
+    private void refreshMaintenanceTables() {
+        String[] columns = {"ID", "Description", "Reported By", "Date"};
+        List<MaintenanceIssue> pending = maintenanceManager.getOpenIssues();
+        List<MaintenanceIssue> resolved = maintenanceManager.getResolvedIssues();
 
-        if (!file.exists()) {
-            JOptionPane.showMessageDialog(this, "No checklist file found for today.");
+        String[][] pendingData = new String[pending.size()][4];
+        String[][] resolvedData = new String[resolved.size()][4];
+        
+        for (int i = 0; i < pending.size(); i++) {
+            MaintenanceIssue m = pending.get(i);
+            pendingData[i][0] = String.valueOf(m.getID());
+            pendingData[i][1] = m.getDescription();
+            pendingData[i][2] = m.getReportedBy();
+            pendingData[i][3] = m.getDateReported();
+        }
+        
+        for (int i = 0; i < resolved.size(); i++) {
+            MaintenanceIssue m = resolved.get(i);
+            resolvedData[i][0] = String.valueOf(m.getID());
+            resolvedData[i][1] = m.getDescription();
+            resolvedData[i][2] = m.getReportedBy();
+            resolvedData[i][3] = m.getDateReported();
+        }
+        
+        tblPendingIssues.setModel(new javax.swing.table.DefaultTableModel(pendingData, columns));
+        tblResolvedIssues.setModel(new javax.swing.table.DefaultTableModel(resolvedData, columns));
+    }
+    
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        controller.saveAllData();
+        new Login_Application().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnResetPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswordActionPerformed
+        String newPass = JOptionPane.showInputDialog(this, "Enter new Password:");
+        if (newPass == null || newPass.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Password not changed.");
             return;
         }
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            String line;
-            boolean relevantEngineer = false;
-
-            while ((line = reader.readLine()) != null) {
-                line = line.trim();
-
-                if (line.startsWith("Engineer:")) {
-                    // Check if this block belongs to the current engineer
-                    relevantEngineer = line.contains(engineerUsername);
-                    continue;
-                }
-
-                if (relevantEngineer && line.startsWith("[")) {
-                    JCheckBox checkBox = new JCheckBox(line.substring(4)); 
-                    panelChecklist.add(checkBox);
-                }
-
-                if (line.isEmpty() && relevantEngineer) {
-                    break; // Exit when that engineer's block ends
-                }
-            }
-
-            panelChecklist.revalidate();
-            panelChecklist.repaint();
-
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error reading checklist: " + e.getMessage());
-        }
-    }
- 
-    private void btnClockInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockInActionPerformed
-        ClockHandler.clockAction(currentEngineer.getName(), currentEngineer.getRole(), "Clock In");
-        lblClockStatus.setText("Clocked In");
-        JOptionPane.showMessageDialog(null, "Clocked In!");
-    }//GEN-LAST:event_btnClockInActionPerformed
+        currentEngineer.getCredential().updatePassword(newPass);
+        JOptionPane.showMessageDialog(this, "Password Updated!");
+    }//GEN-LAST:event_btnResetPasswordActionPerformed
 
     private void btnClockOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockOutActionPerformed
         ClockHandler.clockAction(currentEngineer.getName(), currentEngineer.getRole(), "Clock Out");
@@ -220,40 +308,125 @@ public class Engineer_Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Clocked Out!");
     }//GEN-LAST:event_btnClockOutActionPerformed
 
-    private void btnResetPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswordActionPerformed
-        String newPass = JOptionPane.showInputDialog(this, "Enter new Password:");
-        if (newPass == null || newPass.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Passowrd not changed.");
+    private void btnClockInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockInActionPerformed
+        ClockHandler.clockAction(currentEngineer.getName(), currentEngineer.getRole(), "Clock In");
+        lblClockStatus.setText("Clocked In");
+        JOptionPane.showMessageDialog(null, "Clocked In!");
+    }//GEN-LAST:event_btnClockInActionPerformed
+
+    private void btnViewIssuesDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewIssuesDetailsActionPerformed
+        int row = tblPendingIssues.getSelectedRow();
+        if(row == -1) {
+            JOptionPane.showMessageDialog(this, "Select an issue to view.");
             return;
         }
-        currentEngineer.getCredential().updatePassword(newPass);
-        JOptionPane.showMessageDialog(this, "Password Updated!");         
-    }//GEN-LAST:event_btnResetPasswordActionPerformed
+        
+        int issueID = Integer.parseInt(tblPendingIssues.getValueAt(row, 0).toString());
+        for (MaintenanceIssue m : maintenanceManager.getOpenIssues()) {
+            if (m.getID() == issueID) {
+                String details = "Issue #" + m.getID() + "\nDescription: " + m.getDescription()
+                        + "\nReported By: " + m.getReportedBy()
+                        + "\nDate: " + m.getDateReported()
+                        + "\nStatus: " + m.getStatus();
+                JOptionPane.showMessageDialog(this, details, "Pending Issue Details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }
+    }//GEN-LAST:event_btnViewIssuesDetailsActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        controller.saveAllData();
-        new Login_Application().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    private void btnViewResolvedDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewResolvedDetailsActionPerformed
+        int row = tblResolvedIssues.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "Select a resolved issue to view.");
+            return;
+        }
 
+        int issueID = Integer.parseInt(tblResolvedIssues.getValueAt(row, 0).toString());
+        for (MaintenanceIssue m : maintenanceManager.getResolvedIssues()) {
+            if (m.getID() == issueID) {
+                String details = "Issue #" + m.getID() + "\nDescription: " + m.getDescription()
+                        + "\nReported By: " + m.getReportedBy()
+                        + "\nDate: " + m.getDateReported()
+                        + "\nStatus: " + m.getStatus()
+                        + "\nResolution Note: " + m.getResolutionNote();
+                JOptionPane.showMessageDialog(this, details, "Resolved Issue Details", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+        }
+    }//GEN-LAST:event_btnViewResolvedDetailsActionPerformed
+
+    private void btnLogNewIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogNewIssueActionPerformed
+        String description = JOptionPane.showInputDialog(this, "Enter Issue Description:");
+        if (description == null || description.isEmpty()) return;
+        
+        String reporter = currentEngineer.getName();
+        String date = java.time.LocalDate.now().toString();
+        int id = maintenanceManager.getOpenIssues().size() + maintenanceManager.getResolvedIssues().size() + 1;
+        
+        MaintenanceIssue issue = new MaintenanceIssue(id, description, reporter, date, "Open", "");
+        maintenanceManager.logIssue(issue);
+        refreshMaintenanceTables();
+    }//GEN-LAST:event_btnLogNewIssueActionPerformed
+
+    private void btnResolveIssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResolveIssueActionPerformed
+        int row = tblPendingIssues.getSelectedRow();
+        if(row == -1) {
+            JOptionPane.showMessageDialog(this, "Select an issue to resolve.");
+            return;
+        }
+        
+        String idString = tblPendingIssues.getValueAt(row, 0).toString();
+        int issueID = Integer.parseInt(idString);
+        String note = JOptionPane.showInputDialog(this, "Enter resolution note:");
+        
+        MaintenanceIssue selectedIssue = null;
+        for (MaintenanceIssue issue : maintenanceManager.getOpenIssues()) {
+            if (issue.getID() == issueID) {
+                selectedIssue = issue;
+                break;
+            }
+        }
+        if (selectedIssue != null && note != null) {
+            boolean success = maintenanceManager.resolveIssue(selectedIssue, note);
+            if (success) {
+                JOptionPane.showMessageDialog(this, "Issue Resolved!");
+                refreshMaintenanceTables();
+            } else {
+                JOptionPane.showMessageDialog(this, "Unable to resolve Issue.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Issue not found or invalid input.");
+        } 
+    }//GEN-LAST:event_btnResolveIssueActionPerformed
+
+  
+ 
     
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClockIn;
     private javax.swing.JButton btnClockOut;
+    private javax.swing.JButton btnLogNewIssue;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnResetPassword;
+    private javax.swing.JButton btnResolveIssue;
+    private javax.swing.JButton btnViewIssuesDetails;
+    private javax.swing.JButton btnViewResolvedDetails;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblClockStatus;
     private javax.swing.JPanel panelAccount;
-    private javax.swing.JPanel panelChecklist;
+    private javax.swing.JTable tblPendingIssues;
+    private javax.swing.JTable tblResolvedIssues;
     // End of variables declaration//GEN-END:variables
 }

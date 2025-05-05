@@ -1,3 +1,3 @@
-1,Projector Malfunction in Screen 2,Lily Bennett,2025-05-03,Open
-2,Leaky ceiling in concession area,Jason Wells,2025-05-03,Open
-3,AC not working in lobby,Lily Bennett,2025-05-03,Open
+2,Leaky ceiling in concession area,Jason Wells,2025-05-03,Open,
+3,AC not working in lobby,Lily Bennett,2025-05-03,Open,
+1,Projector Malfunction in Screen 2,Lily Bennett,2025-05-03,Resolved,

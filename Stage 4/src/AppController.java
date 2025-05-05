@@ -27,6 +27,7 @@ public class AppController {
         this.inventoryManager = new InventoryManager();        
         this.maintenanceManager = new MaintenanceManager("maintenance.txt");
         
+        
         ArrayList<Items> loadedItems = InventoryFileHandler.loadInventory("Inventory.txt");
         for (Items item : loadedItems) {
             inventoryManager.addItem(item);
@@ -89,6 +90,7 @@ public class AppController {
         if (!staffManager.getAllStaff().isEmpty()) {
             StaffFileHandler.saveStaff(staffManager.getAllStaff());
         }
+        maintenanceManager.saveIssuesToFile();
     }
     
     public InventoryManager getInventory() {
