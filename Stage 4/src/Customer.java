@@ -21,6 +21,8 @@ public class Customer {
     private List<TicketOrder> ticketOrders;
     private List<ConcessionOrder> concessionOrders;
     private Map<FoodBeverage, Integer> ordersSold;
+//    private List<String> customerList; 
+
     
 
     /**
@@ -37,6 +39,7 @@ public class Customer {
         ticketOrders = new ArrayList<>();
         concessionOrders = new ArrayList<>();
         ordersSold = new HashMap<>();
+//        customerList = new ArrayList<>();
         
     }
     
@@ -95,6 +98,13 @@ public class Customer {
    public void addItem(FoodBeverage item, int quantity) {
        ordersSold.put(item, quantity);
    }
+   
+//   public void addCustomer(String name, int ID, byte age) ////STOPPED HERE
+//   {
+//       Customer newCustomer = new Customer(name, ID, age);
+//       customerList.add(newCustomer);
+//       
+//   }
 
     
    

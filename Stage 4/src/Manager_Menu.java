@@ -178,6 +178,28 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnViewStaffLog = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         panelCustomerMenu = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        customerList = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        btnAdd = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        txtName1 = new javax.swing.JTextField();
+        txtID1 = new javax.swing.JTextField();
+        txtAge1 = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnAdd1 = new javax.swing.JButton();
+        btnUpdate1 = new javax.swing.JButton();
+        txtName2 = new javax.swing.JTextField();
+        txtID2 = new javax.swing.JTextField();
+        txtAge2 = new javax.swing.JTextField();
+        lblName1 = new javax.swing.JLabel();
+        lblID1 = new javax.swing.JLabel();
+        lblAge1 = new javax.swing.JLabel();
+        btnDelete1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         txtTitle = new javax.swing.JTextField();
@@ -247,7 +269,6 @@ public class Manager_Menu extends javax.swing.JFrame {
         jAccountPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lblWelcome.setForeground(new java.awt.Color(0, 0, 0));
         lblWelcome.setText("Welcome!");
         jAccountPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
@@ -275,8 +296,6 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jAccountPanel.add(btnChangePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, 30));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-05-04 223522.png")); // NOI18N
         jAccountPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -180, 820, -1));
 
         tabAccountPane.addTab("Account Menu", jAccountPanel);
@@ -285,19 +304,19 @@ public class Manager_Menu extends javax.swing.JFrame {
 
         jLabel1.setText("Name:");
         jStaffPanel.add(jLabel1);
-        jLabel1.setBounds(20, 70, 37, 16);
+        jLabel1.setBounds(20, 70, 37, 17);
 
         jLabel5.setText("Age:");
         jStaffPanel.add(jLabel5);
-        jLabel5.setBounds(20, 130, 37, 16);
+        jLabel5.setBounds(20, 130, 37, 17);
 
         jLabel6.setText("ID:");
         jStaffPanel.add(jLabel6);
-        jLabel6.setBounds(20, 190, 60, 16);
+        jLabel6.setBounds(20, 190, 60, 17);
 
         jLabel7.setText("Role: ");
         jStaffPanel.add(jLabel7);
-        jLabel7.setBounds(20, 250, 120, 16);
+        jLabel7.setBounds(20, 250, 120, 17);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel8.setText("Staff");
@@ -383,11 +402,209 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("Details:");
         jStaffPanel.add(jLabel21);
-        jLabel21.setBounds(20, 30, 70, 25);
+        jLabel21.setBounds(20, 30, 70, 22);
 
         tabAccountPane.addTab("Staff Menu", jStaffPanel);
 
         panelCustomerMenu.setLayout(null);
+
+        customerList.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        customerList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "ID", "Age"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        customerList.setName(""); // NOI18N
+        customerList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerListMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(customerList);
+
+        panelCustomerMenu.add(jScrollPane4);
+        jScrollPane4.setBounds(380, 10, 400, 402);
+
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setText("Delete");
+
+        btnUpdate.setText("Update");
+
+        txtName1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtName1ActionPerformed(evt);
+            }
+        });
+
+        txtID1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtID1ActionPerformed(evt);
+            }
+        });
+
+        txtAge1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAge1ActionPerformed(evt);
+            }
+        });
+
+        lblName.setText("Name");
+
+        lblID.setText("ID");
+
+        lblAge.setText("Age");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btnAdd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDelete))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(btnUpdate)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtName1)
+                        .addComponent(txtID1)
+                        .addComponent(txtAge1, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
+                    .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(lblName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(lblID)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblAge)
+                .addGap(4, 4, 4)
+                .addComponent(txtAge1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd)
+                    .addComponent(btnDelete))
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate)
+                .addContainerGap())
+        );
+
+        panelCustomerMenu.add(jPanel1);
+        jPanel1.setBounds(380, 10, 120, 297);
+
+        btnAdd1.setText("Add");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
+
+        btnUpdate1.setText("Update");
+
+        txtName2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtName2ActionPerformed(evt);
+            }
+        });
+
+        txtID2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtID2ActionPerformed(evt);
+            }
+        });
+
+        txtAge2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAge2ActionPerformed(evt);
+            }
+        });
+
+        lblName1.setText("Name");
+
+        lblID1.setText("ID");
+
+        lblAge1.setText("Age");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAge2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtID2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblID1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 73, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(btnAdd1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnUpdate1))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(lblName1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(lblID1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblAge1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAge2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(btnAdd1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnUpdate1)
+                .addGap(12, 12, 12))
+        );
+
+        panelCustomerMenu.add(jPanel2);
+        jPanel2.setBounds(0, 17, 190, 330);
+
+        btnDelete1.setText("Delete");
+        panelCustomerMenu.add(btnDelete1);
+        btnDelete1.setBounds(200, 270, 72, 23);
+
         tabAccountPane.addTab("Customer Menu", panelCustomerMenu);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -476,8 +693,6 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 140, -1));
-
-        jLabel24.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-05-04 223522.png")); // NOI18N
         jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -190, 820, -1));
 
         tabAccountPane.addTab("Movie Menu", jPanel4);
@@ -503,11 +718,11 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel15.setText("Add New Concession Item:");
         panelInventory.add(jLabel15);
-        jLabel15.setBounds(16, 259, 227, 25);
+        jLabel15.setBounds(16, 259, 247, 22);
 
         jLabel16.setText("Name:");
         panelInventory.add(jLabel16);
-        jLabel16.setBounds(16, 305, 35, 16);
+        jLabel16.setBounds(16, 305, 38, 17);
 
         txtItemName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -515,17 +730,17 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(txtItemName);
-        txtItemName.setBounds(81, 302, 168, 22);
+        txtItemName.setBounds(81, 302, 168, 23);
 
         jLabel17.setText("Quantity:");
         panelInventory.add(jLabel17);
-        jLabel17.setBounds(16, 345, 49, 16);
+        jLabel17.setBounds(16, 345, 53, 17);
         panelInventory.add(txtItemQuantity);
-        txtItemQuantity.setBounds(83, 342, 81, 22);
+        txtItemQuantity.setBounds(83, 342, 81, 23);
 
         jLabel18.setText("Price:");
         panelInventory.add(jLabel18);
-        jLabel18.setBounds(208, 345, 29, 16);
+        jLabel18.setBounds(208, 345, 33, 17);
 
         txtItemPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -533,7 +748,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(txtItemPrice);
-        txtItemPrice.setBounds(243, 342, 84, 22);
+        txtItemPrice.setBounds(243, 342, 84, 23);
 
         btnAddItem.setText("Add Item");
         btnAddItem.addActionListener(new java.awt.event.ActionListener() {
@@ -562,10 +777,8 @@ public class Manager_Menu extends javax.swing.JFrame {
         });
         panelInventory.add(btnRemoveItem);
         btnRemoveItem.setBounds(342, 263, 144, 23);
-
-        jLabel26.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-05-04 223522.png")); // NOI18N
         panelInventory.add(jLabel26);
-        jLabel26.setBounds(-70, -170, 1235, 815);
+        jLabel26.setBounds(-70, -170, 0, 0);
 
         tabAccountPane.addTab("Inventory Menu", panelInventory);
 
@@ -606,7 +819,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel19.setText("Pending Issues:");
         panelMaintenanceMenu.add(jLabel19);
-        jLabel19.setBounds(20, 30, 216, 25);
+        jLabel19.setBounds(20, 30, 216, 22);
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel20.setText("Resolved Issues:");
@@ -648,10 +861,8 @@ public class Manager_Menu extends javax.swing.JFrame {
         });
         panelMaintenanceMenu.add(btnViewResolvedDetails);
         btnViewResolvedDetails.setBounds(460, 30, 160, 23);
-
-        jLabel25.setIcon(new javax.swing.ImageIcon("C:\\Users\\Taryn\\Pictures\\Screenshots\\Screenshot 2025-05-04 223522.png")); // NOI18N
         panelMaintenanceMenu.add(jLabel25);
-        jLabel25.setBounds(-80, -220, 1235, 815);
+        jLabel25.setBounds(-80, -220, 0, 0);
 
         tabAccountPane.addTab("Maintenance Menu", panelMaintenanceMenu);
 
@@ -1130,6 +1341,85 @@ public class Manager_Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnViewStaffLogActionPerformed
 
+    private void customerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerListMouseClicked
+        // TODO add your handling code here:
+        System.out.println("You have clicked on the table of Customers");
+        int row = customerList.getSelectedRow();
+
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+
+        String name = model.getValueAt(row,0).toString();
+        System.out.println("To update: " + name);
+        Customer theCustomer = aPerson.getACustomer(name);
+
+        txtName.setText(theCustomer.getCustomerName());
+        txtID.setText(theCustomer.getCustomerID());
+        txtAge.setText(theCustomer.getCustomerAge());
+
+        btnUpdate.setEnabled(true);
+        btnAdd.setEnabled(false);
+    }//GEN-LAST:event_customerListMouseClicked
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        if(txtName.getText().isEmpty() || txtID.getText().isEmpty() || txtAge.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Please enter all fields");
+            return;
+        }
+        try {
+            String name = txtName.getText();
+            int ID = Integer.valueOf(txtID.getText());
+            Byte age = Byte.valueOf(txtAge.getText());
+
+            Customer aCustomer = new Customer(name, ID, age);
+
+            staffManager.addCustomer(name, ID, age);
+
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtName1ActionPerformed
+
+    private void txtID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtID1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtID1ActionPerformed
+
+    private void txtAge1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAge1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAge1ActionPerformed
+
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        if(txtName.getText().isEmpty() || txtID.getText().isEmpty() || txtAge.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Please enter all fields");
+            return;
+        }
+        try {
+            String name = txtName.getText();
+            int ID = Integer.valueOf(txtID.getText());
+            Byte age = Byte.valueOf(txtAge.getText());
+
+            Customer aCustomer = new Customer(name, ID, age);
+
+            staffManager.addCustomer(name, ID, age);
+
+        }
+    }//GEN-LAST:event_btnAdd1ActionPerformed
+
+    private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtName2ActionPerformed
+
+    private void txtID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtID2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtID2ActionPerformed
+
+    private void txtAge2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAge2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAge2ActionPerformed
+
     /**
      * @param args the command line arguments
 //     */
@@ -1166,11 +1456,15 @@ public class Manager_Menu extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnAddItem;
     private javax.swing.JButton btnAddStaffMember;
     private javax.swing.JButton btnAssignMovie;
     private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnChangeStaffRole;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDelete1;
     private javax.swing.JButton btnEditDetails;
     private javax.swing.JButton btnLogNewIssue;
     private javax.swing.JButton btnLogout;
@@ -1179,6 +1473,8 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnRemoveMovie;
     private javax.swing.JButton btnRemoveStaffMember;
     private javax.swing.JButton btnResolveIssue;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton btnViewIssueDetails;
     private javax.swing.JButton btnViewMoreDetails;
@@ -1186,6 +1482,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnViewSoldSeats;
     private javax.swing.JButton btnViewStaffLog;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTable customerList;
     private javax.swing.JPanel jAccountPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1213,15 +1510,24 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JOptionPane jOptionPane1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel jStaffPanel;
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblAge1;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblID1;
     private javax.swing.JLabel lblManagerName;
     private javax.swing.JLabel lblManagerName1;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblWelcome;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
@@ -1239,12 +1545,18 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JTable tblResolvedIssues;
     private javax.swing.JTable tblStaff;
     private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtAge1;
+    private javax.swing.JTextField txtAge2;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtID1;
+    private javax.swing.JTextField txtID2;
     private javax.swing.JTextField txtItemName;
     private javax.swing.JTextField txtItemPrice;
     private javax.swing.JTextField txtItemQuantity;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtName1;
+    private javax.swing.JTextField txtName2;
     private javax.swing.JTextField txtRating;
     private javax.swing.JTextField txtRole;
     private javax.swing.JTextField txtRuntime;

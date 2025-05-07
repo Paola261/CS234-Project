@@ -9,10 +9,10 @@ import java.util.ArrayList;
  * This class is intended to be extended
  * @author Taryn Davis
  */
-public abstract class Person {
-    protected String name;
-    protected int age;
-    protected int personID;
+public class Person { //abstract class
+    private String name;
+    private int age;
+    private int personID;
     private ArrayList<Customer> customers;
     
     /**
