@@ -72,7 +72,7 @@ public class AppController {
     }
 
     /**
-     * Saves all current showtimes to
+     * Saves all current showtimes to a file
      */
     public void saveShowtimesToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(SHOWTIME_FILE))) {
@@ -86,6 +86,9 @@ public class AppController {
         }
     }
 
+    /**
+     * Loads showtime data from file and populates the schedule manager. 
+     */
     public void loadShowtimesFromFile() {
         File file = new File(SHOWTIME_FILE);
         if (!file.exists()) return;
@@ -104,6 +107,10 @@ public class AppController {
         }
     }
     
+    /**
+     * Saves all application data including showtimes, staff, and maintenance records to their
+     * files
+     */
     public void saveAllData() {
         if (!scheduleManager.getShowtimes().isEmpty()) {
             ShowtimeFileHandler.saveShowtimes(scheduleManager.getShowtimes());

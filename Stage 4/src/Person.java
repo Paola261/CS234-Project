@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author Taryn Davis
  */
 public class Person { //abstract class
-    private String name;
+    public String name;
     private int age;
     private int personID;
     private ArrayList<Customer> customers;
