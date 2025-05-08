@@ -121,6 +121,10 @@ public class AppController {
         maintenanceManager.saveIssuesToFile();
     }
     
+    /**
+     * Returns the InventoryManager used for managing concession items.
+     * @return The InventoryManager Instance
+     */
     public InventoryManager getInventory() {
         return inventoryManager;
     }
