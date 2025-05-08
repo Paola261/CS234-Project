@@ -38,12 +38,15 @@ public class Cashier_Menu extends javax.swing.JFrame {
         tabAccountMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblCashierName = new javax.swing.JLabel();
-        btnClockOut = new javax.swing.JButton();
-        btnClockIn = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        lblClockStatus = new javax.swing.JLabel();
         btnResetPassword = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        btnClockIn = new javax.swing.JButton();
+        btnClockOut = new javax.swing.JButton();
+        lblClockStatus = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         tabCustomerInfo = new javax.swing.JPanel();
         tabSellTicket = new javax.swing.JPanel();
         tabSellConcession = new javax.swing.JPanel();
@@ -64,54 +67,103 @@ public class Cashier_Menu extends javax.swing.JFrame {
 
         tabAccountMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome!");
-        tabAccountMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
+        tabAccountMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
         lblCashierName.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        lblCashierName.setForeground(new java.awt.Color(255, 102, 255));
         lblCashierName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCashierName.setText("Cashier Name");
-        tabAccountMenu.add(lblCashierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 190, -1));
+        tabAccountMenu.add(lblCashierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 190, -1));
 
-        btnClockOut.setText("Clock Out");
-        btnClockOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClockOutActionPerformed(evt);
-            }
-        });
-        tabAccountMenu.add(btnClockOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 90, 30));
-
-        btnClockIn.setText("Clock In");
-        btnClockIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClockInActionPerformed(evt);
-            }
-        });
-        tabAccountMenu.add(btnClockIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 90, 30));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Current Status:");
-        tabAccountMenu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, -1, -1));
-
-        lblClockStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblClockStatus.setText("Clocked In/Out");
-        tabAccountMenu.add(lblClockStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
-
+        btnResetPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnResetPassword.setText("Reset Password");
         btnResetPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetPasswordActionPerformed(evt);
             }
         });
-        tabAccountMenu.add(btnResetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 140, -1));
+        tabAccountMenu.add(btnResetPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 140, -1));
 
+        btnLogout.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-        tabAccountMenu.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
+        tabAccountMenu.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 80, -1));
+
+        jPanel1.setBackground(new java.awt.Color(194, 202, 202));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
+
+        btnClockIn.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnClockIn.setText("Clock In");
+        btnClockIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClockInActionPerformed(evt);
+            }
+        });
+
+        btnClockOut.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnClockOut.setText("Clock Out");
+        btnClockOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClockOutActionPerformed(evt);
+            }
+        });
+
+        lblClockStatus.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
+        lblClockStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblClockStatus.setText("Clocked In/Out");
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Current Status:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(btnClockIn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)
+                        .addComponent(btnClockOut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblClockStatus)))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClockIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnClockOut, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblClockStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        tabAccountMenu.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 240, 120));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setText("______________");
+        tabAccountMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        tabAccountMenu.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -10, 870, 510));
 
         panelCashier.addTab("Account Menu", tabAccountMenu);
 
@@ -119,11 +171,11 @@ public class Cashier_Menu extends javax.swing.JFrame {
         tabCustomerInfo.setLayout(tabCustomerInfoLayout);
         tabCustomerInfoLayout.setHorizontalGroup(
             tabCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 801, Short.MAX_VALUE)
         );
         tabCustomerInfoLayout.setVerticalGroup(
             tabCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 474, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
         );
 
         panelCashier.addTab("Customer Info", tabCustomerInfo);
@@ -132,11 +184,11 @@ public class Cashier_Menu extends javax.swing.JFrame {
         tabSellTicket.setLayout(tabSellTicketLayout);
         tabSellTicketLayout.setHorizontalGroup(
             tabSellTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 801, Short.MAX_VALUE)
         );
         tabSellTicketLayout.setVerticalGroup(
             tabSellTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 474, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
         );
 
         panelCashier.addTab("Sell Ticket", tabSellTicket);
@@ -145,11 +197,11 @@ public class Cashier_Menu extends javax.swing.JFrame {
         tabSellConcession.setLayout(tabSellConcessionLayout);
         tabSellConcessionLayout.setHorizontalGroup(
             tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 801, Short.MAX_VALUE)
         );
         tabSellConcessionLayout.setVerticalGroup(
             tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 474, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
         );
 
         panelCashier.addTab("Sell Concession", tabSellConcession);
@@ -158,11 +210,11 @@ public class Cashier_Menu extends javax.swing.JFrame {
         tabCheckout.setLayout(tabCheckoutLayout);
         tabCheckoutLayout.setHorizontalGroup(
             tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 801, Short.MAX_VALUE)
         );
         tabCheckoutLayout.setVerticalGroup(
             tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 474, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
         );
 
         panelCashier.addTab("Checkout", tabCheckout);
@@ -171,11 +223,11 @@ public class Cashier_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCashier, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+            .addComponent(panelCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCashier)
+            .addComponent(panelCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -220,7 +272,10 @@ public class Cashier_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnResetPassword;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCashierName;
     private javax.swing.JLabel lblClockStatus;
     private javax.swing.JTabbedPane panelCashier;

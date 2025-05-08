@@ -50,6 +50,8 @@ public class Engineer_Menu extends javax.swing.JFrame {
         lblClockStatus = new javax.swing.JLabel();
         btnResetPassword = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPendingIssues = new javax.swing.JTable();
@@ -61,6 +63,8 @@ public class Engineer_Menu extends javax.swing.JFrame {
         btnViewResolvedDetails = new javax.swing.JButton();
         btnLogNewIssue = new javax.swing.JButton();
         btnResolveIssue = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -69,24 +73,27 @@ public class Engineer_Menu extends javax.swing.JFrame {
 
         panelAccount.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome!");
         panelAccount.add(jLabel1);
-        jLabel1.setBounds(268, 66, 168, 48);
+        jLabel1.setBounds(330, 70, 190, 45);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 51, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Engineer Name");
         panelAccount.add(jLabel2);
-        jLabel2.setBounds(270, 120, 161, 32);
+        jLabel2.setBounds(340, 120, 170, 40);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("___________________");
+        jLabel3.setText("________________");
         panelAccount.add(jLabel3);
-        jLabel3.setBounds(180, 90, 350, 32);
+        jLabel3.setBounds(250, 70, 350, 60);
 
+        btnClockIn.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnClockIn.setText("Clock In");
         btnClockIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,8 +101,9 @@ public class Engineer_Menu extends javax.swing.JFrame {
             }
         });
         panelAccount.add(btnClockIn);
-        btnClockIn.setBounds(210, 190, 90, 40);
+        btnClockIn.setBounds(330, 200, 80, 30);
 
+        btnClockOut.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnClockOut.setText("Clock Out");
         btnClockOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,16 +111,19 @@ public class Engineer_Menu extends javax.swing.JFrame {
             }
         });
         panelAccount.add(btnClockOut);
-        btnClockOut.setBounds(410, 190, 100, 40);
+        btnClockOut.setBounds(450, 200, 90, 30);
 
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel4.setText("Current Status:");
         panelAccount.add(jLabel4);
-        jLabel4.setBounds(270, 260, 90, 16);
+        jLabel4.setBounds(350, 250, 90, 16);
 
+        lblClockStatus.setFont(new java.awt.Font("Century Gothic", 3, 12)); // NOI18N
         lblClockStatus.setText("Clock In/Out");
         panelAccount.add(lblClockStatus);
-        lblClockStatus.setBounds(360, 260, 80, 16);
+        lblClockStatus.setBounds(440, 250, 80, 16);
 
+        btnResetPassword.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnResetPassword.setText("Reset Password");
         btnResetPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,8 +131,9 @@ public class Engineer_Menu extends javax.swing.JFrame {
             }
         });
         panelAccount.add(btnResetPassword);
-        btnResetPassword.setBounds(290, 310, 130, 23);
+        btnResetPassword.setBounds(370, 320, 130, 22);
 
+        btnLogout.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,10 +141,35 @@ public class Engineer_Menu extends javax.swing.JFrame {
             }
         });
         panelAccount.add(btnLogout);
-        btnLogout.setBounds(320, 350, 72, 30);
+        btnLogout.setBounds(392, 360, 90, 30);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
+        jPanel1.setForeground(new java.awt.Color(153, 153, 153));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 238, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 98, Short.MAX_VALUE)
+        );
+
+        panelAccount.add(jPanel1);
+        jPanel1.setBounds(310, 190, 240, 100);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        panelAccount.add(jLabel7);
+        jLabel7.setBounds(-40, 0, 960, 480);
 
         jTabbedPane1.addTab("Account Menu", panelAccount);
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblPendingIssues.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblPendingIssues.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -146,16 +183,21 @@ public class Engineer_Menu extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblPendingIssues);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 54, 338, 441));
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Pending Issues:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 16, -1, -1));
 
+        btnViewIssuesDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewIssuesDetails.setText("View Issues Details");
         btnViewIssuesDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewIssuesDetailsActionPerformed(evt);
             }
         });
+        jPanel2.add(btnViewIssuesDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 26, 155, -1));
 
         tblResolvedIssues.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,77 +212,42 @@ public class Engineer_Menu extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblResolvedIssues);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setText("Resolved Issues:");
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 54, 338, 441));
 
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel6.setText("Resolved Issues:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 16, -1, -1));
+
+        btnViewResolvedDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewResolvedDetails.setText("View Resolved Details");
         btnViewResolvedDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewResolvedDetailsActionPerformed(evt);
             }
         });
+        jPanel2.add(btnViewResolvedDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 26, -1, -1));
 
+        btnLogNewIssue.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnLogNewIssue.setText("Log New Issue");
         btnLogNewIssue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogNewIssueActionPerformed(evt);
             }
         });
+        jPanel2.add(btnLogNewIssue, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 179, 119, -1));
 
+        btnResolveIssue.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnResolveIssue.setText("Resolve Issue");
         btnResolveIssue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResolveIssueActionPerformed(evt);
             }
         });
+        jPanel2.add(btnResolveIssue, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 219, 119, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(802, 37, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnViewIssuesDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnViewResolvedDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogNewIssue, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                    .addComponent(btnResolveIssue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(12, 12, 12))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(btnViewIssuesDetails)
-                    .addComponent(jLabel6)
-                    .addComponent(btnViewResolvedDetails))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(btnLogNewIssue)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnResolveIssue)))
-                .addGap(14, 14, 14))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 540));
 
         jTabbedPane1.addTab("Maintenance Menu", jPanel2);
 
@@ -248,11 +255,13 @@ public class Engineer_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, Short.MAX_VALUE)
         );
 
         pack();
@@ -420,6 +429,10 @@ public class Engineer_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
