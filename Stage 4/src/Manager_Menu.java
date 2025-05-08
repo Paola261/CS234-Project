@@ -383,7 +383,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jStaffPanel.add(btnViewStaffLog);
         btnViewStaffLog.setBounds(590, 370, 180, 22);
         jStaffPanel.add(jSeparator1);
-        jSeparator1.setBounds(-10, 0, 50, 10);
+        jSeparator1.setBounds(-10, 0, 0, 3);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));

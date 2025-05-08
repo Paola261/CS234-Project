@@ -1,11 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 import java.io.*;
 import java.util.*;
 /**
- *
+ * The AppController class serves as the main controller of the application.
+ * It handles initialization and access to all core manager such as schedule, staff,
+ * inventory, and maintenance. It also provides methods to load and save persistant data.
  * @author Taryn
  */
 public class AppController {
