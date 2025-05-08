@@ -212,7 +212,6 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         btnViewDetails = new javax.swing.JButton();
@@ -235,6 +234,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         txtRating = new javax.swing.JTextField();
         txtDate = new javax.swing.JTextField();
         txtRuntime = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         panelInventory = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -284,7 +284,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         lblManagerName.setForeground(new java.awt.Color(255, 51, 255));
         lblManagerName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManagerName.setText("Manager Name");
-        jAccountPanel.add(lblManagerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 200, -1));
+        jAccountPanel.add(lblManagerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 200, -1));
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
@@ -512,10 +512,10 @@ public class Manager_Menu extends javax.swing.JFrame {
         jScrollPane4.setViewportView(customerList);
 
         panelCustomerMenu.add(jScrollPane4);
-        jScrollPane4.setBounds(330, 70, 430, 380);
+        jScrollPane4.setBounds(380, 70, 430, 380);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
         jPanel2.setForeground(new java.awt.Color(153, 153, 153));
 
         txtName2.addActionListener(new java.awt.event.ActionListener() {
@@ -566,30 +566,30 @@ public class Manager_Menu extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jLabel23)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(lblName1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(lblID1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAge1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAge2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addGap(42, 42, 42))
         );
 
         panelCustomerMenu.add(jPanel2);
-        jPanel2.setBounds(40, 40, 230, 250);
+        jPanel2.setBounds(30, 40, 250, 250);
 
         btnDelete1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnDelete1.setText("Delete");
@@ -600,7 +600,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblName.setText("Customer List:");
         panelCustomerMenu.add(lblName);
-        lblName.setBounds(460, 30, 170, 31);
+        lblName.setBounds(510, 30, 170, 31);
 
         btnUpdate1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnUpdate1.setText("Update");
@@ -719,10 +719,6 @@ public class Manager_Menu extends javax.swing.JFrame {
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel9.setText("Movie Title:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 90, 20));
-
         jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel10.setText("Date:");
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 70, 20));
@@ -789,6 +785,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         jPanel5.setForeground(new java.awt.Color(153, 153, 153));
         jPanel5.setLayout(null);
 
@@ -805,7 +802,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel27.setText("Movie Details:");
         jPanel5.add(jLabel27);
-        jLabel27.setBounds(10, 10, 122, 23);
+        jLabel27.setBounds(30, 10, 122, 23);
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel12.setText("Time:");
@@ -830,7 +827,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jPanel5.add(txtTitle);
-        txtTitle.setBounds(90, 50, 270, 22);
+        txtTitle.setBounds(100, 50, 270, 22);
         jPanel5.add(txtTime);
         txtTime.setBounds(460, 50, 180, 22);
 
@@ -842,11 +839,16 @@ public class Manager_Menu extends javax.swing.JFrame {
         jPanel5.add(txtRating);
         txtRating.setBounds(460, 90, 180, 22);
         jPanel5.add(txtDate);
-        txtDate.setBounds(90, 90, 150, 22);
+        txtDate.setBounds(100, 90, 150, 22);
         jPanel5.add(txtRuntime);
-        txtRuntime.setBounds(90, 130, 150, 22);
+        txtRuntime.setBounds(100, 130, 150, 22);
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 180));
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel9.setText("Movie Title:");
+        jPanel5.add(jLabel9);
+        jLabel9.setBounds(30, 50, 90, 20);
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 910, 180));
 
         jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
         jPanel4.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -70, 1020, -1));
@@ -870,7 +872,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tblInventory);
 
         panelInventory.add(jScrollPane3);
-        jScrollPane3.setBounds(10, 60, 820, 230);
+        jScrollPane3.setBounds(30, 60, 820, 230);
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel15.setText("Add New Concession Item:");
@@ -945,7 +947,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel33.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel33.setText("Inventory List:");
         panelInventory.add(jLabel33);
-        jLabel33.setBounds(330, 10, 160, 40);
+        jLabel33.setBounds(350, 10, 160, 40);
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -975,9 +977,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tabAccountPane, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(tabAccountPane, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

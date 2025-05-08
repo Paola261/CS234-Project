@@ -48,58 +48,61 @@ public class Login_Application extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setText("Movie Theater Sign In");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Sign In:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setText("Username");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
-        getContentPane().add(jtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 211, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+        getContentPane().add(jtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 211, -1));
 
-        blogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        blogin.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         blogin.setText("Login");
-        blogin.setBorder(null);
-        blogin.setBorderPainted(false);
+        blogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         blogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         blogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bloginActionPerformed(evt);
             }
         });
-        getContentPane().add(blogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 93, 34));
+        getContentPane().add(blogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 93, 30));
         blogin.getAccessibleContext().setAccessibleDescription("");
 
+        bexit.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         bexit.setText("Exit");
         bexit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bexitActionPerformed(evt);
             }
         });
-        getContentPane().add(bexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 55, -1));
+        getContentPane().add(bexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 55, 20));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Please enter your log-in details below");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
         jpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jpasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(jpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 211, -1));
+        getContentPane().add(jpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 211, -1));
 
+        jcshow_password.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jcshow_password.setText("Show Password");
         jcshow_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcshow_passwordActionPerformed(evt);
             }
         });
-        getContentPane().add(jcshow_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
+        getContentPane().add(jcshow_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Screenshot 2025-05-04 222101.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
