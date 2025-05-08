@@ -159,68 +159,83 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnChangePassword = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
         jStaffPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblStaff = new javax.swing.JTable();
-        txtName = new javax.swing.JTextField();
-        txtAge = new javax.swing.JTextField();
-        txtID = new javax.swing.JTextField();
-        txtRole = new javax.swing.JTextField();
-        btnAddStaffMember = new javax.swing.JButton();
         btnRemoveStaffMember = new javax.swing.JButton();
         btnChangeStaffRole = new javax.swing.JButton();
         btnViewMoreDetails = new javax.swing.JButton();
         btnViewStaffLog = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
+        btnAddStaffMember = new javax.swing.JButton();
+        txtRole = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         panelCustomerMenu = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         customerList = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        btnAdd = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        txtName1 = new javax.swing.JTextField();
-        txtID1 = new javax.swing.JTextField();
-        txtAge1 = new javax.swing.JTextField();
-        lblName = new javax.swing.JLabel();
-        lblID = new javax.swing.JLabel();
-        lblAge = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnAdd1 = new javax.swing.JButton();
-        btnUpdate1 = new javax.swing.JButton();
         txtName2 = new javax.swing.JTextField();
         txtID2 = new javax.swing.JTextField();
         txtAge2 = new javax.swing.JTextField();
         lblName1 = new javax.swing.JLabel();
         lblID1 = new javax.swing.JLabel();
         lblAge1 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         btnDelete1 = new javax.swing.JButton();
+        lblName = new javax.swing.JLabel();
+        btnUpdate1 = new javax.swing.JButton();
+        btnAdd1 = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
+        panelMaintenanceMenu = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblResolvedIssues = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tblPendingIssues = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        btnLogNewIssue = new javax.swing.JButton();
+        btnResolveIssue = new javax.swing.JButton();
+        btnViewIssueDetails = new javax.swing.JButton();
+        btnViewResolvedDetails = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        txtTitle = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtRuntime = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtTime = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        txtRating = new javax.swing.JTextField();
-        btnAssignMovie = new javax.swing.JButton();
         btnViewDetails = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblMovies = new javax.swing.JTable();
-        txtDate = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        txtScreen = new javax.swing.JTextField();
         btnRemoveMovie = new javax.swing.JButton();
         btnViewSoldSeats = new javax.swing.JButton();
         btnEditDetails = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnAssignMovie = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtScreen = new javax.swing.JTextField();
+        txtTitle = new javax.swing.JTextField();
+        txtTime = new javax.swing.JTextField();
+        txtRating = new javax.swing.JTextField();
+        txtDate = new javax.swing.JTextField();
+        txtRuntime = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
         panelInventory = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblInventory = new javax.swing.JTable();
@@ -235,18 +250,9 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnOrderMore = new javax.swing.JButton();
         btnRemoveItem = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
-        panelMaintenanceMenu = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tblResolvedIssues = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tblPendingIssues = new javax.swing.JTable();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        btnLogNewIssue = new javax.swing.JButton();
-        btnResolveIssue = new javax.swing.JButton();
-        btnViewIssueDetails = new javax.swing.JButton();
-        btnViewResolvedDetails = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -268,27 +274,34 @@ public class Manager_Menu extends javax.swing.JFrame {
 
         jAccountPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblWelcome.setBackground(new java.awt.Color(0, 0, 102));
+        lblWelcome.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(0, 0, 102));
         lblWelcome.setText("Welcome!");
         jAccountPanel.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
 
-        lblManagerName.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        lblManagerName.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        lblManagerName.setForeground(new java.awt.Color(255, 51, 255));
+        lblManagerName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManagerName.setText("Manager Name");
-        jAccountPanel.add(lblManagerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 140, -1));
+        jAccountPanel.add(lblManagerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 200, -1));
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel2.setText("__________");
-        jAccountPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 200, 90));
+        jAccountPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 200, 80));
 
+        btnLogout.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-        jAccountPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 90, 30));
+        jAccountPanel.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 100, 30));
         jAccountPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, -1, -1));
 
+        btnChangePassword.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnChangePassword.setText("Reset Password");
         btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,31 +311,22 @@ public class Manager_Menu extends javax.swing.JFrame {
         jAccountPanel.add(btnChangePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, 30));
         jAccountPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -180, 820, -1));
 
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Screenshot 2025-04-30 230942.png"))); // NOI18N
+        jAccountPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
+
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        jAccountPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -70, 990, -1));
+
         tabAccountPane.addTab("Account Menu", jAccountPanel);
 
         jStaffPanel.setLayout(null);
 
-        jLabel1.setText("Name:");
-        jStaffPanel.add(jLabel1);
-        jLabel1.setBounds(20, 70, 37, 17);
-
-        jLabel5.setText("Age:");
-        jStaffPanel.add(jLabel5);
-        jLabel5.setBounds(20, 130, 37, 17);
-
-        jLabel6.setText("ID:");
-        jStaffPanel.add(jLabel6);
-        jLabel6.setBounds(20, 190, 60, 17);
-
-        jLabel7.setText("Role: ");
-        jStaffPanel.add(jLabel7);
-        jLabel7.setBounds(20, 250, 120, 17);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel8.setText("Staff");
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel8.setText("Staff List:");
         jStaffPanel.add(jLabel8);
-        jLabel8.setBounds(430, 10, 60, 60);
+        jLabel8.setBounds(500, 10, 100, 60);
 
+        tblStaff.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblStaff.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -337,31 +341,9 @@ public class Manager_Menu extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblStaff);
 
         jStaffPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 60, 480, 170);
+        jScrollPane1.setBounds(310, 70, 480, 230);
 
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
-        jStaffPanel.add(txtName);
-        txtName.setBounds(20, 90, 180, 30);
-        jStaffPanel.add(txtAge);
-        txtAge.setBounds(20, 150, 180, 30);
-        jStaffPanel.add(txtID);
-        txtID.setBounds(20, 210, 180, 30);
-        jStaffPanel.add(txtRole);
-        txtRole.setBounds(20, 270, 180, 30);
-
-        btnAddStaffMember.setText("Add Staff Member");
-        btnAddStaffMember.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddStaffMemberActionPerformed(evt);
-            }
-        });
-        jStaffPanel.add(btnAddStaffMember);
-        btnAddStaffMember.setBounds(20, 330, 180, 23);
-
+        btnRemoveStaffMember.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnRemoveStaffMember.setText("Remove Staff Member");
         btnRemoveStaffMember.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,8 +351,9 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnRemoveStaffMember);
-        btnRemoveStaffMember.setBounds(520, 260, 180, 23);
+        btnRemoveStaffMember.setBounds(330, 330, 180, 22);
 
+        btnChangeStaffRole.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnChangeStaffRole.setText("Change Staff Role");
         btnChangeStaffRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,8 +361,9 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnChangeStaffRole);
-        btnChangeStaffRole.setBounds(520, 300, 180, 23);
+        btnChangeStaffRole.setBounds(330, 370, 180, 20);
 
+        btnViewMoreDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewMoreDetails.setText("View More Details");
         btnViewMoreDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -387,8 +371,9 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnViewMoreDetails);
-        btnViewMoreDetails.setBounds(520, 340, 180, 23);
+        btnViewMoreDetails.setBounds(590, 330, 180, 22);
 
+        btnViewStaffLog.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewStaffLog.setText("View Staff Log Details");
         btnViewStaffLog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,13 +381,106 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnViewStaffLog);
-        btnViewStaffLog.setBounds(520, 380, 180, 23);
+        btnViewStaffLog.setBounds(590, 370, 180, 22);
+        jStaffPanel.add(jSeparator1);
+        jSeparator1.setBounds(-10, 0, 50, 10);
 
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+
+        jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(51, 51, 51));
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("Details:");
-        jStaffPanel.add(jLabel21);
-        jLabel21.setBounds(20, 30, 70, 22);
+        jLabel21.setText("Staff Details:");
+
+        btnAddStaffMember.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnAddStaffMember.setText("Add Staff Member");
+        btnAddStaffMember.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddStaffMemberActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel7.setText("Role: ");
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel6.setText("ID:");
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel5.setText("Age:");
+
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel1.setText("Name:");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGap(0, 19, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddStaffMember, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAddStaffMember)
+                .addGap(31, 31, 31))
+        );
+
+        jStaffPanel.add(jPanel1);
+        jPanel1.setBounds(10, 50, 250, 360);
+
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        jStaffPanel.add(jLabel31);
+        jLabel31.setBounds(-30, 0, 920, 470);
 
         tabAccountPane.addTab("Staff Menu", jStaffPanel);
 
@@ -434,101 +512,11 @@ public class Manager_Menu extends javax.swing.JFrame {
         jScrollPane4.setViewportView(customerList);
 
         panelCustomerMenu.add(jScrollPane4);
-        jScrollPane4.setBounds(380, 10, 400, 402);
+        jScrollPane4.setBounds(330, 70, 430, 380);
 
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-
-        btnDelete.setText("Delete");
-
-        btnUpdate.setText("Update");
-
-        txtName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtName1ActionPerformed(evt);
-            }
-        });
-
-        txtID1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtID1ActionPerformed(evt);
-            }
-        });
-
-        txtAge1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAge1ActionPerformed(evt);
-            }
-        });
-
-        lblName.setText("Name");
-
-        lblID.setText("ID");
-
-        lblAge.setText("Age");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnAdd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDelete))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(btnUpdate)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtName1)
-                        .addComponent(txtID1)
-                        .addComponent(txtAge1, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE))
-                    .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addComponent(lblName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(lblID)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblAge)
-                .addGap(4, 4, 4)
-                .addComponent(txtAge1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnDelete))
-                .addGap(18, 18, 18)
-                .addComponent(btnUpdate)
-                .addContainerGap())
-        );
-
-        panelCustomerMenu.add(jPanel1);
-        jPanel1.setBounds(380, 10, 120, 297);
-
-        btnAdd1.setText("Add");
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd1ActionPerformed(evt);
-            }
-        });
-
-        btnUpdate1.setText("Update");
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setForeground(new java.awt.Color(153, 153, 153));
 
         txtName2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -548,42 +536,48 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
 
-        lblName1.setText("Name");
+        lblName1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblName1.setText("Name:");
 
-        lblID1.setText("ID");
+        lblID1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblID1.setText("ID:");
 
-        lblAge1.setText("Age");
+        lblAge1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblAge1.setText("Age:");
+
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel23.setText("Customer Details:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAge2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtID2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblID1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 73, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(btnAdd1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnUpdate1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblName1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblID1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtName2, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addComponent(txtID2)
+                            .addComponent(txtAge2)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel23)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblName1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblID1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -591,199 +585,47 @@ public class Manager_Menu extends javax.swing.JFrame {
                 .addComponent(lblAge1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtAge2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnAdd1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnUpdate1)
-                .addGap(12, 12, 12))
+                .addGap(36, 36, 36))
         );
 
         panelCustomerMenu.add(jPanel2);
-        jPanel2.setBounds(0, 17, 190, 330);
+        jPanel2.setBounds(40, 40, 230, 250);
 
+        btnDelete1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnDelete1.setText("Delete");
         panelCustomerMenu.add(btnDelete1);
-        btnDelete1.setBounds(200, 270, 72, 23);
+        btnDelete1.setBounds(210, 310, 72, 22);
+
+        lblName.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblName.setText("Customer List:");
+        panelCustomerMenu.add(lblName);
+        lblName.setBounds(460, 30, 170, 31);
+
+        btnUpdate1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnUpdate1.setText("Update");
+        panelCustomerMenu.add(btnUpdate1);
+        btnUpdate1.setBounds(120, 350, 72, 22);
+
+        btnAdd1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnAdd1.setText("Add");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
+        panelCustomerMenu.add(btnAdd1);
+        btnAdd1.setBounds(30, 310, 72, 22);
+
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        panelCustomerMenu.add(jLabel32);
+        jLabel32.setBounds(-10, -10, 940, 490);
 
         tabAccountPane.addTab("Customer Menu", panelCustomerMenu);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setText("Movie Title:");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, 20));
-
-        txtTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitleActionPerformed(evt);
-            }
-        });
-        jPanel4.add(txtTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 270, -1));
-
-        jLabel10.setText("Date:");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 70, 20));
-
-        jLabel11.setText("Runtime:");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
-        jPanel4.add(txtRuntime, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 150, -1));
-
-        jLabel12.setText("Time:");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, 20));
-        jPanel4.add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 180, -1));
-
-        jLabel13.setText("Rating:");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, 20));
-        jPanel4.add(txtRating, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 180, -1));
-
-        btnAssignMovie.setText("Assign Movie");
-        btnAssignMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignMovieActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnAssignMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, 140, -1));
-
-        btnViewDetails.setText("View Details");
-        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewDetailsActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 150, -1));
-
-        tblMovies.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tblMovies);
-
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 670, 200));
-        jPanel4.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 150, -1));
-
-        jLabel14.setText("Screen:");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, -1, -1));
-        jPanel4.add(txtScreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, 180, -1));
-
-        btnRemoveMovie.setText("Remove Movie");
-        btnRemoveMovie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveMovieActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnRemoveMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 140, -1));
-
-        btnViewSoldSeats.setText("View Sold Seats");
-        btnViewSoldSeats.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewSoldSeatsActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnViewSoldSeats, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, 150, -1));
-
-        btnEditDetails.setText("Edit Details");
-        btnEditDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditDetailsActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 140, -1));
-        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -190, 820, -1));
-
-        tabAccountPane.addTab("Movie Menu", jPanel4);
-
-        panelInventory.setLayout(null);
-
-        tblInventory.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tblInventory);
-
-        panelInventory.add(jScrollPane3);
-        jScrollPane3.setBounds(0, 6, 820, 229);
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel15.setText("Add New Concession Item:");
-        panelInventory.add(jLabel15);
-        jLabel15.setBounds(16, 259, 247, 22);
-
-        jLabel16.setText("Name:");
-        panelInventory.add(jLabel16);
-        jLabel16.setBounds(16, 305, 38, 17);
-
-        txtItemName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtItemNameActionPerformed(evt);
-            }
-        });
-        panelInventory.add(txtItemName);
-        txtItemName.setBounds(81, 302, 168, 23);
-
-        jLabel17.setText("Quantity:");
-        panelInventory.add(jLabel17);
-        jLabel17.setBounds(16, 345, 53, 17);
-        panelInventory.add(txtItemQuantity);
-        txtItemQuantity.setBounds(83, 342, 81, 23);
-
-        jLabel18.setText("Price:");
-        panelInventory.add(jLabel18);
-        jLabel18.setBounds(208, 345, 33, 17);
-
-        txtItemPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtItemPriceActionPerformed(evt);
-            }
-        });
-        panelInventory.add(txtItemPrice);
-        txtItemPrice.setBounds(243, 342, 84, 23);
-
-        btnAddItem.setText("Add Item");
-        btnAddItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddItemActionPerformed(evt);
-            }
-        });
-        panelInventory.add(btnAddItem);
-        btnAddItem.setBounds(108, 400, 129, 23);
-
-        btnOrderMore.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnOrderMore.setText("Order");
-        btnOrderMore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderMoreActionPerformed(evt);
-            }
-        });
-        panelInventory.add(btnOrderMore);
-        btnOrderMore.setBounds(661, 253, 89, 37);
-
-        btnRemoveItem.setText("Remove Item");
-        btnRemoveItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveItemActionPerformed(evt);
-            }
-        });
-        panelInventory.add(btnRemoveItem);
-        btnRemoveItem.setBounds(342, 263, 144, 23);
-        panelInventory.add(jLabel26);
-        jLabel26.setBounds(-70, -170, 0, 0);
-
-        tabAccountPane.addTab("Inventory Menu", panelInventory);
-
         panelMaintenanceMenu.setLayout(null);
 
+        tblResolvedIssues.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblResolvedIssues.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -798,8 +640,9 @@ public class Manager_Menu extends javax.swing.JFrame {
         jScrollPane5.setViewportView(tblResolvedIssues);
 
         panelMaintenanceMenu.add(jScrollPane5);
-        jScrollPane5.setBounds(310, 60, 310, 410);
+        jScrollPane5.setBounds(310, 60, 310, 400);
 
+        tblPendingIssues.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tblPendingIssues.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -814,18 +657,19 @@ public class Manager_Menu extends javax.swing.JFrame {
         jScrollPane6.setViewportView(tblPendingIssues);
 
         panelMaintenanceMenu.add(jScrollPane6);
-        jScrollPane6.setBounds(20, 60, 280, 410);
+        jScrollPane6.setBounds(20, 60, 280, 400);
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel19.setText("Pending Issues:");
         panelMaintenanceMenu.add(jLabel19);
-        jLabel19.setBounds(20, 30, 216, 22);
+        jLabel19.setBounds(20, 30, 216, 23);
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setText("Resolved Issues:");
         panelMaintenanceMenu.add(jLabel20);
         jLabel20.setBounds(310, 20, 150, 40);
 
+        btnLogNewIssue.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnLogNewIssue.setText("Log New Issue");
         btnLogNewIssue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -833,8 +677,9 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnLogNewIssue);
-        btnLogNewIssue.setBounds(630, 190, 179, 23);
+        btnLogNewIssue.setBounds(640, 190, 179, 22);
 
+        btnResolveIssue.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnResolveIssue.setText("Resolve Issue");
         btnResolveIssue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -842,8 +687,9 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnResolveIssue);
-        btnResolveIssue.setBounds(630, 230, 179, 23);
+        btnResolveIssue.setBounds(640, 230, 179, 22);
 
+        btnViewIssueDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewIssueDetails.setText("View Issue Details");
         btnViewIssueDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -851,8 +697,9 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnViewIssueDetails);
-        btnViewIssueDetails.setBounds(170, 30, 130, 23);
+        btnViewIssueDetails.setBounds(170, 30, 130, 22);
 
+        btnViewResolvedDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewResolvedDetails.setText("View Resolved Details");
         btnViewResolvedDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -860,23 +707,281 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnViewResolvedDetails);
-        btnViewResolvedDetails.setBounds(460, 30, 160, 23);
+        btnViewResolvedDetails.setBounds(460, 30, 160, 22);
         panelMaintenanceMenu.add(jLabel25);
         jLabel25.setBounds(-80, -220, 0, 0);
 
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        panelMaintenanceMenu.add(jLabel35);
+        jLabel35.setBounds(-50, 0, 930, 480);
+
         tabAccountPane.addTab("Maintenance Menu", panelMaintenanceMenu);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel9.setText("Movie Title:");
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 90, 20));
+
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel10.setText("Date:");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 70, 20));
+
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel11.setText("Runtime:");
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 100, 20));
+
+        btnViewDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnViewDetails.setText("View Details");
+        btnViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDetailsActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnViewDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 150, -1));
+
+        tblMovies.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tblMovies.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblMovies);
+
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 670, 200));
+
+        btnRemoveMovie.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnRemoveMovie.setText("Remove Movie");
+        btnRemoveMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveMovieActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnRemoveMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 140, -1));
+
+        btnViewSoldSeats.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnViewSoldSeats.setText("View Sold Seats");
+        btnViewSoldSeats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewSoldSeatsActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnViewSoldSeats, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 230, 150, -1));
+
+        btnEditDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnEditDetails.setText("Edit Details");
+        btnEditDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditDetailsActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnEditDetails, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 140, -1));
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -190, 820, -1));
+
+        jLabel28.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel28.setText("Movie List:");
+        jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setForeground(new java.awt.Color(153, 153, 153));
+        jPanel5.setLayout(null);
+
+        btnAssignMovie.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnAssignMovie.setText("Assign Movie");
+        btnAssignMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignMovieActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnAssignMovie);
+        btnAssignMovie.setBounds(710, 90, 130, 20);
+
+        jLabel27.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel27.setText("Movie Details:");
+        jPanel5.add(jLabel27);
+        jLabel27.setBounds(10, 10, 122, 23);
+
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel12.setText("Time:");
+        jPanel5.add(jLabel12);
+        jLabel12.setBounds(400, 50, 30, 20);
+
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel13.setText("Rating:");
+        jPanel5.add(jLabel13);
+        jLabel13.setBounds(400, 90, 41, 20);
+
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel14.setText("Screen:");
+        jPanel5.add(jLabel14);
+        jLabel14.setBounds(400, 130, 45, 20);
+        jPanel5.add(txtScreen);
+        txtScreen.setBounds(460, 130, 180, 22);
+
+        txtTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTitleActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtTitle);
+        txtTitle.setBounds(90, 50, 270, 22);
+        jPanel5.add(txtTime);
+        txtTime.setBounds(460, 50, 180, 22);
+
+        txtRating.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRatingActionPerformed(evt);
+            }
+        });
+        jPanel5.add(txtRating);
+        txtRating.setBounds(460, 90, 180, 22);
+        jPanel5.add(txtDate);
+        txtDate.setBounds(90, 90, 150, 22);
+        jPanel5.add(txtRuntime);
+        txtRuntime.setBounds(90, 130, 150, 22);
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 180));
+
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        jPanel4.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -70, 1020, -1));
+
+        tabAccountPane.addTab("Movie Menu", jPanel4);
+
+        panelInventory.setLayout(null);
+
+        tblInventory.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tblInventory.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblInventory);
+
+        panelInventory.add(jScrollPane3);
+        jScrollPane3.setBounds(10, 60, 820, 230);
+
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel15.setText("Add New Concession Item:");
+        panelInventory.add(jLabel15);
+        jLabel15.setBounds(20, 310, 260, 23);
+
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel16.setText("Name:");
+        panelInventory.add(jLabel16);
+        jLabel16.setBounds(20, 350, 50, 16);
+
+        txtItemName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtItemNameActionPerformed(evt);
+            }
+        });
+        panelInventory.add(txtItemName);
+        txtItemName.setBounds(90, 350, 168, 22);
+
+        jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel17.setText("Quantity:");
+        panelInventory.add(jLabel17);
+        jLabel17.setBounds(20, 390, 60, 20);
+        panelInventory.add(txtItemQuantity);
+        txtItemQuantity.setBounds(90, 390, 81, 22);
+
+        jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel18.setText("Price:");
+        panelInventory.add(jLabel18);
+        jLabel18.setBounds(220, 390, 50, 20);
+
+        txtItemPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtItemPriceActionPerformed(evt);
+            }
+        });
+        panelInventory.add(txtItemPrice);
+        txtItemPrice.setBounds(260, 390, 84, 22);
+
+        btnAddItem.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnAddItem.setText("Add Item");
+        btnAddItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddItemActionPerformed(evt);
+            }
+        });
+        panelInventory.add(btnAddItem);
+        btnAddItem.setBounds(130, 430, 129, 22);
+
+        btnOrderMore.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btnOrderMore.setText("Order");
+        btnOrderMore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderMoreActionPerformed(evt);
+            }
+        });
+        panelInventory.add(btnOrderMore);
+        btnOrderMore.setBounds(690, 300, 100, 40);
+
+        btnRemoveItem.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnRemoveItem.setText("Remove Item");
+        btnRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveItemActionPerformed(evt);
+            }
+        });
+        panelInventory.add(btnRemoveItem);
+        btnRemoveItem.setBounds(520, 310, 144, 22);
+        panelInventory.add(jLabel26);
+        jLabel26.setBounds(-70, -170, 0, 0);
+
+        jLabel33.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel33.setText("Inventory List:");
+        panelInventory.add(jLabel33);
+        jLabel33.setBounds(330, 10, 160, 40);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel3.setForeground(new java.awt.Color(204, 255, 255));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 158, Short.MAX_VALUE)
+        );
+
+        panelInventory.add(jPanel3);
+        jPanel3.setBounds(10, 300, 350, 160);
+
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        panelInventory.add(jLabel34);
+        jLabel34.setBounds(-30, -20, 910, 510);
+
+        tabAccountPane.addTab("Inventory Menu", panelInventory);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabAccountPane)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tabAccountPane, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(tabAccountPane, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(tabAccountPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 501, Short.MAX_VALUE)
         );
 
         pack();
@@ -1360,36 +1465,6 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnAdd.setEnabled(false);
     }//GEN-LAST:event_customerListMouseClicked
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        if(txtName.getText().isEmpty() || txtID.getText().isEmpty() || txtAge.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Please enter all fields");
-            return;
-        }
-        try {
-            String name = txtName.getText();
-            int ID = Integer.valueOf(txtID.getText());
-            Byte age = Byte.valueOf(txtAge.getText());
-
-            Customer aCustomer = new Customer(name, ID, age);
-
-            staffManager.addCustomer(name, ID, age);
-
-        }
-    }//GEN-LAST:event_btnAddActionPerformed
-
-    private void txtName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtName1ActionPerformed
-
-    private void txtID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtID1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtID1ActionPerformed
-
-    private void txtAge1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAge1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAge1ActionPerformed
-
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         if(txtName.getText().isEmpty() || txtID.getText().isEmpty() || txtAge.getText().isEmpty())
         {
@@ -1419,6 +1494,10 @@ public class Manager_Menu extends javax.swing.JFrame {
     private void txtAge2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAge2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAge2ActionPerformed
+
+    private void txtRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRatingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRatingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1456,14 +1535,12 @@ public class Manager_Menu extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnAddItem;
     private javax.swing.JButton btnAddStaffMember;
     private javax.swing.JButton btnAssignMovie;
     private javax.swing.JButton btnChangePassword;
     private javax.swing.JButton btnChangeStaffRole;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDelete1;
     private javax.swing.JButton btnEditDetails;
     private javax.swing.JButton btnLogNewIssue;
@@ -1473,7 +1550,6 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnRemoveMovie;
     private javax.swing.JButton btnRemoveStaffMember;
     private javax.swing.JButton btnResolveIssue;
-    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton btnViewIssueDetails;
@@ -1499,10 +1575,21 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1512,17 +1599,18 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel jStaffPanel;
-    private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblAge1;
-    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblID1;
     private javax.swing.JLabel lblManagerName;
     private javax.swing.JLabel lblManagerName1;
@@ -1545,17 +1633,14 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JTable tblResolvedIssues;
     private javax.swing.JTable tblStaff;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtAge1;
     private javax.swing.JTextField txtAge2;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtID1;
     private javax.swing.JTextField txtID2;
     private javax.swing.JTextField txtItemName;
     private javax.swing.JTextField txtItemPrice;
     private javax.swing.JTextField txtItemQuantity;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtName1;
     private javax.swing.JTextField txtName2;
     private javax.swing.JTextField txtRating;
     private javax.swing.JTextField txtRole;
