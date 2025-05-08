@@ -20,6 +20,9 @@ public class AppController {
     private final String STAFF_FILE = "staff.txt";
     private final String MAINTENANCE_FILE = "maintenance.txt";
 
+    /**
+     * Constructor to initalize all managers and load the necessary data files
+     */
     private AppController() {
         this.scheduleManager = new ScheduleManager();
         this.staffManager = new StaffManager();
@@ -33,6 +36,10 @@ public class AppController {
         }
     }
 
+    /**
+     * Gets the single instance of the AppController
+     * @return  the single instance of the AppController
+     */
     public static AppController getInstance() {
         if (instance == null) {
             instance = new AppController();
@@ -40,18 +47,33 @@ public class AppController {
         return instance;
     }
 
+    /**
+     * Returns the Schedule Manager used for managing showtimes
+     * @return The ScheduleManagerInstance
+     */
     public ScheduleManager getScheduleManager() {
         return scheduleManager;
     }
 
+    /**
+     * Returns the Staff Manager used for managing staff data
+     * @return The StaffManager instance
+     */
     public StaffManager getStaffManager() {
         return staffManager;
     }
     
+    /**
+     * Returns the MaintenanceManager used for managing maintenence issues
+     * @return the MaintenanceManager instance
+     */
     public MaintenanceManager getMaintenance() {
         return maintenanceManager;
     }
 
+    /**
+     * Saves all current showtimes to
+     */
     public void saveShowtimesToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(SHOWTIME_FILE))) {
             for (Showtime s : scheduleManager.getShowtimes().values()) {
