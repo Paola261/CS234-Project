@@ -221,6 +221,79 @@ public class Cashier_Menu extends javax.swing.JFrame {
             .addGap(0, 488, Short.MAX_VALUE)
         );
 
+        tabCustomerInfo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        btnAdd.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        tabCustomerInfo.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+
+        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        tabCustomerInfo.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+
+        btnDelete1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnDelete1.setText("Delete");
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
+        tabCustomerInfo.add(btnDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jButton1.setText("Clear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        tabCustomerInfo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+
+        customerList1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        customerList1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "ID", "Age"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        customerList1.setName(""); // NOI18N
+        customerList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerList1MouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(customerList1);
+
+        tabCustomerInfo.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+
+        lblName.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblName.setText("Customer List:");
+        tabCustomerInfo.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        tabCustomerInfo.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 490));
+
         panelCashier.addTab("Customer Info", tabCustomerInfo);
 
         jLabel25.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
