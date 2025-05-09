@@ -142,7 +142,7 @@ public class Main {
         // Customer csv for Frame 
         CustomerManager customerManager = new CustomerManager(); 
         String customerInfo = "customers.csv";
-        new Customer_GUI(customerManager, customerInfo).setVisible(true);
+        new Customer_GUI(CustomerManager, customerInfo).setVisible(true);
        
         
         boolean running = true;
