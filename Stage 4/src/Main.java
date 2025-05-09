@@ -145,9 +145,9 @@
 //       
 //        
 //        // Customer csv for Frame 
-//        Person aPerson = new Person(); //person is abstract, error
+//        CustomerManager customerManager = new CustomerManager(); 
 //        String customerInfo = "customers.csv";
-//        new Customer_GUI(aPerson, customerInfo).setVisible(true);
+//        new Customer_GUI(customerManager, customerInfo).setVisible(true);
 //       
 //        
 //        boolean running = true;

@@ -99,14 +99,18 @@ public class Customer {
        ordersSold.put(item, quantity);
    }
    
-//   public void addCustomer(String name, int ID, byte age) ////STOPPED HERE
-//   {
-//       Customer newCustomer = new Customer(name, ID, age);
-//       customerList.add(newCustomer);
-//       
-//   }
-
-    
+   public void setName(String name)
+    {
+       this.name = name;
+    }
    
+   public void setID(Integer ID)
+   {
+       this.customerID = customerID;
+   }
    
+   public void setAge(Byte age)
+   {
+       this.age = age;
+   }   
 }

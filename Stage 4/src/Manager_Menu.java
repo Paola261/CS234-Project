@@ -25,18 +25,22 @@ public class Manager_Menu extends javax.swing.JFrame {
     private AppController controller = AppController.getInstance();
     private InventoryManager inventoryManager;
     private MaintenanceManager maintenanceManager;
+    private CustomerManager customerManager; 
+    private String customerInfo;
     
     
     /**
      * Creates new form Manager_Menu
      */
-    public Manager_Menu(Manager manager, StaffManager staffManagerParam, ScheduleManager scheduleManager) {
+    public Manager_Menu(Manager manager, StaffManager staffManagerParam, ScheduleManager scheduleManager, CustomerManager customerManager) {
         initComponents();
         this.currentManager = manager;        
         this.staffManager = staffManagerParam;
         this.scheduleManager = scheduleManager;
         this.inventoryManager = controller.getInventory();
         this.maintenanceManager = controller.getMaintenance();
+        this.customerManager = customerManager;
+
         
         
         lblManagerName.setText(manager.getName());         
@@ -197,7 +201,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         lblName = new javax.swing.JLabel();
         btnUpdate1 = new javax.swing.JButton();
         btnAdd1 = new javax.swing.JButton();
-        jLabel32 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panelMaintenanceMenu = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblResolvedIssues = new javax.swing.JTable();
@@ -351,7 +355,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnRemoveStaffMember);
-        btnRemoveStaffMember.setBounds(330, 330, 180, 22);
+        btnRemoveStaffMember.setBounds(330, 330, 180, 21);
 
         btnChangeStaffRole.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnChangeStaffRole.setText("Change Staff Role");
@@ -371,7 +375,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnViewMoreDetails);
-        btnViewMoreDetails.setBounds(590, 330, 180, 22);
+        btnViewMoreDetails.setBounds(590, 330, 180, 21);
 
         btnViewStaffLog.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewStaffLog.setText("View Staff Log Details");
@@ -381,7 +385,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnViewStaffLog);
-        btnViewStaffLog.setBounds(590, 370, 180, 22);
+        btnViewStaffLog.setBounds(590, 370, 180, 21);
         jStaffPanel.add(jSeparator1);
         jSeparator1.setBounds(-10, 0, 0, 3);
 
@@ -593,19 +597,29 @@ public class Manager_Menu extends javax.swing.JFrame {
 
         btnDelete1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnDelete1.setText("Delete");
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
         panelCustomerMenu.add(btnDelete1);
-        btnDelete1.setBounds(210, 310, 72, 22);
+        btnDelete1.setBounds(210, 310, 72, 21);
 
         lblName.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblName.setText("Customer List:");
         panelCustomerMenu.add(lblName);
-        lblName.setBounds(510, 30, 170, 31);
+        lblName.setBounds(510, 30, 170, 30);
 
         btnUpdate1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnUpdate1.setText("Update");
+        btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdate1ActionPerformed(evt);
+            }
+        });
         panelCustomerMenu.add(btnUpdate1);
-        btnUpdate1.setBounds(120, 350, 72, 22);
+        btnUpdate1.setBounds(30, 350, 72, 21);
 
         btnAdd1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnAdd1.setText("Add");
@@ -615,11 +629,16 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelCustomerMenu.add(btnAdd1);
-        btnAdd1.setBounds(30, 310, 72, 22);
+        btnAdd1.setBounds(30, 310, 72, 21);
 
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
-        panelCustomerMenu.add(jLabel32);
-        jLabel32.setBounds(-10, -10, 940, 490);
+        jButton1.setText("Clear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panelCustomerMenu.add(jButton1);
+        jButton1.setBounds(210, 350, 78, 23);
 
         tabAccountPane.addTab("Customer Menu", panelCustomerMenu);
 
@@ -662,7 +681,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel19.setText("Pending Issues:");
         panelMaintenanceMenu.add(jLabel19);
-        jLabel19.setBounds(20, 30, 216, 23);
+        jLabel19.setBounds(20, 30, 216, 22);
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setText("Resolved Issues:");
@@ -677,7 +696,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnLogNewIssue);
-        btnLogNewIssue.setBounds(640, 190, 179, 22);
+        btnLogNewIssue.setBounds(640, 190, 179, 21);
 
         btnResolveIssue.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnResolveIssue.setText("Resolve Issue");
@@ -687,7 +706,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnResolveIssue);
-        btnResolveIssue.setBounds(640, 230, 179, 22);
+        btnResolveIssue.setBounds(640, 230, 179, 21);
 
         btnViewIssueDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewIssueDetails.setText("View Issue Details");
@@ -697,7 +716,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnViewIssueDetails);
-        btnViewIssueDetails.setBounds(170, 30, 130, 22);
+        btnViewIssueDetails.setBounds(170, 30, 130, 21);
 
         btnViewResolvedDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewResolvedDetails.setText("View Resolved Details");
@@ -707,7 +726,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnViewResolvedDetails);
-        btnViewResolvedDetails.setBounds(460, 30, 160, 22);
+        btnViewResolvedDetails.setBounds(460, 30, 160, 21);
         panelMaintenanceMenu.add(jLabel25);
         jLabel25.setBounds(-80, -220, 0, 0);
 
@@ -802,24 +821,24 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel27.setText("Movie Details:");
         jPanel5.add(jLabel27);
-        jLabel27.setBounds(30, 10, 122, 23);
+        jLabel27.setBounds(30, 10, 130, 22);
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel12.setText("Time:");
         jPanel5.add(jLabel12);
-        jLabel12.setBounds(400, 50, 30, 20);
+        jLabel12.setBounds(400, 50, 33, 20);
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel13.setText("Rating:");
         jPanel5.add(jLabel13);
-        jLabel13.setBounds(400, 90, 41, 20);
+        jLabel13.setBounds(400, 90, 40, 20);
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel14.setText("Screen:");
         jPanel5.add(jLabel14);
-        jLabel14.setBounds(400, 130, 45, 20);
+        jLabel14.setBounds(400, 130, 42, 20);
         jPanel5.add(txtScreen);
-        txtScreen.setBounds(460, 130, 180, 22);
+        txtScreen.setBounds(460, 130, 180, 23);
 
         txtTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -827,9 +846,9 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jPanel5.add(txtTitle);
-        txtTitle.setBounds(100, 50, 270, 22);
+        txtTitle.setBounds(100, 50, 270, 23);
         jPanel5.add(txtTime);
-        txtTime.setBounds(460, 50, 180, 22);
+        txtTime.setBounds(460, 50, 180, 23);
 
         txtRating.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -837,11 +856,11 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jPanel5.add(txtRating);
-        txtRating.setBounds(460, 90, 180, 22);
+        txtRating.setBounds(460, 90, 180, 23);
         jPanel5.add(txtDate);
-        txtDate.setBounds(100, 90, 150, 22);
+        txtDate.setBounds(100, 90, 150, 23);
         jPanel5.add(txtRuntime);
-        txtRuntime.setBounds(100, 130, 150, 22);
+        txtRuntime.setBounds(100, 130, 150, 23);
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel9.setText("Movie Title:");
@@ -877,12 +896,12 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel15.setText("Add New Concession Item:");
         panelInventory.add(jLabel15);
-        jLabel15.setBounds(20, 310, 260, 23);
+        jLabel15.setBounds(20, 310, 260, 22);
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel16.setText("Name:");
         panelInventory.add(jLabel16);
-        jLabel16.setBounds(20, 350, 50, 16);
+        jLabel16.setBounds(20, 350, 50, 15);
 
         txtItemName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -890,14 +909,14 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(txtItemName);
-        txtItemName.setBounds(90, 350, 168, 22);
+        txtItemName.setBounds(90, 350, 168, 23);
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel17.setText("Quantity:");
         panelInventory.add(jLabel17);
         jLabel17.setBounds(20, 390, 60, 20);
         panelInventory.add(txtItemQuantity);
-        txtItemQuantity.setBounds(90, 390, 81, 22);
+        txtItemQuantity.setBounds(90, 390, 81, 23);
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel18.setText("Price:");
@@ -910,7 +929,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(txtItemPrice);
-        txtItemPrice.setBounds(260, 390, 84, 22);
+        txtItemPrice.setBounds(260, 390, 84, 23);
 
         btnAddItem.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnAddItem.setText("Add Item");
@@ -920,7 +939,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(btnAddItem);
-        btnAddItem.setBounds(130, 430, 129, 22);
+        btnAddItem.setBounds(130, 430, 129, 21);
 
         btnOrderMore.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btnOrderMore.setText("Order");
@@ -940,7 +959,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(btnRemoveItem);
-        btnRemoveItem.setBounds(520, 310, 144, 22);
+        btnRemoveItem.setBounds(520, 310, 144, 21);
         panelInventory.add(jLabel26);
         jLabel26.setBounds(-70, -170, 0, 0);
 
@@ -1468,19 +1487,19 @@ public class Manager_Menu extends javax.swing.JFrame {
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         if(txtName.getText().isEmpty() || txtID.getText().isEmpty() || txtAge.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(this, "Please enter all fields");
-            return;
+            JOptionPane.showMessageDialog(this, "Enter all fields");
         }
-        try {
-            String name = txtName.getText();
-            int ID = Integer.valueOf(txtID.getText());
-            Byte age = Byte.valueOf(txtAge.getText());
+        else
+        {
+            String[] row = {txtName.getText(), txtID.getText(), txtAge.getText()};
+            DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+            model.addRow(row);
+            
+            JOptionPane.showMessageDialog(this, "Information added");
+            
+            clearFields();}
+    }      
 
-            Customer aCustomer = new Customer(name, ID, age);
-
-            staffManager.addCustomer(name, ID, age);
-
-        }
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
     private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
@@ -1498,6 +1517,61 @@ public class Manager_Menu extends javax.swing.JFrame {
     private void txtRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRatingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRatingActionPerformed
+
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        int row = customerList.getSelectedRow();
+        
+        if(row<0)
+        {
+            JOptionPane.showMessageDialog(this, "You need to select a row");
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+            model.removeRow(row);
+            JOptionPane.showMessageDialog(this, "Row deleted");}
+    }//GEN-LAST:event_btnDelete1ActionPerformed
+
+    private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
+    int row = customerList.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+       
+       String name = model.getValueAt(row,0).toString();
+       System.out.println("To Update: " + name);
+       Customer aCustomer = customerManager.getACustomer();
+       
+       aCustomer.setName(txtName.getText());
+       aCustomer.setID(txtID.getText());
+       aCustomer.setAge(txtAge.getText());
+       
+       System.out.println(customerManager.getCostumers());
+       
+       updateTableInfo(model, row, aCustomer);
+       
+       JOptionPane.showMessageDialog(this, "Customer was updated.");
+
+    }//GEN-LAST:event_btnUpdate1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        clearFields();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void clearFields()
+    {
+        txtName.setText("");
+        txtAge.setText("");
+        txtID.setText("");
+    }
+    
+    private void updateTableInfo(DefaultTableModel theModel, int row, Customer aCustomer)
+    {
+        DefaultTableModel model = theModel;
+
+        model.setValueAt(aCustomer.getCustomerName(), row, 0);
+        model.setValueAt(String.valueOf(aCustomer.getCustomerID(), row, 1));
+        model.setValueAt(String.valueOf(aCustomer.getCustomerAge(), row, 2));
+        
+    }
 
     /**
      * @param args the command line arguments
@@ -1560,6 +1634,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTable customerList;
     private javax.swing.JPanel jAccountPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1585,7 +1660,6 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;

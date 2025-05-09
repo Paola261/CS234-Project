@@ -6,6 +6,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -13,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Customer_GUI extends javax.swing.JFrame {
 
-    private Person aPerson; 
+    private CustomerManager customerManager; 
     private String customerInfo;
     /**
      * Creates new form Customer_GUI
@@ -21,11 +22,11 @@ public class Customer_GUI extends javax.swing.JFrame {
     public Customer_GUI() {
         initComponents();
     }
-   public Customer_GUI(Person aPerson, String customerInfo){
+   public Customer_GUI(String customerInfo, CustomerManager customerManager){
        this(); 
-       this.aPerson = aPerson;
+       this.customerManager = customerManager;
        this.customerInfo = customerInfo;
-       btnUpdate.setEnable(false);
+       btnUpdate.setEnabled(false);
    }
       
 
@@ -50,6 +51,7 @@ public class Customer_GUI extends javax.swing.JFrame {
         lblName = new javax.swing.JLabel();
         lblID = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
+        btnClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -94,8 +96,18 @@ public class Customer_GUI extends javax.swing.JFrame {
         });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,18 +133,17 @@ public class Customer_GUI extends javax.swing.JFrame {
 
         lblAge.setText("Age");
 
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnAdd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnDelete))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(btnUpdate)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -143,6 +154,14 @@ public class Customer_GUI extends javax.swing.JFrame {
                     .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnAdd))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnDelete)
+                    .addComponent(btnClear)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,9 +182,11 @@ public class Customer_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnDelete))
-                .addGap(18, 18, 18)
-                .addComponent(btnUpdate)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnClear))
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,7 +196,7 @@ public class Customer_GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -198,9 +219,8 @@ public class Customer_GUI extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        ArrayList<String> tableData = new ArrayList<>();
-        
-        try {
+    try {
+            ArrayList<String> tableData = new ArrayList<>();
             System.out.println("Reading the data");
             BufferedReader reader = new BufferedReader(new FileReader(customerInfo));
             
@@ -209,7 +229,7 @@ public class Customer_GUI extends javax.swing.JFrame {
             while((line = reader.readLine()) != null) {
             tableData.add(line);
             }
-        }
+        
         reader.close();
         
         DefaultTableModel model = (DefaultTableModel) customerList.getModel();
@@ -219,10 +239,17 @@ public class Customer_GUI extends javax.swing.JFrame {
             //Creates an object for Customer
             Customer aCustomer = new Customer(row[0], Integer.valueOf(row[1]), Byte.valueOf(row[2]));
             
-            aPerson.addCustomer(aCustomer); // again Person is abstract class
+            customerManager.addCustomer(aCustomer); 
             
             model.addRow(row);
         }
+
+        JOptionPane.showMessageDialog(this, "Data Loaded");
+        System.out.println(customerManager.getAllCustomers());
+    } catch (Exception e)
+        {e.printStackTrace();
+        }
+
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -234,7 +261,7 @@ public class Customer_GUI extends javax.swing.JFrame {
         ArrayList<String> tableData = new ArrayList<>();
         
         // Saves the list of the Customers
-        for(Customer aCustomer: aPerson.getCustomers())
+        for(Customer aCustomer: customerManager.getAllCustomers())
         {
             String name = aCustomer.getCustomerName();
             Integer ID = aCustomer.getCustomerID(); //might have to be String
@@ -267,12 +294,11 @@ public class Customer_GUI extends javax.swing.JFrame {
         
         String name = model.getValueAt(row,0).toString();
         System.out.println("To update: " + name);
-        Customer theCustomer = aPerson.getACustomer(name);
+        Customer theCustomer = customerManager.getCustomerByName(name);
         
         txtName.setText(theCustomer.getCustomerName());
-        txtID.setText(theCustomer.getCustomerID());
-        txtAge.setText(theCustomer.getCustomerAge());
-        
+        txtID.setText(String.valueOf(theCustomer.getCustomerID()));
+        txtAge.setText(String.valueOf(theCustomer.getCustomerAge()));
         
         btnUpdate.setEnabled(true);
         btnAdd.setEnabled(false);
@@ -291,8 +317,76 @@ public class Customer_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAgeActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+
+        if(txtName.getText().isEmpty() || txtID.getText().isEmpty() || txtAge.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Enter all fields");
+        }
+        else
+        {
+            String[] row = {txtName.getText(), txtID.getText(), txtAge.getText()};
+            DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+            model.addRow(row);
+            
+            JOptionPane.showMessageDialog(this, "Information added");
+            
+            clearFields();}
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    int row = customerList.getSelectedRow();
+        
+        if(row<0)
+        {
+            JOptionPane.showMessageDialog(this, "You need to select a row");
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+            model.removeRow(row);
+            JOptionPane.showMessageDialog(this, "Row deleted");
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    int row = customerList.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+       
+       String name = model.getValueAt(row,0).toString();
+       System.out.println("To Update: " + name);
+       Customer aCustomer = String.valueOf(customerManager.getCustomerByName());
+       
+       aCustomer.setName(txtName.getText());
+       aCustomer.setID(Integer.valueOf(txtID.getText()));
+       aCustomer.setAge(Byte.valueOf(txtAge.getText()));
+       
+       System.out.println(customerManager.getAllCustomers());
+       
+       updateTableInfo(model, row, aCustomer);
+       
+       JOptionPane.showMessageDialog(this, "Customer was updated.");
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        clearFields();
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void clearFields()
+    {
+        txtName.setText("");
+        txtAge.setText("");
+        txtID.setText("");
+    }
+    
+    private void updateTableInfo(DefaultTableModel theModel, int row, Customer aCustomer)
+    {
+        DefaultTableModel model = theModel;
+
+        model.setValueAt(aCustomer.getCustomerName(), row, 0);
+        model.setValueAt(aCustomer.getCustomerID(), row, 1);
+        model.setValueAt(aCustomer.getCustomerAge(), row, 2);
+        
+    }
 
     /**
      * @param args the command line arguments
@@ -331,6 +425,7 @@ public class Customer_GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JTable customerList;
