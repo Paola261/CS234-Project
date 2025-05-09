@@ -134,5 +134,9 @@ public class AppController {
         return inventoryManager;
     }
     
+    public void setCustomerManager(CustomerManager customerManager) {
+        this.customerManager = customerManager;
+    }
+    
     
 }

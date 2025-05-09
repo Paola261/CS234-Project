@@ -15,10 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JScrollPane;
 import java.awt.Dimension;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.io.BufferedReader;
+
 
 
 
@@ -32,6 +29,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private MaintenanceManager maintenanceManager;
     private CustomerManager customerManager; 
     private String customerInfo;
+    private CustomerFileHandler customerFileHandler;
     
     
     /**
@@ -46,10 +44,11 @@ public class Manager_Menu extends javax.swing.JFrame {
         this.maintenanceManager = controller.getMaintenance();
         
         this.customerManager = customerManager;
-        customerInfo = "customer.csv";
+        this.customerInfo = "customer.csv";
+        this.customerFileHandler = new CustomerFileHandler(customerInfo);
+    
         
-        
-        lblManagerName.setText(manager.getName());         
+        lblManagerName.setText(manager.getName());       
    
         loadStaffTable();
         loadMovieTable();
@@ -1579,68 +1578,19 @@ public class Manager_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
-        customerInfo = "customer.csv"; // where to I import this ???? 
-        
-        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
-        
-        ArrayList<String> tableData = new ArrayList<>();
-        
-        // Saves the list of the Customers
-        for(Customer aCustomer: customerManager.getAllCustomers())
-        {
-            String name = aCustomer.getCustomerName();
-            Integer ID = aCustomer.getCustomerID(); //might have to be String
-            Byte age = aCustomer.getCustomerAge(); //might have to be String
-            String row = name +"," + ID + "," + age;
-            tableData.add(row);
-            System.out.println(row);
-        }
-        
-        try {
-            PrintWriter writer = new PrintWriter(new FileWriter(customerInfo)); 
-            for (String rowData : tableData){
-                writer.println(rowData);
-            }
-            writer.close();
-            
-            JOptionPane.showMessageDialog(this, "Data Saved!");  
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        customerFileHandler.saveCustomers(customerManager.getAllCustomers());
+        JOptionPane.showMessageDialog(this, "Customer data saved.");
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            ArrayList<String> tableData = new ArrayList<>();
-            System.out.println("Reading the data");
-            BufferedReader reader = new BufferedReader(new FileReader(customerInfo));
-            
-            String line;
-            
-            while((line = reader.readLine()) != null) {
-            tableData.add(line);
-            }
-        
-        reader.close();
-        
+        List<Customer> customers = customerFileHandler.loadCustomers();
         DefaultTableModel model = (DefaultTableModel) customerList.getModel();
-        for (String rowData : tableData){
-            String[] row = rowData.split(",");
-            
-            //Creates an object for Customer
-            Customer aCustomer = new Customer(row[0], Integer.valueOf(row[1]), Byte.valueOf(row[2]));
-            
-            customerManager.addCustomer(aCustomer); 
-            
-            model.addRow(row);
+
+        for (Customer c : customers) {
+            customerManager.addCustomer(c);
+            model.addRow(new String[]{c.getCustomerName(), String.valueOf(c.getCustomerID()), String.valueOf(c.getCustomerAge())});
         }
 
-        JOptionPane.showMessageDialog(this, "Data Loaded");
-        
-        } catch (Exception e){
-               e.printStackTrace();
-        }
     }//GEN-LAST:event_formWindowOpened
 
     private void clearFields()

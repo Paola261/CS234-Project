@@ -1,6 +1,6 @@
 
 import javax.swing.JOptionPane;
-
+import java.util.List;
 
 /**
  * Represents a log in screen GUI for the movie management system
@@ -18,8 +18,15 @@ public class Login_Application extends javax.swing.JFrame {
         initComponents();
         controller.getScheduleManager().setShowtimes(ShowtimeFileHandler.loadShowtimes());
         controller.getStaffManager().setAllStaff(StaffFileHandler.loadStaff());
+        controller.setCustomerManager(new CustomerManager());
         
-        
+        CustomerManager cm = new CustomerManager();
+
+        CustomerFileHandler handler = new CustomerFileHandler("customer.csv");
+        List<Customer> customers = handler.loadCustomers();
+        for (Customer c : customers) {
+            cm.addCustomer(c);
+}
         
     }
 
