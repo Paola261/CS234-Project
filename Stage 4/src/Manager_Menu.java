@@ -265,6 +265,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnAddItem = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
@@ -1039,6 +1040,15 @@ public class Manager_Menu extends javax.swing.JFrame {
         panelInventory.add(jPanel3);
         jPanel3.setBounds(10, 300, 350, 160);
 
+        jButton5.setText("Search");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        panelInventory.add(jButton5);
+        jButton5.setBounds(550, 350, 72, 23);
+
         jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
         panelInventory.add(jLabel34);
         jLabel34.setBounds(-30, -20, 910, 510);
@@ -1657,6 +1667,35 @@ public class Manager_Menu extends javax.swing.JFrame {
         clearFields();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       
+        String nameToSearch = JOptionPane.showInputDialog(this, "Enter item name to search:");
+
+        if (nameToSearch == null || nameToSearch.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Item name cannot be empty.");
+            return;
+        }
+
+        boolean found = false;
+        for (Items item : inventoryManager.getItems()) {
+            if (item.getName().equalsIgnoreCase(nameToSearch.trim())) {
+                JOptionPane.showMessageDialog(this, 
+                    "Item: " + item.getName() + 
+                    "\nQuantity: " + item.getQuantity() + 
+                    "\nPrice: $" + String.format("%.2f", item.getPrice()), 
+                    "Item Found", 
+                    JOptionPane.INFORMATION_MESSAGE);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            JOptionPane.showMessageDialog(this, "Item not found in inventory.");
+        }
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     private void clearFields()
     {
         txtCustomerName.setText("");        
@@ -1723,6 +1762,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
