@@ -199,8 +199,8 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         btnDelete1 = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
-        btnUpdate1 = new javax.swing.JButton();
-        btnAdd1 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         panelMaintenanceMenu = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -355,7 +355,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnRemoveStaffMember);
-        btnRemoveStaffMember.setBounds(330, 330, 180, 21);
+        btnRemoveStaffMember.setBounds(330, 330, 180, 22);
 
         btnChangeStaffRole.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnChangeStaffRole.setText("Change Staff Role");
@@ -375,7 +375,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnViewMoreDetails);
-        btnViewMoreDetails.setBounds(590, 330, 180, 21);
+        btnViewMoreDetails.setBounds(590, 330, 180, 22);
 
         btnViewStaffLog.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewStaffLog.setText("View Staff Log Details");
@@ -385,7 +385,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jStaffPanel.add(btnViewStaffLog);
-        btnViewStaffLog.setBounds(590, 370, 180, 21);
+        btnViewStaffLog.setBounds(590, 370, 180, 22);
         jStaffPanel.add(jSeparator1);
         jSeparator1.setBounds(-10, 0, 0, 3);
 
@@ -603,33 +603,33 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelCustomerMenu.add(btnDelete1);
-        btnDelete1.setBounds(210, 310, 72, 21);
+        btnDelete1.setBounds(210, 310, 72, 22);
 
         lblName.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblName.setText("Customer List:");
         panelCustomerMenu.add(lblName);
-        lblName.setBounds(510, 30, 170, 30);
+        lblName.setBounds(510, 30, 170, 31);
 
-        btnUpdate1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        btnUpdate1.setText("Update");
-        btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdate1ActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
-        panelCustomerMenu.add(btnUpdate1);
-        btnUpdate1.setBounds(30, 350, 72, 21);
+        panelCustomerMenu.add(btnUpdate);
+        btnUpdate.setBounds(30, 350, 72, 22);
 
-        btnAdd1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        btnAdd1.setText("Add");
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd1ActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
-        panelCustomerMenu.add(btnAdd1);
-        btnAdd1.setBounds(30, 310, 72, 21);
+        panelCustomerMenu.add(btnAdd);
+        btnAdd.setBounds(30, 310, 72, 22);
 
         jButton1.setText("Clear");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -681,7 +681,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel19.setText("Pending Issues:");
         panelMaintenanceMenu.add(jLabel19);
-        jLabel19.setBounds(20, 30, 216, 22);
+        jLabel19.setBounds(20, 30, 216, 23);
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setText("Resolved Issues:");
@@ -696,7 +696,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnLogNewIssue);
-        btnLogNewIssue.setBounds(640, 190, 179, 21);
+        btnLogNewIssue.setBounds(640, 190, 179, 22);
 
         btnResolveIssue.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnResolveIssue.setText("Resolve Issue");
@@ -706,7 +706,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnResolveIssue);
-        btnResolveIssue.setBounds(640, 230, 179, 21);
+        btnResolveIssue.setBounds(640, 230, 179, 22);
 
         btnViewIssueDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewIssueDetails.setText("View Issue Details");
@@ -716,7 +716,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnViewIssueDetails);
-        btnViewIssueDetails.setBounds(170, 30, 130, 21);
+        btnViewIssueDetails.setBounds(170, 30, 130, 22);
 
         btnViewResolvedDetails.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnViewResolvedDetails.setText("View Resolved Details");
@@ -726,7 +726,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelMaintenanceMenu.add(btnViewResolvedDetails);
-        btnViewResolvedDetails.setBounds(460, 30, 160, 21);
+        btnViewResolvedDetails.setBounds(460, 30, 160, 22);
         panelMaintenanceMenu.add(jLabel25);
         jLabel25.setBounds(-80, -220, 0, 0);
 
@@ -821,24 +821,24 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel27.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel27.setText("Movie Details:");
         jPanel5.add(jLabel27);
-        jLabel27.setBounds(30, 10, 130, 22);
+        jLabel27.setBounds(30, 10, 122, 23);
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel12.setText("Time:");
         jPanel5.add(jLabel12);
-        jLabel12.setBounds(400, 50, 33, 20);
+        jLabel12.setBounds(400, 50, 32, 20);
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel13.setText("Rating:");
         jPanel5.add(jLabel13);
-        jLabel13.setBounds(400, 90, 40, 20);
+        jLabel13.setBounds(400, 90, 42, 20);
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel14.setText("Screen:");
         jPanel5.add(jLabel14);
-        jLabel14.setBounds(400, 130, 42, 20);
+        jLabel14.setBounds(400, 130, 45, 20);
         jPanel5.add(txtScreen);
-        txtScreen.setBounds(460, 130, 180, 23);
+        txtScreen.setBounds(460, 130, 180, 22);
 
         txtTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -846,9 +846,9 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jPanel5.add(txtTitle);
-        txtTitle.setBounds(100, 50, 270, 23);
+        txtTitle.setBounds(100, 50, 270, 22);
         jPanel5.add(txtTime);
-        txtTime.setBounds(460, 50, 180, 23);
+        txtTime.setBounds(460, 50, 180, 22);
 
         txtRating.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -856,11 +856,11 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jPanel5.add(txtRating);
-        txtRating.setBounds(460, 90, 180, 23);
+        txtRating.setBounds(460, 90, 180, 22);
         jPanel5.add(txtDate);
-        txtDate.setBounds(100, 90, 150, 23);
+        txtDate.setBounds(100, 90, 150, 22);
         jPanel5.add(txtRuntime);
-        txtRuntime.setBounds(100, 130, 150, 23);
+        txtRuntime.setBounds(100, 130, 150, 22);
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel9.setText("Movie Title:");
@@ -896,12 +896,12 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel15.setText("Add New Concession Item:");
         panelInventory.add(jLabel15);
-        jLabel15.setBounds(20, 310, 260, 22);
+        jLabel15.setBounds(20, 310, 260, 23);
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel16.setText("Name:");
         panelInventory.add(jLabel16);
-        jLabel16.setBounds(20, 350, 50, 15);
+        jLabel16.setBounds(20, 350, 50, 16);
 
         txtItemName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -909,14 +909,14 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(txtItemName);
-        txtItemName.setBounds(90, 350, 168, 23);
+        txtItemName.setBounds(90, 350, 168, 22);
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel17.setText("Quantity:");
         panelInventory.add(jLabel17);
         jLabel17.setBounds(20, 390, 60, 20);
         panelInventory.add(txtItemQuantity);
-        txtItemQuantity.setBounds(90, 390, 81, 23);
+        txtItemQuantity.setBounds(90, 390, 81, 22);
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel18.setText("Price:");
@@ -929,7 +929,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(txtItemPrice);
-        txtItemPrice.setBounds(260, 390, 84, 23);
+        txtItemPrice.setBounds(260, 390, 84, 22);
 
         btnAddItem.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         btnAddItem.setText("Add Item");
@@ -939,7 +939,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(btnAddItem);
-        btnAddItem.setBounds(130, 430, 129, 21);
+        btnAddItem.setBounds(130, 430, 129, 22);
 
         btnOrderMore.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btnOrderMore.setText("Order");
@@ -959,7 +959,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelInventory.add(btnRemoveItem);
-        btnRemoveItem.setBounds(520, 310, 144, 21);
+        btnRemoveItem.setBounds(520, 310, 144, 22);
         panelInventory.add(jLabel26);
         jLabel26.setBounds(-70, -170, 0, 0);
 
@@ -1469,22 +1469,23 @@ public class Manager_Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("You have clicked on the table of Customers");
         int row = customerList.getSelectedRow();
-
+        
         DefaultTableModel model = (DefaultTableModel)customerList.getModel();
-
+        
         String name = model.getValueAt(row,0).toString();
         System.out.println("To update: " + name);
-        Customer theCustomer = aPerson.getACustomer(name);
-
+        Customer theCustomer = customerManager.getCustomerByName(name);
+        
         txtName.setText(theCustomer.getCustomerName());
-        txtID.setText(theCustomer.getCustomerID());
-        txtAge.setText(theCustomer.getCustomerAge());
-
+        txtID.setText(String.valueOf(theCustomer.getCustomerID()));
+        txtAge.setText(String.valueOf(theCustomer.getCustomerAge()));
+        
+        
         btnUpdate.setEnabled(true);
         btnAdd.setEnabled(false);
     }//GEN-LAST:event_customerListMouseClicked
 
-    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         if(txtName.getText().isEmpty() || txtID.getText().isEmpty() || txtAge.getText().isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Enter all fields");
@@ -1497,10 +1498,10 @@ public class Manager_Menu extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(this, "Information added");
             
-            clearFields();}
-    }      
+            clearFields();
+        }          
 
-    }//GEN-LAST:event_btnAdd1ActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
         // TODO add your handling code here:
@@ -1521,7 +1522,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
         int row = customerList.getSelectedRow();
         
-        if(row<0)
+        if (row<0)
         {
             JOptionPane.showMessageDialog(this, "You need to select a row");
         }
@@ -1532,25 +1533,25 @@ public class Manager_Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Row deleted");}
     }//GEN-LAST:event_btnDelete1ActionPerformed
 
-    private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
-    int row = customerList.getSelectedRow();
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        int row = customerList.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel)customerList.getModel();
        
        String name = model.getValueAt(row,0).toString();
        System.out.println("To Update: " + name);
-       Customer aCustomer = customerManager.getACustomer();
+       Customer aCustomer = customerManager.getCustomerByName(name);
        
        aCustomer.setName(txtName.getText());
-       aCustomer.setID(txtID.getText());
-       aCustomer.setAge(txtAge.getText());
+       aCustomer.setID(Integer.valueOf(txtID.getText()));
+       aCustomer.setAge(Byte.valueOf(txtAge.getText()));
        
-       System.out.println(customerManager.getCostumers());
+       System.out.println(customerManager.getAllCustomers());
        
        updateTableInfo(model, row, aCustomer);
        
        JOptionPane.showMessageDialog(this, "Customer was updated.");
 
-    }//GEN-LAST:event_btnUpdate1ActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         clearFields();
@@ -1568,48 +1569,16 @@ public class Manager_Menu extends javax.swing.JFrame {
         DefaultTableModel model = theModel;
 
         model.setValueAt(aCustomer.getCustomerName(), row, 0);
-        model.setValueAt(String.valueOf(aCustomer.getCustomerID(), row, 1));
-        model.setValueAt(String.valueOf(aCustomer.getCustomerAge(), row, 2));
+        model.setValueAt(aCustomer.getCustomerID(), row, 1);
+        model.setValueAt(aCustomer.getCustomerAge(), row, 2);
         
-    }
+    }   
 
-    /**
-     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Manager_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Manager_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Manager_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Manager_Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Manager_Menu().setVisible(true);
-//            }
-//        });
-//    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd1;
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddItem;
     private javax.swing.JButton btnAddStaffMember;
     private javax.swing.JButton btnAssignMovie;
@@ -1624,7 +1593,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnRemoveMovie;
     private javax.swing.JButton btnRemoveStaffMember;
     private javax.swing.JButton btnResolveIssue;
-    private javax.swing.JButton btnUpdate1;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JButton btnViewIssueDetails;
     private javax.swing.JButton btnViewMoreDetails;
@@ -1724,3 +1693,5 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField txtTitle;
     // End of variables declaration//GEN-END:variables
 }
+
+
