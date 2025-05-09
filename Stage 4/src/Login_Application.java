@@ -20,6 +20,7 @@ public class Login_Application extends javax.swing.JFrame {
         controller.getStaffManager().setAllStaff(StaffFileHandler.loadStaff());
         
         
+        
     }
 
     /**
@@ -132,7 +133,7 @@ public class Login_Application extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Logged in as: " + s.getName());
 
                     if (s instanceof Manager) {
-                        Manager_Menu menu = new Manager_Menu((Manager) s, controller.getStaffManager(), controller.getScheduleManager());
+                        Manager_Menu menu = new Manager_Menu((Manager) s, controller.getStaffManager(), controller.getScheduleManager(), controller.getCustomerManager());
                         menu.setVisible(true);
                         this.dispose();
                     }

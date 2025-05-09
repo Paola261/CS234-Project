@@ -14,6 +14,7 @@ public class AppController {
     private InventoryManager inventoryManager;
     private Inventory inventory = new Inventory();
     private MaintenanceManager maintenanceManager;
+    private CustomerManager customerManager;
     
 
     private final String SHOWTIME_FILE = "showtimes.txt";
@@ -61,6 +62,10 @@ public class AppController {
      */
     public StaffManager getStaffManager() {
         return staffManager;
+    }
+    
+    public CustomerManager getCustomerManager() {
+        return customerManager;
     }
     
     /**

@@ -15,6 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JScrollPane;
 import java.awt.Dimension;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.io.BufferedReader;
+
 
 
 public class Manager_Menu extends javax.swing.JFrame {
@@ -202,6 +207,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
         panelMaintenanceMenu = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblResolvedIssues = new javax.swing.JTable();
@@ -275,6 +281,14 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jAccountPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -568,9 +582,9 @@ public class Manager_Menu extends javax.swing.JFrame {
                             .addComponent(txtID2)
                             .addComponent(txtAge2)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addGap(47, 47, 47)
                         .addComponent(jLabel23)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -603,7 +617,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelCustomerMenu.add(btnDelete1);
-        btnDelete1.setBounds(210, 310, 72, 22);
+        btnDelete1.setBounds(200, 310, 72, 22);
 
         lblName.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         lblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -631,6 +645,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         panelCustomerMenu.add(btnAdd);
         btnAdd.setBounds(30, 310, 72, 22);
 
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         jButton1.setText("Clear");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -638,7 +653,11 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         panelCustomerMenu.add(jButton1);
-        jButton1.setBounds(210, 350, 78, 23);
+        jButton1.setBounds(200, 350, 72, 22);
+
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
+        panelCustomerMenu.add(jLabel32);
+        jLabel32.setBounds(0, 0, 880, 470);
 
         tabAccountPane.addTab("Customer Menu", panelCustomerMenu);
 
@@ -1557,6 +1576,71 @@ public class Manager_Menu extends javax.swing.JFrame {
         clearFields();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        customerInfo = "customer.csv"; // where to I import this ???? 
+        
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+        
+        ArrayList<String> tableData = new ArrayList<>();
+        
+        // Saves the list of the Customers
+        for(Customer aCustomer: customerManager.getAllCustomers())
+        {
+            String name = aCustomer.getCustomerName();
+            Integer ID = aCustomer.getCustomerID(); //might have to be String
+            Byte age = aCustomer.getCustomerAge(); //might have to be String
+            String row = name +"," + ID + "," + age;
+            tableData.add(row);
+            System.out.println(row);
+        }
+        
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter(customerInfo)); 
+            for (String rowData : tableData){
+                writer.println(rowData);
+            }
+            writer.close();
+            
+            JOptionPane.showMessageDialog(this, "Data Saved!");  
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_formWindowClosing
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            ArrayList<String> tableData = new ArrayList<>();
+            System.out.println("Reading the data");
+            BufferedReader reader = new BufferedReader(new FileReader(customerInfo));
+            
+            String line;
+            
+            while((line = reader.readLine()) != null) {
+            tableData.add(line);
+            }
+        
+        reader.close();
+        
+        DefaultTableModel model = (DefaultTableModel) customerList.getModel();
+        for (String rowData : tableData){
+            String[] row = rowData.split(",");
+            
+            //Creates an object for Customer
+            Customer aCustomer = new Customer(row[0], Integer.valueOf(row[1]), Byte.valueOf(row[2]));
+            
+            customerManager.addCustomer(aCustomer); 
+            
+            model.addRow(row);
+        }
+
+        JOptionPane.showMessageDialog(this, "Data Loaded");
+        
+        } catch (Exception e){
+               e.printStackTrace();
+        }
+    }//GEN-LAST:event_formWindowOpened
+
     private void clearFields()
     {
         txtName.setText("");
@@ -1572,9 +1656,10 @@ public class Manager_Menu extends javax.swing.JFrame {
         model.setValueAt(aCustomer.getCustomerID(), row, 1);
         model.setValueAt(aCustomer.getCustomerAge(), row, 2);
         
-    }   
-
-
+    }       
+        
+     
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1629,6 +1714,7 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;

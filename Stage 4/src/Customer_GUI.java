@@ -349,22 +349,22 @@ public class Customer_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-    int row = customerList.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
-       
-       String name = model.getValueAt(row,0).toString();
-       System.out.println("To Update: " + name);
-       Customer aCustomer = String.valueOf(customerManager.getCustomerByName());
-       
-       aCustomer.setName(txtName.getText());
-       aCustomer.setID(Integer.valueOf(txtID.getText()));
-       aCustomer.setAge(Byte.valueOf(txtAge.getText()));
-       
-       System.out.println(customerManager.getAllCustomers());
-       
-       updateTableInfo(model, row, aCustomer);
-       
-       JOptionPane.showMessageDialog(this, "Customer was updated.");
+//    int row = customerList.getSelectedRow();
+//        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+//       
+//       String name = model.getValueAt(row,0).toString();
+//       System.out.println("To Update: " + name);
+//       Customer aCustomer = String.valueOf(customerManager.getCustomerByName());
+//       
+//       aCustomer.setName(txtName.getText());
+//       aCustomer.setID(Integer.valueOf(txtID.getText()));
+//       aCustomer.setAge(Byte.valueOf(txtAge.getText()));
+//       
+//       System.out.println(customerManager.getAllCustomers());
+//       
+//       updateTableInfo(model, row, aCustomer);
+//       
+//       JOptionPane.showMessageDialog(this, "Customer was updated.");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
@@ -387,41 +387,41 @@ public class Customer_GUI extends javax.swing.JFrame {
         model.setValueAt(aCustomer.getCustomerAge(), row, 2);
         
     }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Customer_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Customer_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Customer_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Customer_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Customer_GUI().setVisible(true); // might need to be in main class 
-            }
-        });
-    }
+//
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Customer_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Customer_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Customer_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Customer_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Customer_GUI().setVisible(true); // might need to be in main class 
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
