@@ -240,8 +240,6 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        txtScreen = new javax.swing.JTextField();
         txtTitle = new javax.swing.JTextField();
         txtTime = new javax.swing.JTextField();
         txtRating = new javax.swing.JTextField();
@@ -864,19 +862,12 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel12.setText("Time:");
         jPanel5.add(jLabel12);
-        jLabel12.setBounds(400, 50, 32, 20);
+        jLabel12.setBounds(400, 50, 60, 20);
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel13.setText("Rating:");
         jPanel5.add(jLabel13);
-        jLabel13.setBounds(400, 90, 42, 20);
-
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel14.setText("Screen:");
-        jPanel5.add(jLabel14);
-        jLabel14.setBounds(400, 130, 45, 20);
-        jPanel5.add(txtScreen);
-        txtScreen.setBounds(460, 130, 180, 22);
+        jLabel13.setBounds(400, 90, 80, 20);
 
         txtTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -912,7 +903,7 @@ public class Manager_Menu extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton3);
-        jButton3.setBounds(720, 120, 110, 23);
+        jButton3.setBounds(500, 140, 110, 23);
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 910, 180));
 
@@ -1279,7 +1270,7 @@ public class Manager_Menu extends javax.swing.JFrame {
                     + "\nDate: " + show.getMovieDate()
                     + "\nRating: " + show.getRating()
                     + "\nRuntime: " + show.getRunTime()
-                    + "\nScreen: " + show.getSID();
+                    + "\nID: " + show.getSID();
             JOptionPane.showMessageDialog(this, details, "Movie Details", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnViewDetailsActionPerformed
@@ -1326,7 +1317,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         String newDate = txtDate.getText().trim();
         String newRating = txtRating.getText().trim();
         String newRuntime = txtRuntime.getText().trim();
-        String newScreen = txtScreen.getText().trim();
+        
         
         if (newTitle.isEmpty() || newTime.isEmpty() || newDate.isEmpty() || newRating.isEmpty() || newRuntime.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields.");
@@ -1639,8 +1630,8 @@ public class Manager_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        customerFileHandler.saveCustomers(customerManager.getAllCustomers());
-        JOptionPane.showMessageDialog(this, "Customer data saved.");
+       customerFileHandler.saveCustomers(customerManager.getAllCustomers());
+       controller.saveAllData();
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -1683,8 +1674,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         txtName.setText("");
         txtRating.setText("");
         txtRole.setText("");
-        txtRuntime.setText("");
-        txtScreen.setText("");
+        txtRuntime.setText("");        
         txtTime.setText("");
         txtTitle.setText("");
     }
@@ -1738,7 +1728,6 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1818,7 +1807,6 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JTextField txtRating;
     private javax.swing.JTextField txtRole;
     private javax.swing.JTextField txtRuntime;
-    private javax.swing.JTextField txtScreen;
     private javax.swing.JTextField txtTime;
     private javax.swing.JTextField txtTitle;
     // End of variables declaration//GEN-END:variables
