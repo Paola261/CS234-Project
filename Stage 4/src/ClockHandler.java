@@ -7,12 +7,22 @@ import java.io.FileWriter;
 import java.io.FileReader;
 
 /**
- *
+ * This class manages clock-in and clock-out actions for staff.
+ * It logs actions to a persistent text file and provides access to clock history.
  * @author Taryn Davis
  */
 public class ClockHandler {
+    // The name of the file for clock-in/clock out
     private static final String FILE_NAME = "clock_log.txt";
     
+    /**
+     * Logs a clock action for the specified user
+     * Appends the entry to the txt file with the current timestamp
+     * 
+     * @param name The name of the staff member
+     * @param role The role of the staff member 
+     * @param action The action taken
+     */
     public static void clockAction(String name, String role, String action) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
@@ -24,6 +34,12 @@ public class ClockHandler {
         }
     }
     
+    /**
+     *  Retrieves the last recorded clock action for the specified user
+     * Searches the txt for the most recent entry by name
+     * @param name The name of the staff member
+     * @return The last clock status
+     */
     public static String getLastClockStatus(String name) {
         String lastStatus = "Not Clocked In";
         try (BufferedReader reader = new BufferedReader(new FileReader("clock_log.txt"))) {
@@ -40,6 +56,12 @@ public class ClockHandler {
         return lastStatus;
     }
     
+    /**
+     * Generates a full clock report for the specified user, listing all recorded
+     * clock-ins and outs
+     * @param name The name of the Staff member
+     * @return A formatted string representing the full clock log history for that user
+     */
     public static String getFullClockReport(String name) {
         StringBuilder report = new StringBuilder("Clock Log for " + name + ":\n\n");
 
