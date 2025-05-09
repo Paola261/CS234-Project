@@ -1,7 +1,12 @@
 import javax.swing.JOptionPane;
 /**
- *
- * @author Taryn
+ * This class represents the GUI interface for a cashier user menu.
+ * It allows the user to:
+ * - Clock In and Clock Out
+ * - Reset their password
+ * - Log out of the system
+ * - Access customer info, sell tickets and concessions, and check out customers
+ * @author Taryn Davis
  */
 public class Cashier_Menu extends javax.swing.JFrame {
     private Cashier currentCashier;
