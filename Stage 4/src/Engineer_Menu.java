@@ -1,13 +1,16 @@
 
 import javax.swing.JOptionPane;
-import javax.swing.*;
-import java.time.LocalDate;
-import java.io.*;
 import java.util.List;
 
 
 /**
- *
+ * Represents a GUI class menu for Engineer Staff Members
+ * Allows Users to: 
+ * - clock in/clock out
+ * - reset password
+ * - logout of the system
+ * - view existing and resolved maintenance problems 
+ * - resolve existing maintenance problems
  * @author Taryn
  */
 public class Engineer_Menu extends javax.swing.JFrame {
@@ -267,6 +270,10 @@ public class Engineer_Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Refreshes maintenance tables displayed in the GUI by updating them 
+     * with the current lists of open and resolved maintenance issues.
+     */
     private void refreshMaintenanceTables() {
         String[] columns = {"ID", "Description", "Reported By", "Date"};
         List<MaintenanceIssue> pending = maintenanceManager.getOpenIssues();
