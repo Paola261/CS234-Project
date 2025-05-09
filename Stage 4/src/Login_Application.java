@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 import javax.swing.JOptionPane;
 
 
 /**
- *
- * @author Taryn
+ * Represents a log in screen GUI for the movie management system
+ * @author Taryn Davis
  */
 public class Login_Application extends javax.swing.JFrame {        
 //        private StaffManager staffManager = new StaffManager();
