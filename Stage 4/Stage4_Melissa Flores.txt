@@ -1,0 +1,1 @@
+In Part 4 I was responsible for the Sell Ticket Tab, Sell Concession Tab, and Checkout Tab in the Cashier_Menu
