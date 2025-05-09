@@ -1,7 +1,7 @@
 How to Run Our Theatre Management System:
 
 1. Make sure you have the latest update of Java downloaded in your system
-2. Download and open the dist folder double click the Part4.jar file 
+2. Download and open the folder titled JAR FILE double click the Part4.jar file 
 3. A login window will be viewed first
 4. Login to your role and explore the system. 
 
