@@ -44,8 +44,9 @@ public class Manager_Menu extends javax.swing.JFrame {
         this.scheduleManager = scheduleManager;
         this.inventoryManager = controller.getInventory();
         this.maintenanceManager = controller.getMaintenance();
+        
         this.customerManager = customerManager;
-
+        customerInfo = "customer.csv";
         
         
         lblManagerName.setText(manager.getName());         
@@ -54,6 +55,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         loadMovieTable();
         loadInventoryTable();       
         refreshMaintenanceTables();
+        
         
     }
     
