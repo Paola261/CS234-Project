@@ -53,9 +53,47 @@ public class Cashier_Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tabCustomerInfo = new javax.swing.JPanel();
-        tabSellTicket = new javax.swing.JPanel();
         tabSellConcession = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jSpinner13 = new javax.swing.JSpinner();
+        jSpinner14 = new javax.swing.JSpinner();
+        jSpinner15 = new javax.swing.JSpinner();
+        jSpinner19 = new javax.swing.JSpinner();
+        jSpinner20 = new javax.swing.JSpinner();
+        jSpinner21 = new javax.swing.JSpinner();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jSpinner22 = new javax.swing.JSpinner();
+        jButton4 = new javax.swing.JButton();
+        jLabel56 = new javax.swing.JLabel();
+        jSpinner23 = new javax.swing.JSpinner();
+        jLabel57 = new javax.swing.JLabel();
+        jSpinner24 = new javax.swing.JSpinner();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jSpinner25 = new javax.swing.JSpinner();
+        jSpinner26 = new javax.swing.JSpinner();
+        jSpinner27 = new javax.swing.JSpinner();
+        jSpinner28 = new javax.swing.JSpinner();
+        jSpinner29 = new javax.swing.JSpinner();
+        jSpinner30 = new javax.swing.JSpinner();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
         tabCheckout = new javax.swing.JPanel();
+        tabSellTicket = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -145,7 +183,7 @@ public class Cashier_Menu extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblClockStatus)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,31 +223,219 @@ public class Cashier_Menu extends javax.swing.JFrame {
 
         panelCashier.addTab("Customer Info", tabCustomerInfo);
 
-        javax.swing.GroupLayout tabSellTicketLayout = new javax.swing.GroupLayout(tabSellTicket);
-        tabSellTicket.setLayout(tabSellTicketLayout);
-        tabSellTicketLayout.setHorizontalGroup(
-            tabSellTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
-        );
-        tabSellTicketLayout.setVerticalGroup(
-            tabSellTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
-        );
+        jLabel23.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
+        jLabel23.setText("    Choose Movie and Time");
 
-        panelCashier.addTab("Sell Ticket", tabSellTicket);
+        jLabel50.setText("4:35 pm");
+
+        jLabel51.setText("7:10 pm");
+
+        jLabel42.setText("9:45 pm");
+
+        jLabel43.setText("2:00 pm");
+
+        jLabel44.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel44.setText("High School Musical");
+
+        jLabel45.setText("3:15 pm");
+
+        jLabel52.setText("7:00 pm");
+
+        jLabel53.setText("6:00 pm");
+
+        jLabel54.setText("9:30 pm");
+
+        jLabel55.setText("8:45 pm");
+
+        jButton3.setText("Checkout");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Add Concession");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel56.setText("9:45 pm");
+
+        jLabel57.setText("5:15 pm");
+
+        jLabel58.setText("3:00 pm");
+
+        jLabel59.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel59.setText("Insidious");
+
+        jLabel60.setText("2:10 pm");
+
+        jLabel61.setText("2:15 pm");
+
+        jLabel62.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel62.setText("Big Hero Six");
+
+        jLabel63.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel63.setText("Divergent");
+
+        jLabel24.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel24.setText("Clueless");
+
+        jLabel64.setText("4:45 pm");
 
         javax.swing.GroupLayout tabSellConcessionLayout = new javax.swing.GroupLayout(tabSellConcession);
         tabSellConcession.setLayout(tabSellConcessionLayout);
         tabSellConcessionLayout.setHorizontalGroup(
             tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                                .addComponent(jLabel45)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinner19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel53)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinner21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel55)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinner14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                                    .addComponent(jLabel58)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jSpinner24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel57)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jSpinner23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel56)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jSpinner22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel59)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                                        .addComponent(jLabel61)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel64)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel42)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel63))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                                        .addComponent(jLabel43)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel52)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel54)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel44))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                                        .addComponent(jLabel60)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel50)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel51)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jSpinner25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel62)))))
+                    .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabSellConcessionLayout.createSequentialGroup()
+                        .addGap(261, 261, 261)
+                        .addComponent(jButton4)
+                        .addGap(72, 72, 72)
+                        .addComponent(jButton3)))
+                .addGap(150, 170, Short.MAX_VALUE))
         );
         tabSellConcessionLayout.setVerticalGroup(
             tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSellConcessionLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel45)
+                    .addComponent(jLabel53)
+                    .addComponent(jLabel55))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel59)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel58)
+                    .addComponent(jLabel57)
+                    .addComponent(jLabel56))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel61)
+                    .addComponent(jLabel64)
+                    .addComponent(jLabel42))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel52)
+                    .addComponent(jLabel54))
+                .addGap(16, 16, 16)
+                .addComponent(jLabel62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSpinner29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSpinner25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel60)
+                    .addComponent(jLabel50)
+                    .addComponent(jLabel51))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton3))
+                .addGap(19, 19, 19))
         );
 
-        panelCashier.addTab("Sell Concession", tabSellConcession);
+        panelCashier.addTab("Sell Ticket", tabSellConcession);
 
         javax.swing.GroupLayout tabCheckoutLayout = new javax.swing.GroupLayout(tabCheckout);
         tabCheckout.setLayout(tabCheckoutLayout);
@@ -222,28 +448,45 @@ public class Cashier_Menu extends javax.swing.JFrame {
             .addGap(0, 488, Short.MAX_VALUE)
         );
 
-        panelCashier.addTab("Checkout", tabCheckout);
+        panelCashier.addTab("Sell Concession", tabCheckout);
+
+        javax.swing.GroupLayout tabSellTicketLayout = new javax.swing.GroupLayout(tabSellTicket);
+        tabSellTicket.setLayout(tabSellTicketLayout);
+        tabSellTicketLayout.setHorizontalGroup(
+            tabSellTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
+        );
+        tabSellTicketLayout.setVerticalGroup(
+            tabSellTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 488, Short.MAX_VALUE)
+        );
+
+        panelCashier.addTab("Checkout", tabSellTicket);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(panelCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        controller.saveAllData();
-        new Login_Application().setVisible(true);
-        this.dispose();
-          
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    private void btnClockOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockOutActionPerformed
+        ClockHandler.clockAction(currentCashier.getName(), currentCashier.getRole(), "Clock Out");
+        lblClockStatus.setText("Clocked Out");
+        JOptionPane.showMessageDialog(null, "Clocked Out!");
+    }//GEN-LAST:event_btnClockOutActionPerformed
 
     private void btnClockInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockInActionPerformed
         ClockHandler.clockAction(currentCashier.getName(), currentCashier.getRole(), "Clock In");
@@ -251,11 +494,12 @@ public class Cashier_Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Clocked In!");
     }//GEN-LAST:event_btnClockInActionPerformed
 
-    private void btnClockOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockOutActionPerformed
-        ClockHandler.clockAction(currentCashier.getName(), currentCashier.getRole(), "Clock Out");
-        lblClockStatus.setText("Clocked Out");
-        JOptionPane.showMessageDialog(null, "Clocked Out!");
-    }//GEN-LAST:event_btnClockOutActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        controller.saveAllData();
+        new Login_Application().setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnResetPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswordActionPerformed
         String newPass = JOptionPane.showInputDialog(this, "Enter new Password:");
@@ -265,8 +509,16 @@ public class Cashier_Menu extends javax.swing.JFrame {
         }
         currentCashier.getCredential().updatePassword(newPass);
         JOptionPane.showMessageDialog(this, "Password Updated!");
-         
+
     }//GEN-LAST:event_btnResetPasswordActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        panelCashier.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        panelCashier.setSelectedIndex(4);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
 
@@ -275,12 +527,50 @@ public class Cashier_Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnClockOut;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnResetPassword;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSpinner jSpinner13;
+    private javax.swing.JSpinner jSpinner14;
+    private javax.swing.JSpinner jSpinner15;
+    private javax.swing.JSpinner jSpinner19;
+    private javax.swing.JSpinner jSpinner20;
+    private javax.swing.JSpinner jSpinner21;
+    private javax.swing.JSpinner jSpinner22;
+    private javax.swing.JSpinner jSpinner23;
+    private javax.swing.JSpinner jSpinner24;
+    private javax.swing.JSpinner jSpinner25;
+    private javax.swing.JSpinner jSpinner26;
+    private javax.swing.JSpinner jSpinner27;
+    private javax.swing.JSpinner jSpinner28;
+    private javax.swing.JSpinner jSpinner29;
+    private javax.swing.JSpinner jSpinner30;
     private javax.swing.JLabel lblCashierName;
     private javax.swing.JLabel lblClockStatus;
     private javax.swing.JTabbedPane panelCashier;
