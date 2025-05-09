@@ -191,6 +191,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         panelCustomerMenu = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -246,6 +247,7 @@ public class Manager_Menu extends javax.swing.JFrame {
         txtDate = new javax.swing.JTextField();
         txtRuntime = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();
         panelInventory = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -257,12 +259,13 @@ public class Manager_Menu extends javax.swing.JFrame {
         txtItemQuantity = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         txtItemPrice = new javax.swing.JTextField();
-        btnAddItem = new javax.swing.JButton();
         btnOrderMore = new javax.swing.JButton();
         btnRemoveItem = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        btnAddItem = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
@@ -438,6 +441,13 @@ public class Manager_Menu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel1.setText("Name:");
 
+        jButton2.setText("Clear Fields");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -446,12 +456,8 @@ public class Manager_Menu extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(111, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -466,14 +472,23 @@ public class Manager_Menu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAddStaffMember, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addGap(49, 49, 49))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -489,13 +504,15 @@ public class Manager_Menu extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtRole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAddStaffMember)
-                .addGap(31, 31, 31))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jStaffPanel.add(jPanel1);
-        jPanel1.setBounds(10, 50, 250, 360);
+        jPanel1.setBounds(10, 50, 250, 380);
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
         jStaffPanel.add(jLabel31);
@@ -887,6 +904,15 @@ public class Manager_Menu extends javax.swing.JFrame {
         jPanel5.add(jLabel9);
         jLabel9.setBounds(30, 50, 90, 20);
 
+        jButton3.setText("Clear Fields");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton3);
+        jButton3.setBounds(720, 120, 110, 23);
+
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 910, 180));
 
         jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
@@ -951,16 +977,6 @@ public class Manager_Menu extends javax.swing.JFrame {
         panelInventory.add(txtItemPrice);
         txtItemPrice.setBounds(260, 390, 84, 22);
 
-        btnAddItem.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
-        btnAddItem.setText("Add Item");
-        btnAddItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddItemActionPerformed(evt);
-            }
-        });
-        panelInventory.add(btnAddItem);
-        btnAddItem.setBounds(130, 430, 129, 22);
-
         btnOrderMore.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btnOrderMore.setText("Order");
         btnOrderMore.addActionListener(new java.awt.event.ActionListener() {
@@ -992,15 +1008,40 @@ public class Manager_Menu extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         jPanel3.setForeground(new java.awt.Color(204, 255, 255));
 
+        btnAddItem.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        btnAddItem.setText("Add Item");
+        btnAddItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddItemActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Clear Fields");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(btnAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 158, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(129, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddItem)
+                    .addComponent(jButton4))
+                .addContainerGap())
         );
 
         panelInventory.add(jPanel3);
@@ -1593,11 +1634,39 @@ public class Manager_Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        clearFields();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        clearFields();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        clearFields();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void clearFields()
     {
-        txtName.setText("");
+        txtCustomerName.setText("");        
+        txtCustomerAge.setText("");
+        txtCustomerID.setText("");
         txtAge.setText("");
+        txtCustomerAge.setText("");
+        txtCustomerID.setText("");
+        txtCustomerName.setText("");
+        txtDate.setText("");
         txtID.setText("");
+        txtItemName.setText("");
+        txtItemPrice.setText("");
+        txtItemQuantity.setText("");
+        txtName.setText("");
+        txtRating.setText("");
+        txtRole.setText("");
+        txtRuntime.setText("");
+        txtScreen.setText("");
+        txtTime.setText("");
+        txtTitle.setText("");
     }
     
     private void updateTableInfo(DefaultTableModel theModel, int row, Customer aCustomer)
@@ -1641,6 +1710,9 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JTable customerList;
     private javax.swing.JPanel jAccountPanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

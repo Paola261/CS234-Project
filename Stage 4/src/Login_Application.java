@@ -145,7 +145,7 @@ public class Login_Application extends javax.swing.JFrame {
                         this.dispose();
                     }
                     else if (s instanceof Cashier) {
-                        Cashier_Menu cashierMenu = new Cashier_Menu((Cashier) s, controller.getInventory(), controller.getScheduleManager());
+                        Cashier_Menu cashierMenu = new Cashier_Menu((Cashier) s, controller.getInventory(), controller.getScheduleManager(), controller.getCustomerManager());
                         cashierMenu.setVisible(true);
                         this.dispose();
                     }
