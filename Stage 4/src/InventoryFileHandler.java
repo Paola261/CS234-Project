@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *
+ * Class for handling inventory file operations to load data from the txt file
+ * to the memory
  * @author Taryn Davis
  */
 public class InventoryFileHandler {
