@@ -1,0 +1,10 @@
+Work Done for the last part of the Project-Stage 4:
+
+- Created the Customer_GUI 
+- Created the CustomerManager class
+- Created the customers.csv file 
+- Updated my classes on UML Diagram
+- Updated arrows on UML Diagram
+- We all came together the day before and day off the due date to fix errors and make sure everything was working correctly.
+- I did have some trouble pushing and pulling from NetBeans that took more time than anticipated. Ended up pushing from my teammates and editing with 
+their help. 
