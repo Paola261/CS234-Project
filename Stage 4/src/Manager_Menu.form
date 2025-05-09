@@ -612,9 +612,9 @@
                                       <Component id="lblName1" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
                                       <Component id="lblID1" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
                                       <Component id="lblAge1" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                                      <Component id="txtName2" alignment="0" pref="113" max="32767" attributes="0"/>
-                                      <Component id="txtID2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtAge2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCustomerName" alignment="0" pref="113" max="32767" attributes="0"/>
+                                      <Component id="txtCustomerID" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCustomerAge" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -634,34 +634,34 @@
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="lblName1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtName2" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCustomerName" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="lblID1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtID2" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCustomerID" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lblAge1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtAge2" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCustomerAge" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="txtName2">
+                <Component class="javax.swing.JTextField" name="txtCustomerName">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtName2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCustomerNameActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtID2">
+                <Component class="javax.swing.JTextField" name="txtCustomerID">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtID2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCustomerIDActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtAge2">
+                <Component class="javax.swing.JTextField" name="txtCustomerAge">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAge2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCustomerAgeActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblName1">

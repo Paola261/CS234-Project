@@ -43,9 +43,7 @@ public class CustomerFileHandler {
                     System.out.println("Skipping malformed line: " + line);
                 }
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("Customer file not found. A new file will be created upon saving.");
-        } catch (Exception e) {
+        }  catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -59,13 +57,13 @@ public class CustomerFileHandler {
      * @param customers the list of Customer objects to save
      */
     public void saveCustomers(List<Customer> customers) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            for (Customer c : customers) {
-                String row = c.getCustomerName() + "," + c.getCustomerID() + "," + c.getCustomerAge();
-                writer.println(row);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+        for (Customer c : customers) {
+            writer.write(c.getCustomerName() + "," + c.getCustomerID() + "," + c.getCustomerAge());
+            writer.newLine();
         }
+    } catch (IOException e) {
+        System.out.println("Error saving customers: " + e.getMessage());
     }
+}
 }

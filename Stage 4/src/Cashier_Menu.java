@@ -1,4 +1,5 @@
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  * This class represents the GUI interface for a cashier user menu.
  * It allows the user to:
@@ -13,20 +14,25 @@ public class Cashier_Menu extends javax.swing.JFrame {
     private InventoryManager inventoryManager;
     private ScheduleManager scheduleManager;
     private AppController controller = AppController.getInstance();
-    
+    private CustomerManager customerManager; 
+    private String customerInfo;
+    private CustomerFileHandler customerFileHandler;
 
     /**
      * Creates new form Cashier_Menu
      */
-    public Cashier_Menu(Cashier cashier, InventoryManager inventoryManager, ScheduleManager scheduleManager) {
+    public Cashier_Menu(Cashier cashier, InventoryManager inventoryManager, ScheduleManager scheduleManager, CustomerManager customerManager) {
         this.currentCashier = cashier;
         this.inventoryManager = inventoryManager;
         this.scheduleManager = scheduleManager;
-        
+        this.customerManager = customerManager;
+        this.customerInfo = "customer.csv";
+        this.customerFileHandler = new CustomerFileHandler(customerInfo);
         initComponents();
         lblCashierName.setText(cashier.getName());
         String lastStatus = ClockHandler.getLastClockStatus(currentCashier.getName());
         lblClockStatus.setText(lastStatus);
+        
     }
 
     /**
@@ -39,6 +45,7 @@ public class Cashier_Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
+        jLabel32 = new javax.swing.JLabel();
         panelCashier = new javax.swing.JTabbedPane();
         tabAccountMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -53,47 +60,27 @@ public class Cashier_Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tabCustomerInfo = new javax.swing.JPanel();
-        tabCheckout = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jSpinner16 = new javax.swing.JSpinner();
-        jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
-        jLabel70 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jSpinner31 = new javax.swing.JSpinner();
-        jButton6 = new javax.swing.JButton();
-        jLabel71 = new javax.swing.JLabel();
-        jSpinner32 = new javax.swing.JSpinner();
-        jLabel72 = new javax.swing.JLabel();
-        jSpinner33 = new javax.swing.JSpinner();
-        jLabel73 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
-        jSpinner34 = new javax.swing.JSpinner();
-        jSpinner17 = new javax.swing.JSpinner();
-        jSpinner35 = new javax.swing.JSpinner();
-        jSpinner18 = new javax.swing.JSpinner();
-        jSpinner36 = new javax.swing.JSpinner();
-        jSpinner37 = new javax.swing.JSpinner();
-        jSpinner38 = new javax.swing.JSpinner();
-        jSpinner39 = new javax.swing.JSpinner();
-        jSpinner40 = new javax.swing.JSpinner();
-        jSpinner41 = new javax.swing.JSpinner();
-        jSpinner42 = new javax.swing.JSpinner();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel75 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel76 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel77 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
-        jLabel79 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        customerList = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        txtCustomerName = new javax.swing.JTextField();
+        txtCustomerID = new javax.swing.JTextField();
+        txtCustomerAge = new javax.swing.JTextField();
+        lblName1 = new javax.swing.JLabel();
+        lblID1 = new javax.swing.JLabel();
+        lblAge1 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        customerList1 = new javax.swing.JTable();
+        lblName = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
         tabSellTicket = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tabSellConcession = new javax.swing.JPanel();
+        tabCheckout = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -105,6 +92,8 @@ public class Cashier_Menu extends javax.swing.JFrame {
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI BACKGROUND.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,7 +172,7 @@ public class Cashier_Menu extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblClockStatus)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,15 +199,107 @@ public class Cashier_Menu extends javax.swing.JFrame {
 
         panelCashier.addTab("Account Menu", tabAccountMenu);
 
-        javax.swing.GroupLayout tabCustomerInfoLayout = new javax.swing.GroupLayout(tabCustomerInfo);
-        tabCustomerInfo.setLayout(tabCustomerInfoLayout);
-        tabCustomerInfoLayout.setHorizontalGroup(
-            tabCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+        tabCustomerInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        customerList.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        customerList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "ID", "Age"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        customerList.setName(""); // NOI18N
+        customerList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerListMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(customerList);
+
+        tabCustomerInfo.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(862, 90, 430, 380));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
+        jPanel2.setForeground(new java.awt.Color(153, 153, 153));
+
+        txtCustomerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerNameActionPerformed(evt);
+            }
+        });
+
+        txtCustomerID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerIDActionPerformed(evt);
+            }
+        });
+
+        txtCustomerAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerAgeActionPerformed(evt);
+            }
+        });
+
+        lblName1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblName1.setText("Name:");
+
+        lblID1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblID1.setText("ID:");
+
+        lblAge1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblAge1.setText("Age:");
+
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel23.setText("Customer Details:");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblName1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblID1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addComponent(txtCustomerID)
+                            .addComponent(txtCustomerAge)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel23)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
-        tabCustomerInfoLayout.setVerticalGroup(
-            tabCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel23)
+                .addGap(12, 12, 12)
+                .addComponent(lblName1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(lblID1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblAge1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCustomerAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
         tabCustomerInfo.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
@@ -296,220 +377,6 @@ public class Cashier_Menu extends javax.swing.JFrame {
 
         panelCashier.addTab("Customer Info", tabCustomerInfo);
 
-        jLabel25.setFont(new java.awt.Font("Helvetica Neue", 3, 36)); // NOI18N
-        jLabel25.setText("    Choose Movie and Time");
-
-        jLabel65.setText("4:35 pm");
-
-        jLabel66.setText("7:10 pm");
-
-        jLabel67.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel67.setText("Divergent");
-
-        jLabel46.setText("9:45 pm");
-
-        jLabel26.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel26.setText("Clueless");
-
-        jLabel68.setText("9:30 pm");
-
-        jLabel69.setText("4:45 pm");
-
-        jLabel70.setText("8:45 pm");
-
-        jButton5.setText("Checkout");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
-        jButton6.setText("Add Concession");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
-        jLabel71.setText("9:45 pm");
-
-        jLabel72.setText("5:15 pm");
-
-        jLabel73.setText("3:00 pm");
-
-        jLabel74.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel74.setText("Insidious");
-
-        jLabel47.setText("2:00 pm");
-
-        jLabel75.setText("2:10 pm");
-
-        jLabel48.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel48.setText("High School Musical");
-
-        jLabel76.setText("2:15 pm");
-
-        jLabel49.setText("3:15 pm");
-
-        jLabel77.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel77.setText("Big Hero Six");
-
-        jLabel78.setText("7:00 pm");
-
-        jLabel79.setText("6:00 pm");
-
-        javax.swing.GroupLayout tabCheckoutLayout = new javax.swing.GroupLayout(tabCheckout);
-        tabCheckout.setLayout(tabCheckoutLayout);
-        tabCheckoutLayout.setHorizontalGroup(
-            tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCheckoutLayout.createSequentialGroup()
-                .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCheckoutLayout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addGroup(tabCheckoutLayout.createSequentialGroup()
-                                .addComponent(jLabel49)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel79)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel70)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(tabCheckoutLayout.createSequentialGroup()
-                                    .addComponent(jLabel73)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSpinner33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel72)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSpinner32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel71)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jSpinner31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel74)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabCheckoutLayout.createSequentialGroup()
-                                        .addComponent(jLabel76)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel69)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel46)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel67))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabCheckoutLayout.createSequentialGroup()
-                                        .addComponent(jLabel47)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel78)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel68)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel48))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabCheckoutLayout.createSequentialGroup()
-                                        .addComponent(jLabel75)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel65)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel66)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel77)))))
-                    .addGroup(tabCheckoutLayout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tabCheckoutLayout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(jButton6)
-                        .addGap(72, 72, 72)
-                        .addComponent(jButton5)))
-                .addGap(150, 170, Short.MAX_VALUE))
-        );
-        tabCheckoutLayout.setVerticalGroup(
-            tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabCheckoutLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel49)
-                    .addComponent(jLabel79)
-                    .addComponent(jLabel70))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel74)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel73)
-                    .addComponent(jLabel72)
-                    .addComponent(jLabel71))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel67)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel76)
-                    .addComponent(jLabel69)
-                    .addComponent(jLabel46))
-                .addGap(17, 17, 17)
-                .addComponent(jLabel48)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel78)
-                    .addComponent(jLabel68))
-                .addGap(16, 16, 16)
-                .addComponent(jLabel77)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner40, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel75)
-                    .addComponent(jLabel65)
-                    .addComponent(jLabel66))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addGroup(tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton5))
-                .addGap(19, 19, 19))
-        );
-
-        panelCashier.addTab("Sell Ticket", tabCheckout);
-
         javax.swing.GroupLayout tabSellTicketLayout = new javax.swing.GroupLayout(tabSellTicket);
         tabSellTicket.setLayout(tabSellTicketLayout);
         tabSellTicketLayout.setHorizontalGroup(
@@ -521,33 +388,54 @@ public class Cashier_Menu extends javax.swing.JFrame {
             .addGap(0, 488, Short.MAX_VALUE)
         );
 
-        panelCashier.addTab("Sell Concession", tabSellTicket);
-        panelCashier.addTab("Checkout", jTabbedPane1);
+        panelCashier.addTab("Sell Ticket", tabSellTicket);
+
+        javax.swing.GroupLayout tabSellConcessionLayout = new javax.swing.GroupLayout(tabSellConcession);
+        tabSellConcession.setLayout(tabSellConcessionLayout);
+        tabSellConcessionLayout.setHorizontalGroup(
+            tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
+        );
+        tabSellConcessionLayout.setVerticalGroup(
+            tabSellConcessionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 488, Short.MAX_VALUE)
+        );
+
+        panelCashier.addTab("Sell Concession", tabSellConcession);
+
+        javax.swing.GroupLayout tabCheckoutLayout = new javax.swing.GroupLayout(tabCheckout);
+        tabCheckout.setLayout(tabCheckoutLayout);
+        tabCheckoutLayout.setHorizontalGroup(
+            tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 801, Short.MAX_VALUE)
+        );
+        tabCheckoutLayout.setVerticalGroup(
+            tabCheckoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 488, Short.MAX_VALUE)
+        );
+
+        panelCashier.addTab("Checkout", tabCheckout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(panelCashier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 12, Short.MAX_VALUE)
-                .addComponent(panelCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panelCashier, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClockOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockOutActionPerformed
-        ClockHandler.clockAction(currentCashier.getName(), currentCashier.getRole(), "Clock Out");
-        lblClockStatus.setText("Clocked Out");
-        JOptionPane.showMessageDialog(null, "Clocked Out!");
-    }//GEN-LAST:event_btnClockOutActionPerformed
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        controller.saveAllData();
+        new Login_Application().setVisible(true);
+        this.dispose();
+          
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnClockInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockInActionPerformed
         ClockHandler.clockAction(currentCashier.getName(), currentCashier.getRole(), "Clock In");
@@ -555,12 +443,11 @@ public class Cashier_Menu extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Clocked In!");
     }//GEN-LAST:event_btnClockInActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        controller.saveAllData();
-        new Login_Application().setVisible(true);
-        this.dispose();
-
-    }//GEN-LAST:event_btnLogoutActionPerformed
+    private void btnClockOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockOutActionPerformed
+        ClockHandler.clockAction(currentCashier.getName(), currentCashier.getRole(), "Clock Out");
+        lblClockStatus.setText("Clocked Out");
+        JOptionPane.showMessageDialog(null, "Clocked Out!");
+    }//GEN-LAST:event_btnClockOutActionPerformed
 
     private void btnResetPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswordActionPerformed
         String newPass = JOptionPane.showInputDialog(this, "Enter new Password:");
@@ -570,73 +457,183 @@ public class Cashier_Menu extends javax.swing.JFrame {
         }
         currentCashier.getCredential().updatePassword(newPass);
         JOptionPane.showMessageDialog(this, "Password Updated!");
-
+         
     }//GEN-LAST:event_btnResetPasswordActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        panelCashier.setSelectedIndex(3);    }//GEN-LAST:event_jButton5ActionPerformed
+    private void customerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerListMouseClicked
+        // TODO add your handling code here:
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        panelCashier.setSelectedIndex(4);    }//GEN-LAST:event_jButton6ActionPerformed
+        int row = customerList.getSelectedRow();
 
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+
+        String name = model.getValueAt(row,0).toString();
+
+        Customer theCustomer = customerManager.getCustomerByName(name);
+
+        txtCustomerName.setText(theCustomer.getCustomerName());
+        txtCustomerID.setText(String.valueOf(theCustomer.getCustomerID()));
+        txtCustomerAge.setText(String.valueOf(theCustomer.getCustomerAge()));
+
+    }//GEN-LAST:event_customerListMouseClicked
+
+    private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerNameActionPerformed
+
+    private void txtCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerIDActionPerformed
+
+    private void txtCustomerAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerAgeActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        String name = txtCustomerName.getText().trim();
+        String idStr = txtCustomerID.getText().trim();
+        String ageStr = txtCustomerAge.getText().trim();
+
+        if (name.isEmpty() || idStr.isEmpty() || ageStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Enter all fields");
+            return;
+        }
+
+        try {
+            int id = Integer.parseInt(idStr);
+            byte age = Byte.parseByte(ageStr);
+
+            Customer customer = new Customer(name, id, age);
+            customerManager.addCustomer(customer);
+            customerFileHandler.saveCustomers(customerManager.getAllCustomers());
+
+            DefaultTableModel model = (DefaultTableModel) customerList.getModel();
+            model.addRow(new String[]{name, idStr, ageStr});
+            JOptionPane.showMessageDialog(this, "Information added");
+            clearFields();
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Age and ID must be numbers");
+        }
+
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        int row = customerList.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+
+        String name = model.getValueAt(row,0).toString();
+        System.out.println("To Update: " + name);
+        Customer aCustomer = customerManager.getCustomerByName(name);
+
+        aCustomer.setName(txtCustomerName.getText());
+        aCustomer.setID(Integer.valueOf(txtCustomerID.getText()));
+        aCustomer.setAge(Byte.valueOf(txtCustomerAge.getText()));
+
+        System.out.println(customerManager.getAllCustomers());
+
+        updateTableInfo(model, row, aCustomer);
+
+        JOptionPane.showMessageDialog(this, "Customer was updated.");
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        int row = customerList.getSelectedRow();
+
+        if (row < 0) {
+            JOptionPane.showMessageDialog(this, "You need to select a row");
+        } else {
+            DefaultTableModel model = (DefaultTableModel) customerList.getModel();
+            String name = model.getValueAt(row, 0).toString(); // Assuming name is unique
+            Customer customer = customerManager.getCustomerByName(name);
+
+            if (customer != null) {
+                customerManager.removeCustomer(customer); // <-- You’ll need this method in CustomerManager
+                model.removeRow(row);
+                customerFileHandler.saveCustomers(customerManager.getAllCustomers());
+                JOptionPane.showMessageDialog(this, "Customer deleted and saved");
+            } else {
+                JOptionPane.showMessageDialog(this, "Customer not found in manager");
+            }
+        }
+    }//GEN-LAST:event_btnDelete1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        clearFields();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void customerList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerList1MouseClicked
+        // TODO add your handling code here:
+
+        int row = customerList.getSelectedRow();
+
+        DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+
+        String name = model.getValueAt(row,0).toString();
+
+        Customer theCustomer = customerManager.getCustomerByName(name);
+
+        txtCustomerName.setText(theCustomer.getCustomerName());
+        txtCustomerID.setText(String.valueOf(theCustomer.getCustomerID()));
+        txtCustomerAge.setText(String.valueOf(theCustomer.getCustomerAge()));
+
+    }//GEN-LAST:event_customerList1MouseClicked
+
+    private void clearFields()
+    {
+        txtCustomerName.setText("");
+        txtCustomerAge.setText("");
+        txtCustomerID.setText("");        
+    }
+    
+    private void updateTableInfo(DefaultTableModel theModel, int row, Customer aCustomer)
+    {
+        DefaultTableModel model = theModel;
+
+        model.setValueAt(aCustomer.getCustomerName(), row, 0);
+        model.setValueAt(aCustomer.getCustomerID(), row, 1);
+        model.setValueAt(aCustomer.getCustomerAge(), row, 2);
+        
+    } 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnClockIn;
     private javax.swing.JButton btnClockOut;
+    private javax.swing.JButton btnDelete1;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnResetPassword;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JTable customerList;
+    private javax.swing.JTable customerList1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
-    private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
-    private javax.swing.JLabel jLabel79;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner16;
-    private javax.swing.JSpinner jSpinner17;
-    private javax.swing.JSpinner jSpinner18;
-    private javax.swing.JSpinner jSpinner31;
-    private javax.swing.JSpinner jSpinner32;
-    private javax.swing.JSpinner jSpinner33;
-    private javax.swing.JSpinner jSpinner34;
-    private javax.swing.JSpinner jSpinner35;
-    private javax.swing.JSpinner jSpinner36;
-    private javax.swing.JSpinner jSpinner37;
-    private javax.swing.JSpinner jSpinner38;
-    private javax.swing.JSpinner jSpinner39;
-    private javax.swing.JSpinner jSpinner40;
-    private javax.swing.JSpinner jSpinner41;
-    private javax.swing.JSpinner jSpinner42;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JLabel lblAge1;
     private javax.swing.JLabel lblCashierName;
     private javax.swing.JLabel lblClockStatus;
+    private javax.swing.JLabel lblID1;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblName1;
     private javax.swing.JTabbedPane panelCashier;
     private javax.swing.JPanel tabAccountMenu;
     private javax.swing.JPanel tabCheckout;
     private javax.swing.JPanel tabCustomerInfo;
+    private javax.swing.JPanel tabSellConcession;
     private javax.swing.JPanel tabSellTicket;
+    private javax.swing.JTextField txtCustomerAge;
+    private javax.swing.JTextField txtCustomerID;
+    private javax.swing.JTextField txtCustomerName;
     // End of variables declaration//GEN-END:variables
 }

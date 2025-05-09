@@ -19,6 +19,7 @@ import java.awt.Dimension;
 
 
 
+
 public class Manager_Menu extends javax.swing.JFrame {
 
     private Manager currentManager;
@@ -197,9 +198,9 @@ public class Manager_Menu extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         customerList = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        txtName2 = new javax.swing.JTextField();
-        txtID2 = new javax.swing.JTextField();
-        txtAge2 = new javax.swing.JTextField();
+        txtCustomerName = new javax.swing.JTextField();
+        txtCustomerID = new javax.swing.JTextField();
+        txtCustomerAge = new javax.swing.JTextField();
         lblName1 = new javax.swing.JLabel();
         lblID1 = new javax.swing.JLabel();
         lblAge1 = new javax.swing.JLabel();
@@ -554,21 +555,21 @@ public class Manager_Menu extends javax.swing.JFrame {
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
         jPanel2.setForeground(new java.awt.Color(153, 153, 153));
 
-        txtName2.addActionListener(new java.awt.event.ActionListener() {
+        txtCustomerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtName2ActionPerformed(evt);
+                txtCustomerNameActionPerformed(evt);
             }
         });
 
-        txtID2.addActionListener(new java.awt.event.ActionListener() {
+        txtCustomerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtID2ActionPerformed(evt);
+                txtCustomerIDActionPerformed(evt);
             }
         });
 
-        txtAge2.addActionListener(new java.awt.event.ActionListener() {
+        txtCustomerAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAge2ActionPerformed(evt);
+                txtCustomerAgeActionPerformed(evt);
             }
         });
 
@@ -596,9 +597,9 @@ public class Manager_Menu extends javax.swing.JFrame {
                             .addComponent(lblName1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblID1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName2, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                            .addComponent(txtID2)
-                            .addComponent(txtAge2)))
+                            .addComponent(txtCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addComponent(txtCustomerID)
+                            .addComponent(txtCustomerAge)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(jLabel23)))
@@ -612,15 +613,15 @@ public class Manager_Menu extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(lblName1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(lblID1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAge1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtAge2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCustomerAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
 
@@ -1150,6 +1151,7 @@ public class Manager_Menu extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
+        customerFileHandler.saveCustomers(customerManager.getAllCustomers());
         controller.saveAllData();
         new Login_Application().setVisible(true);
         this.dispose();
@@ -1528,53 +1530,64 @@ public class Manager_Menu extends javax.swing.JFrame {
 
     private void customerListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerListMouseClicked
         // TODO add your handling code here:
-        System.out.println("You have clicked on the table of Customers");
+        
         int row = customerList.getSelectedRow();
         
         DefaultTableModel model = (DefaultTableModel)customerList.getModel();
         
         String name = model.getValueAt(row,0).toString();
-        System.out.println("To update: " + name);
+        
         Customer theCustomer = customerManager.getCustomerByName(name);
         
         txtName.setText(theCustomer.getCustomerName());
         txtID.setText(String.valueOf(theCustomer.getCustomerID()));
         txtAge.setText(String.valueOf(theCustomer.getCustomerAge()));
+               
         
-        
-        btnUpdate.setEnabled(true);
-        btnAdd.setEnabled(false);
     }//GEN-LAST:event_customerListMouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        if(txtName.getText().isEmpty() || txtID.getText().isEmpty() || txtAge.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(this, "Enter all fields");
-        }
-        else
-        {
-            String[] row = {txtName.getText(), txtID.getText(), txtAge.getText()};
-            DefaultTableModel model = (DefaultTableModel)customerList.getModel();
-            model.addRow(row);
-            
-            JOptionPane.showMessageDialog(this, "Information added");
-            
-            clearFields();
-        }          
+    String name = txtCustomerName.getText().trim();
+    String idStr = txtCustomerID.getText().trim();
+    String ageStr = txtCustomerAge.getText().trim();
+
+    if (name.isEmpty() || idStr.isEmpty() || ageStr.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Enter all fields");
+        return;
+    }
+
+    try {
+        int id = Integer.parseInt(idStr);
+        byte age = Byte.parseByte(ageStr);
+
+        Customer customer = new Customer(name, id, age);
+        customerManager.addCustomer(customer);
+        customerFileHandler.saveCustomers(customerManager.getAllCustomers());
+
+        DefaultTableModel model = (DefaultTableModel) customerList.getModel();
+        model.addRow(new String[]{name, idStr, ageStr});
+        JOptionPane.showMessageDialog(this, "Information added");
+        clearFields();
+        
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Age and ID must be numbers");
+    }
+
+ 
 
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void txtName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName2ActionPerformed
+    private void txtCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtName2ActionPerformed
+    }//GEN-LAST:event_txtCustomerNameActionPerformed
 
-    private void txtID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtID2ActionPerformed
+    private void txtCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtID2ActionPerformed
+    }//GEN-LAST:event_txtCustomerIDActionPerformed
 
-    private void txtAge2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAge2ActionPerformed
+    private void txtCustomerAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerAgeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAge2ActionPerformed
+    }//GEN-LAST:event_txtCustomerAgeActionPerformed
 
     private void txtRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRatingActionPerformed
         // TODO add your handling code here:
@@ -1582,16 +1595,23 @@ public class Manager_Menu extends javax.swing.JFrame {
 
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
         int row = customerList.getSelectedRow();
-        
-        if (row<0)
-        {
-            JOptionPane.showMessageDialog(this, "You need to select a row");
-        }
-        else
-        {
-            DefaultTableModel model = (DefaultTableModel)customerList.getModel();
+
+    if (row < 0) {
+        JOptionPane.showMessageDialog(this, "You need to select a row");
+    } else {
+        DefaultTableModel model = (DefaultTableModel) customerList.getModel();
+        String name = model.getValueAt(row, 0).toString(); // Assuming name is unique
+        Customer customer = customerManager.getCustomerByName(name);
+
+        if (customer != null) {
+            customerManager.removeCustomer(customer); // <-- You’ll need this method in CustomerManager
             model.removeRow(row);
-            JOptionPane.showMessageDialog(this, "Row deleted");}
+            customerFileHandler.saveCustomers(customerManager.getAllCustomers());
+            JOptionPane.showMessageDialog(this, "Customer deleted and saved");
+        } else {
+            JOptionPane.showMessageDialog(this, "Customer not found in manager");
+        }
+    }
     }//GEN-LAST:event_btnDelete1ActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -1602,9 +1622,9 @@ public class Manager_Menu extends javax.swing.JFrame {
        System.out.println("To Update: " + name);
        Customer aCustomer = customerManager.getCustomerByName(name);
        
-       aCustomer.setName(txtName.getText());
-       aCustomer.setID(Integer.valueOf(txtID.getText()));
-       aCustomer.setAge(Byte.valueOf(txtAge.getText()));
+       aCustomer.setName(txtCustomerName.getText());
+       aCustomer.setID(Integer.valueOf(txtCustomerID.getText()));
+       aCustomer.setAge(Byte.valueOf(txtCustomerAge.getText()));
        
        System.out.println(customerManager.getAllCustomers());
        
@@ -1786,15 +1806,15 @@ public class Manager_Menu extends javax.swing.JFrame {
     private javax.swing.JTable tblResolvedIssues;
     private javax.swing.JTable tblStaff;
     private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtAge2;
+    private javax.swing.JTextField txtCustomerAge;
+    private javax.swing.JTextField txtCustomerID;
+    private javax.swing.JTextField txtCustomerName;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtID;
-    private javax.swing.JTextField txtID2;
     private javax.swing.JTextField txtItemName;
     private javax.swing.JTextField txtItemPrice;
     private javax.swing.JTextField txtItemQuantity;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtName2;
     private javax.swing.JTextField txtRating;
     private javax.swing.JTextField txtRole;
     private javax.swing.JTextField txtRuntime;
