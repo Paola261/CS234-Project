@@ -1,0 +1,6 @@
+Manager,Lily Bennett,40,1001,1,Manager,Lil.Ben,PastelDream9
+Manager,Jason Wells,39,1002,2,Manager,Jas.Wel,Shadow99
+Cashier,Michael Carter,28,1003,3,Cashier,Mic.Car,Treehouse2
+Cashier,Emma Reese,25,1004,4,Cashier,Emm.Ree,Sunflower45
+Engineer,Daniel Foster,34,1006,6,Engineer,Dan.Fos,Mountain44
+Engineer,Sarah Collins,33,1007,7,Engineer,Sar.Col,CoffeeTime8

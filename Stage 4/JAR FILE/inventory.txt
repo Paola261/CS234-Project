@@ -1,0 +1,14 @@
+Medium Popcorn,250,6.00
+Large Popcorn,250,7.00
+Small Drink,200,3.00
+Medium Drink,200,4.00
+Large Drink,200,5.00
+ICEE,200,4.00
+Bottle Water,200,3.00
+Twix,300,3.50
+Snickers,300,3.50
+Twizzlers,300,3.50
+M&Ms,300,3.50
+Nachos,200,5.00
+Pretzels,200,5.00
+Dill Pickle,200,3.00

@@ -1,0 +1,14 @@
+Cashier2,Cashier,Clock In,2025-05-03 8:00
+Cashier2,Cashier,ClockOut,2025-05-03 16:30 
+Cashier1,Cashier,Clock In,2025-05-04 9:00
+Cashier1,Cashier,Clock Out,2025-05-04 17:00
+
+Emma Reese,Cashier,Clock In,2025-05-04 15:46
+Emma Reese,Cashier,Clock Out,2025-05-04 15:46
+Emma Reese,Cashier,Clock In,2025-05-04 15:57
+Emma Reese,Cashier,Clock Out,2025-05-04 15:57
+Emma Reese,Cashier,Clock In,2025-05-04 16:00
+Emma Reese,Cashier,Clock Out,2025-05-04 16:00
+Sarah Collins,Engineer,Clock In,2025-05-04 16:22
+Sarah Collins,Engineer,Clock Out,2025-05-04 16:22
+Michael Carter,Cashier,Clock In,2025-05-08 23:34
