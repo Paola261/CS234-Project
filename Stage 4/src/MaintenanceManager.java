@@ -16,8 +16,17 @@ import java.io.FileReader;
 import java.io.*;
 
 public class MaintenanceManager {    
+    /**
+     * List of currently unresolved maintenance issues.
+     */
     private List<MaintenanceIssue> openIssues = new ArrayList<>();
+    /**
+     * List of resolved maintenance issues.
+     */
     private List<MaintenanceIssue> resolvedIssues = new ArrayList<>();
+    /**
+     * The file used to store maintenance issues
+     */
     private String filename;
     /**
      * Constructs a new MaintenanceManager with an empty list of pending issues
@@ -35,11 +44,23 @@ public class MaintenanceManager {
             }
         }
     }
+    
+    /**
+     * Adds a new maintenance issue to the list of open issues.
+     * @param issue The maintenance issue to be logged
+     */
     public void logIssue(MaintenanceIssue issue) {
         openIssues.add(issue);
         
     }
 
+    /**
+     * Resolves an open issue by marking its status as "Resolved"
+     * adds a resolution note and move it to the resolved issues list.
+     * @param issue the issue to resolve
+     * @param resolveNote the note describing the resolution
+     * @return true if the issue was successfully resolved; false if the issue was not found in open issues
+     */
     public boolean resolveIssue(MaintenanceIssue issue, String resolveNote) {
         if (openIssues.contains(issue)) {
             openIssues.remove(issue);
@@ -51,15 +72,29 @@ public class MaintenanceManager {
         }
         return false;
     }
+    
+    /**
+     * Returns a copy of the list of open maintenance issues
+     * @return list of open issues
+     */
     public List<MaintenanceIssue> getOpenIssues() { 
         return new ArrayList<>(openIssues); 
     }
+    
+    /**
+     * Returns a copy of the list of resolved maintenance issues.
+     * @return list of resolved issues
+     */
     public List<MaintenanceIssue> getResolvedIssues() { 
         return new ArrayList<>(resolvedIssues); 
     }
    
+    
     private static final String FILE_NAME = "maintenance.txt";
 
+    /**
+     * Saves both open and resolved maintenance issues to a file. 
+     */
     public void saveIssuesToFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (MaintenanceIssue issue : openIssues) {
@@ -73,11 +108,20 @@ public class MaintenanceManager {
         }
     }
 
+    /**
+     * Formats a MaintenanceIssue object into a comma-seperated string
+     * @param issue the maintenance issue to format
+     * @return a string representation of the Issue
+     */
     private String formatIssue(MaintenanceIssue issue) {
         return issue.getID() + "," + issue.getDescription() + "," + issue.getReportedBy() + "," +
                 issue.getDateReported() + "," + issue.getStatus() + "," + issue.getResolutionNote() + "\n";
     }
 
+    /**
+     * Loads maintenance issues from the file into memory.
+     * This will overwrite any current in-memory data.
+     */
     public void loadIssuesFromFile() {
         openIssues.clear();
         resolvedIssues.clear();
