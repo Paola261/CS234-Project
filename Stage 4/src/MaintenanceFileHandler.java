@@ -6,11 +6,18 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 /**
- *
+ *  Class for handling reading and writing maintenance issue data to and from a text file
+ * 
  * @author Taryn Davis
  */
 public class MaintenanceFileHandler {
    
+    /**
+     * Loads maintenance issues from a file.
+     * 
+     * @param filename The name of the file
+     * @return a list of MaitenanceIssue objects from the file
+     */
      public static List<MaintenanceIssue> loadIssues(String filename) {
          
         List<MaintenanceIssue> issues = new ArrayList<>();
@@ -34,6 +41,12 @@ public class MaintenanceFileHandler {
         return issues;
     }
 
+     /**
+      * Saves a list of maintenance issues to the txt file.
+      * 
+      * @param filename The name of the file to save the issue record
+      * @param allIssues  The list of Issue objects to save
+      */
     public static void saveIssues(String filename, List<MaintenanceIssue> allIssues) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (MaintenanceIssue issue : allIssues) {
